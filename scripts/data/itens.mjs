@@ -54,7 +54,9 @@ export class EquipamentoData extends foundry.abstract.TypeDataModel {
 		return {
 			...comum(), ...fisico(), subtipo: str(''), elemento: str(''),
 			// Munição: um pacote dura N cenas (Livro de Regras, p. 59); na contagem concreta, 20 ataques (p. 174).
-			municao: new fields.SchemaField({ cenas: int(0, { min: 0 }), usadas: int(0, { min: 0 }), disparos: int(0, { min: 0 }) })
+			municao: new fields.SchemaField({ cenas: int(0, { min: 0 }), usadas: int(0, { min: 0 }), disparos: int(0, { min: 0 }) }),
+			// Dado de uso (regra da casa): modo '' = automático pelo tipo, 'sim' ou 'nao'; dados 0 = padrão do tipo.
+			dadoUso: new fields.SchemaField({ modo: str(''), inicial: int(0, { min: 0 }), atual: int(0, { min: 0 }) })
 		};
 	}
 }

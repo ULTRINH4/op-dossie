@@ -2,6 +2,7 @@
  * Fichas de item: editável (arma, proteção, equipamento, ritual, poder) e de leitura (classe, origem, trilha).
  */
 import { trocarImagem } from './imagem.mjs';
+import { regraAtiva, tipoDoItem, usaDadoUso, rotuloDado, dadoInicial, ESCADA } from '../automation/dado-uso.mjs';
 import { SYSTEM_ID, ELEMENTOS, TIPOS_DANO, EXECUCAO, ALCANCE, DURACAO, EFEITO_RESISTENCIA, TIPOS_PODER } from '../config.mjs';
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
@@ -53,6 +54,17 @@ export class ItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
 				empunhadura: opts({ leve: 'Leve', 'uma mão': 'Uma mão', 'duas mãos': 'Duas mãos' })
 			}
 		});
+		if (item.type === 'equipamento' && regraAtiva()) {
+			const tipo = tipoDoItem(item);
+			const auto = tipo ? `Auto: ${{ municao: 'munição', medico: 'médico', gasto: 'gasto' }[tipo]}` : 'Auto: não usa';
+			const padrao = { municao: 10, medico: 6, gasto: 8 }[tipo] ?? 8;
+			ctx.dadoUso = {
+				ativo: usaDadoUso(item), rotulo: rotuloDado(item),
+				modo: [{ value: '', label: auto }, { value: 'sim', label: 'Sim' }, { value: 'nao', label: 'Não' }],
+				inicial: [{ value: 0, label: `Padrão (d${padrao})` }, ...ESCADA.map(d => ({ value: d, label: `d${d}` }))],
+				atual: [{ value: 0, label: `Inicial (d${dadoInicial(item)})` }, ...ESCADA.map(d => ({ value: d, label: `d${d}` }))]
+			};
+		}
 		ctx.formas = item.type === 'ritual' ? [
 			{ k: 'discente', titulo: 'Forma discente', f: s.discente },
 			{ k: 'verdadeiro', titulo: 'Forma verdadeira', f: s.verdadeiro }

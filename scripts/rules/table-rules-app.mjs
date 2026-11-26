@@ -5,7 +5,9 @@ import { MOD, DATA, normalize, worldRules, saveWorldRules } from './table-rules.
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
-const BOOK_LABEL = { base: 'OPRPG', sah: 'SaH', outros: 'Extra' };
+const BOOK_LABEL = { base: 'OPRPG', sah: 'SaH', outros: 'Extra', casa: 'Casa' };
+/** Regras opcionais que não podem ficar ligadas juntas. */
+const EXCLUSIVAS = { municao: ['dadoDeUso', 'Desligue o Dado de uso'], dadoDeUso: ['municao', 'Desligue a Contagem de munição'] };
 
 /** Nomes em português vêm de data/conteudo.json (independem do idioma do Foundry). */
 export function classLabel(id) {
@@ -71,7 +73,9 @@ export class TableRulesApp extends HandlebarsApplicationMixin(ApplicationV2) {
 		}));
 
 		const opcionais = DATA.regras.opcionais.map(o => {
-			const motivo = needSah(o.livro) ? 'Ligue o Sobrevivendo ao Horror' : null;
+			let motivo = needSah(o.livro) ? 'Ligue o Sobrevivendo ao Horror' : null;
+			const [outra, aviso] = EXCLUSIVAS[o.id] ?? [];
+			if (outra && r.opcionais[outra] && !r.opcionais[o.id]) motivo = aviso;
 			return { ...o, sigla: BOOK_LABEL[o.livro], checked: !!r.opcionais[o.id], disabled: !!motivo, motivo };
 		});
 

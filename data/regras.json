@@ -162,6 +162,12 @@
       "nome": "Vida Além da Ordem",
       "livro": "sah",
       "pagina": "SaH p. 94"
+    },
+    {
+      "id": "dadoDeUso",
+      "nome": "Dado de uso",
+      "livro": "casa",
+      "pagina": "Munição e consumíveis: d12 → d4, 1–2 desce"
     }
   ],
   "padrao": {

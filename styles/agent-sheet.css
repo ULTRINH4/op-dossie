@@ -235,7 +235,7 @@
 .op-cols, .op-row__main { display: grid; align-items: center; gap: var(--op-space-2); }
 .op-cols { padding: 0 6px 4px; font-family: var(--op-font-mono); font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; color: var(--op-ink-3); }
 .op-row__cols { display: contents; }
-.op-agent { --cols-weapon: 34px minmax(120px, 1fr) 80px 110px 56px 100px 80px; --cols-protection: 34px minmax(120px, 1fr) 100px 80px; --cols-ritual: 34px minmax(110px, 1fr) 52px 62px 70px 112px 44px 92px 52px; --cols-ability: 34px minmax(120px, 1fr) 90px 60px 56px; --cols-equip: 34px minmax(120px, 1fr) 60px 40px 56px 80px; }
+.op-agent { --cols-weapon: 34px minmax(120px, 1fr) 80px 110px 56px 100px 80px; --cols-protection: 34px minmax(120px, 1fr) 100px 80px; --cols-ritual: 34px minmax(110px, 1fr) 52px 62px 70px 112px 44px 92px 52px; --cols-ability: 34px minmax(120px, 1fr) 90px 60px 56px; --cols-equip: 34px minmax(120px, 1fr) 100px 40px 56px 80px; }
 .op-cols--weapon, .op-list--weapon .op-row__main { grid-template-columns: var(--cols-weapon); }
 .op-list--protection .op-row__main { grid-template-columns: var(--cols-protection); }
 .op-cols--ritual, .op-list--ritual .op-row__main { grid-template-columns: var(--cols-ritual); }

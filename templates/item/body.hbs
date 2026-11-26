@@ -80,7 +80,14 @@
 		<label>Tipo<input type="text" name="system.subtipo" value="{{system.subtipo}}"></label>
 		<label>Elemento<select name="system.elemento">{{selectOptions o.elemento selected=system.elemento valueAttr="value" labelAttr="label"}}</select></label>
 		<label>Munição: dura (cenas)<input type="number" min="0" name="system.municao.cenas" value="{{system.municao.cenas}}" placeholder="0 = não é munição"></label>
-		<label>Cenas já usadas<input type="number" min="0" name="system.municao.usadas" value="{{system.municao.usadas}}"></label>
+		{{#unless dadoUso.ativo}}<label>Cenas já usadas<input type="number" min="0" name="system.municao.usadas" value="{{system.municao.usadas}}"></label>{{/unless}}
+		{{#if dadoUso}}
+		<label>Dado de uso<select name="system.dadoUso.modo">{{selectOptions dadoUso.modo selected=system.dadoUso.modo valueAttr="value" labelAttr="label"}}</select></label>
+		{{#if dadoUso.ativo}}
+		<label>Dado inicial<select name="system.dadoUso.inicial" data-dtype="Number">{{selectOptions dadoUso.inicial selected=system.dadoUso.inicial valueAttr="value" labelAttr="label"}}</select></label>
+		<label>Dado atual ({{dadoUso.rotulo}})<select name="system.dadoUso.atual" data-dtype="Number">{{selectOptions dadoUso.atual selected=system.dadoUso.atual valueAttr="value" labelAttr="label"}}</select></label>
+		{{/if}}
+		{{/if}}
 		{{/if}}
 
 		{{#if is.ritual}}

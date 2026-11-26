@@ -34,6 +34,8 @@ poderes, rituais, armas, proteções e equipamentos) com os números do Livro de
   poderes, itens e perícias, e passos contra o deslocamento.
 - **Regras opcionais** que funcionam: Lesões, Inspiração Resoluta, Loucura não letal, Ferimentos Debilitantes,
   Idade variada, Vida Além da Ordem (folgas) e Treinamento Especial.
+- **Dado de uso** (regra da casa, opcional): munição, itens médicos e de gasto descem d12 → d10 → d8 → d6 → d4 quando
+  a rolagem dá 1 ou 2. A munição rola no fim de cada combate; os demais itens, ao serem usados.
 - **Efeitos visuais e sonoros** (com Sequencer e JB2A quando instalados; esperam os dados do Dice So Nice),
   e alucinações para quem está com a Sanidade baixa ou zerada.
 

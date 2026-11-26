@@ -4,6 +4,7 @@
  * cada pacote tem 20 ataques e armas de fogo têm carregador.
  */
 import { worldRules } from '../rules/table-rules.mjs';
+import { usaDadoUso, rolarDadoUso, rotuloDado } from './dado-uso.mjs';
 
 const norm = (s) => String(s ?? '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').trim();
 const POR_PACOTE = 20;
@@ -42,14 +43,24 @@ export async function gastarMunicao(actor, arma) {
 	// Regra padrão: o pacote já foi contado nesta cena e vale até o fim dela.
 	const cena = game.combat?.started ? game.combat.id : null;
 	const padrao = !regras.opcionais?.municao && !/foguete/.test(norm(arma.system.municao));
-	if (padrao && cena && arma.system.ultimaCena === cena) return { ok: true, nota: '' };
 	const pacote = pacoteDa(actor, arma);
+	if (padrao && cena && arma.system.ultimaCena === cena && !(pacote && usaDadoUso(pacote) && pacote.system.quantidade <= 0)) return { ok: true, nota: '' };
 	const nome = arma.system.municao;
 	if (!pacote || pacote.system.quantidade <= 0) {
 		ui.notifications.warn(`${actor.name} está sem ${nome}.`);
 		return { ok: false, nota: '' };
 	}
 	const p = pacote.system;
+
+	// Dado de uso (regra da casa): no combate, o pacote rola no fim; fora dele, rola agora.
+	if (usaDadoUso(pacote)) {
+		if (cena) {
+			if (arma.system.ultimaCena !== cena) await arma.update({ 'system.ultimaCena': cena });
+			return { ok: true, nota: `${pacote.name}: ${rotuloDado(pacote)} (rola no fim do combate)` };
+		}
+		const r = await rolarDadoUso(pacote, { motivo: `ataque com ${arma.name}` });
+		return { ok: true, nota: r ? `${pacote.name}: ${rotuloDado(pacote)}` : '' };
+	}
 
 	// Foguete: um por ataque.
 	if (/foguete/.test(norm(nome))) {
@@ -120,6 +131,7 @@ export function resumoMunicao(actor, arma) {
 	const qtd = pacote?.system.quantidade ?? 0;
 	if (regras.opcionais?.municao && capacidade(arma)) return `${arma.system.carregador.valor}/${capacidade(arma)} · ${qtd} pct.`;
 	if (!qtd) return 'sem munição';
+	if (usaDadoUso(pacote)) return `${qtd} pct. · ${rotuloDado(pacote)}`;
 	const cenas = cenasDo(pacote);
 	return `${qtd} pct.${cenas > 1 ? ` · ${pacote.system.municao.usadas}/${cenas} cenas` : ''}`;
 }

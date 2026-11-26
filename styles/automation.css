@@ -74,3 +74,17 @@
 }
 .op-chatcard__btns button:hover { background: color-mix(in srgb, var(--el) 30%, var(--op-surface)); transform: translateY(-1px); }
 .op-chatcard__btns button:active { transform: translateY(0); }
+
+/* --- Dado de uso (regra da casa) ------------------------------------------- */
+.op-agent .op-cell--qtd { display: flex; align-items: center; gap: 6px; }
+.op-dado-uso-btn { min-width: 40px; height: 26px; padding: 0 6px; border: 1px solid var(--op-line); border-radius: var(--op-r-1); background: var(--op-surface); color: var(--op-ink); font-family: var(--op-font-head); font-size: .95rem; line-height: 1; cursor: pointer; }
+.op-dado-uso-btn:hover:not(:disabled), .op-dado-uso-btn:focus-visible { border-color: var(--op-accent, #b3261e); color: #fff; }
+.op-dado-uso-btn.is-fim { color: #ffa49e; font-family: inherit; font-size: .7rem; cursor: default; opacity: .8; }
+.op-dado-uso header { display: grid; grid-template-columns: 36px 1fr; gap: var(--op-space-2); align-items: center; }
+.op-dado-uso header img { width: 36px; height: 36px; border: 1px solid var(--op-line); border-radius: var(--op-r-1); background: var(--op-surface); }
+.op-dado-uso h3 { margin: 0; border: 0; font-family: var(--op-font-head); font-size: 1.15rem; font-weight: 400; text-transform: uppercase; color: var(--op-ink); line-height: 1.1; }
+.op-dado-uso header p { margin: 2px 0 0; font-size: .75rem; color: var(--op-ink-3); }
+.op-dado-uso__res { margin: 8px 0 0; padding: 6px 8px; border-radius: var(--op-r-1); font-size: .85rem; }
+.op-dado-uso.is-hit .op-dado-uso__res { background: rgba(111, 191, 111, .14); color: #9fdb9f; }
+.op-dado-uso.is-warn .op-dado-uso__res { background: rgba(214, 170, 60, .16); color: #f0d48a; }
+.op-dado-uso.is-miss .op-dado-uso__res { background: rgba(179, 38, 30, .18); color: #ffa49e; }

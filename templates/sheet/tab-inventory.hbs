@@ -31,7 +31,9 @@
 		<ol class="op-list op-list--equip">
 			{{#each equipment}}
 			{{#> opItemRow this edit=../edit showEquip=true}}
-			<span class="op-cell"><input class="op-qty" type="number" min="0" value="{{quantity}}" data-item-field="system.quantidade" aria-label="Quantidade" {{disabled (not ../editable)}}></span>
+			<span class="op-cell op-cell--qtd"><input class="op-qty" type="number" min="0" value="{{quantity}}" data-item-field="system.quantidade" aria-label="Quantidade" {{disabled (not ../editable)}}>
+				{{#if dadoUso}}<button type="button" class="op-dado-uso-btn {{#if dadoUsoFim}}is-fim{{/if}}" data-action="dadoUso" data-tooltip="Dado de uso: clique para rolar" aria-label="Rolar dado de uso de {{name}} ({{dadoUso}})" {{disabled (or dadoUsoFim (not ../editable))}}>{{dadoUso}}</button>{{/if}}
+			</span>
 			<span class="op-cell">{{category}}</span>
 			<span class="op-cell">{{spaces}}</span>
 			{{/opItemRow}}

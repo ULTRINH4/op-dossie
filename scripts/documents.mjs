@@ -127,6 +127,10 @@ export class OpItem extends Item {
 			const { conjurarRitual } = await import('./automation/conjurar.mjs');
 			return conjurarRitual(this.actor, this);
 		}
+		if (this.type === 'equipamento' && this.actor) {
+			const { usaDadoUso, usarComDadoUso } = await import('./automation/dado-uso.mjs');
+			if (usaDadoUso(this)) return usarComDadoUso(this);
+		}
 		return this.mostrarNoChat();
 	}
 

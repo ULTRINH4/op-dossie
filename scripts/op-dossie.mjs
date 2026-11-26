@@ -29,6 +29,7 @@ import { abrirCriacao } from './sheets/criacao.mjs';
 import { registrarConfigFaixa, registrarFaixa } from './fx/faixa-turnos.mjs';
 import { registrarConfigHud, registrarHud } from './fx/hud-combate.mjs';
 import { registrarSocketCartoes } from './dice/no-cartao.mjs';
+import { registrarDadoUso } from './automation/dado-uso.mjs';
 
 const dataReady = loadData().catch(err => console.error(`${SYSTEM_ID} | data/*.json`, err));
 const TPL = `systems/${SYSTEM_ID}/templates`;
@@ -80,6 +81,7 @@ Hooks.once('init', () => {
 	registrarCondicoesAutomaticas();
 	registrarRegrasDeTurno();
 	registrarPoderes();
+	registrarDadoUso();
 	registrarConfigEfeitos();
 	registrarConfigSons();
 	registrarConfigAlucinacoes();

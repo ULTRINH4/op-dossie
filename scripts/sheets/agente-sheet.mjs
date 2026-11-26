@@ -12,6 +12,7 @@ import { rulesFor } from '../rules/table-rules.mjs';
 import { conjurarRitual } from '../automation/conjurar.mjs';
 import { CONDICOES, CONDICAO, resumoCondicao, condicoesAtivas } from '../automation/condicoes.mjs';
 import { resumoMunicao, recarregar, usaMunicao } from '../automation/municao.mjs';
+import { usaDadoUso, rotuloDado, dadoAtual, rolarDadoUso } from '../automation/dado-uso.mjs';
 import { LIMITES } from '../automation/poderes.mjs';
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
@@ -49,6 +50,7 @@ export class AgenteSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 			efeitoAlternar: AgenteSheet.#efeitoAlternar,
 			condicao: AgenteSheet.#condicao,
 			recarregar: AgenteSheet.#recarregar,
+			dadoUso: AgenteSheet.#dadoUso,
 			efeitoCriar: AgenteSheet.#efeitoCriar
 		}
 	};
@@ -189,7 +191,7 @@ export class AgenteSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 			}))
 		})).filter(g => g.items.length || ctx.edit);
 		ctx.classItem = s.classe; ctx.originItem = s.origem; ctx.trilhaItem = s.trilha;
-		ctx.equipment = items.filter(i => i.type === 'equipamento').map(i => row(i));
+		ctx.equipment = items.filter(i => i.type === 'equipamento').map(i => row(i, usaDadoUso(i) ? { dadoUso: rotuloDado(i), dadoUsoFim: !dadoAtual(i) } : {}));
 
 		const usados = [0, 0, 0, 0, 0];
 		for (const i of items) if (['arma', 'protecao', 'equipamento'].includes(i.type)) usados[i.system.categoria] += 1;
@@ -285,6 +287,7 @@ export class AgenteSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 	static #rolarAtributo(event, target) { this.document.rolarAtributo(target.closest('[data-key]').dataset.key, { event }); }
 	static #rolarPericia(event, target) { this.document.rolarPericia(target.closest('[data-key]').dataset.key, { event }); }
 	static #usar(event, target) { this.#item(target)?.usar({ event }); }
+	static #dadoUso(event, target) { const i = this.#item(target); if (i) rolarDadoUso(i); }
 	static #conjurar(event, target) { const i = this.#item(target); if (i) conjurarRitual(this.document, i); }
 	static #abrir(event, target) {
 		const id = target.closest('[data-item-id],[data-effect-id]');

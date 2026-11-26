@@ -54,6 +54,10 @@ export function normalize(raw = {}) {
 		if (r.aprendizadoRituais !== 'padrao') { ajustes.push('Aprendizado de rituais voltou para o padrão.'); r.aprendizadoRituais = 'padrao'; }
 		for (const id of SAH_OPCIONAIS()) if (r.opcionais[id]) r.opcionais[id] = false;
 	}
+	if (r.opcionais.municao && r.opcionais.dadoDeUso) {
+		ajustes.push('Contagem de munição desligada: o Dado de uso já controla a munição.');
+		r.opcionais.municao = false;
+	}
 	if (r.progressao === 'patentes' && r.recursos !== 'semSanidade') {
 		ajustes.push('Evolução por Patentes exige Jogando sem Sanidade, que foi ligado.');
 		r.recursos = 'semSanidade';
