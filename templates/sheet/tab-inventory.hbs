@@ -1,0 +1,42 @@
+<section class="tab op-tab-body {{tab.cssClass}}" data-group="primary" data-tab="inventory">
+	<div class="op-patent">
+		<div class="op-patent__rank">
+			<div><p class="op-eyebrow">Patente</p><strong class="op-patent__name">{{inventory.patente}}</strong></div>
+			<label class="op-patent__pp">
+				<span>Prestígio</span>
+				<input type="number" name="system.patente.pp" value="{{inventory.prestige}}" min="0" aria-label="Pontos de prestígio" {{disabled (not editable)}}>
+			</label>
+			{{#if inventory.credit}}<span class="op-chipstat"><span>Crédito</span><strong>{{inventory.credit}}</strong></span>{{/if}}
+		</div>
+		<ul class="op-patent__limits" aria-label="Itens por categoria">
+			{{#each inventory.limits}}
+			<li class="{{#if over}}is-over{{/if}}" data-tooltip="Categoria {{roman}}: {{used}} de {{max}}">
+				<span>{{roman}}</span><strong>{{used}}/{{max}}</strong>
+			</li>
+			{{/each}}
+		</ul>
+		<div class="op-load {{#if inventory.spaces.over}}is-over{{/if}}">
+			<div class="op-load__head"><span>Espaços</span><strong>{{inventory.spaces.value}} / {{inventory.spaces.max}}</strong></div>
+			<div class="op-load__track" aria-hidden="true"><span style="width: {{inventory.spaces.pct}}%"></span></div>
+		</div>
+	</div>
+
+	<div class="op-section">
+		<header class="op-section__head">
+			<h2>Equipamento</h2>
+			{{#if editable}}<button type="button" class="op-add" data-action="criar" data-type="equipamento"><i class="fa-solid fa-plus" aria-hidden="true"></i> Item</button>{{/if}}
+		</header>
+		{{#if equipment.length}}
+		<div class="op-cols op-cols--equip" aria-hidden="true"><span></span><span>Item</span><span>Qtd.</span><span>Cat.</span><span>Espaços</span><span></span></div>
+		<ol class="op-list op-list--equip">
+			{{#each equipment}}
+			{{#> opItemRow this edit=../edit showEquip=true}}
+			<span class="op-cell"><input class="op-qty" type="number" min="0" value="{{quantity}}" data-item-field="system.quantidade" aria-label="Quantidade" {{disabled (not ../editable)}}></span>
+			<span class="op-cell">{{category}}</span>
+			<span class="op-cell">{{spaces}}</span>
+			{{/opItemRow}}
+			{{/each}}
+		</ol>
+		{{else}}<p class="op-empty">Mochila vazia.</p>{{/if}}
+	</div>
+</section>

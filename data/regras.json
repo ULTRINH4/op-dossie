@@ -1,0 +1,200 @@
+{
+  "_comentario": "Definição das opções do painel Regras da Mesa. Textos, páginas e padrões podem ser editados aqui. 'livro': base = Livro de Regras (OPRPG), sah = Sobrevivendo ao Horror.",
+  "livros": [
+    {
+      "id": "base",
+      "nome": "Livro de Regras",
+      "sigla": "OPRPG",
+      "fixo": true
+    },
+    {
+      "id": "sah",
+      "nome": "Sobrevivendo ao Horror",
+      "sigla": "SaH"
+    },
+    {
+      "id": "sahComunidade",
+      "nome": "Origens da comunidade",
+      "sigla": "SaH",
+      "requer": "sah",
+      "dica": "As 10 origens criadas pela comunidade no Sobrevivendo ao Horror."
+    }
+  ],
+  "escolhas": {
+    "progressao": {
+      "nome": "Progressão",
+      "opcoes": [
+        {
+          "id": "nex",
+          "nome": "NEX",
+          "livro": "base",
+          "pagina": "OPRPG p. 23",
+          "dica": "Padrão: +5% de NEX por missão. Os benefícios de classe vêm do NEX."
+        },
+        {
+          "id": "nivel",
+          "nome": "Nível de Experiência",
+          "livro": "sah",
+          "pagina": "SaH p. 98",
+          "dica": "Os benefícios vêm do nível (+1 por missão). O NEX começa em 0% e só sobe por exposição ao paranormal."
+        },
+        {
+          "id": "patentes",
+          "nome": "Evolução por Patentes",
+          "livro": "sah",
+          "pagina": "SaH p. 108",
+          "dica": "A patente substitui NEX e nível. Exige Jogando sem Sanidade.",
+          "forca": {
+            "recursos": "semSanidade"
+          }
+        }
+      ]
+    },
+    "recursos": {
+      "nome": "Recursos",
+      "opcoes": [
+        {
+          "id": "padrao",
+          "nome": "PV, PE e Sanidade",
+          "livro": "base",
+          "pagina": "OPRPG p. 25"
+        },
+        {
+          "id": "semSanidade",
+          "nome": "Jogando sem Sanidade",
+          "livro": "sah",
+          "pagina": "SaH p. 104",
+          "dica": "PE e Sanidade viram Pontos de Determinação (PD). Dano mental e custos vão para o PD."
+        }
+      ]
+    },
+    "iniciante": {
+      "nome": "Personagens de NEX 0%",
+      "opcoes": [
+        {
+          "id": "nenhum",
+          "nome": "Não usar",
+          "livro": "base",
+          "dica": "Todos começam como agentes em NEX 5%."
+        },
+        {
+          "id": "mundano",
+          "nome": "Mundano",
+          "livro": "base",
+          "pagina": "OPRPG p. 171",
+          "dica": "3 pontos de atributo. Escolhe a classe ao chegar em NEX 5%."
+        },
+        {
+          "id": "sobrevivente",
+          "nome": "Sobrevivente",
+          "livro": "sah",
+          "pagina": "SaH p. 30",
+          "dica": "Classe própria com 5 estágios, até o mestre liberar o Treinamento Especial."
+        }
+      ]
+    },
+    "aprendizadoRituais": {
+      "nome": "Aprendizado de rituais",
+      "opcoes": [
+        {
+          "id": "padrao",
+          "nome": "Padrão",
+          "livro": "base",
+          "pagina": "OPRPG p. 33",
+          "dica": "O ocultista aprende 1 ritual a cada novo NEX."
+        },
+        {
+          "id": "lento",
+          "nome": "Aprendizado Lento",
+          "livro": "sah",
+          "pagina": "SaH p. 113",
+          "dica": "Só aprende rituais em NEX ou nível ímpar."
+        },
+        {
+          "id": "campo",
+          "nome": "Aprendizado em Campo",
+          "livro": "sah",
+          "pagina": "SaH p. 114",
+          "dica": "Só os 3 rituais iniciais. Os outros precisam ser encontrados e estudados."
+        }
+      ]
+    }
+  },
+  "opcionais": [
+    {
+      "id": "idadeVariada",
+      "nome": "Idade variada",
+      "livro": "base",
+      "pagina": "OPRPG p. 172–173"
+    },
+    {
+      "id": "municao",
+      "nome": "Contagem de munição",
+      "livro": "base",
+      "pagina": "OPRPG pp. 171–175"
+    },
+    {
+      "id": "lesoes",
+      "nome": "Lesões",
+      "livro": "base",
+      "pagina": "OPRPG pp. 171–175"
+    },
+    {
+      "id": "inspiracaoResoluta",
+      "nome": "Inspiração Resoluta",
+      "livro": "base",
+      "pagina": "OPRPG pp. 171–175"
+    },
+    {
+      "id": "loucuraNaoLetal",
+      "nome": "Loucura não letal",
+      "livro": "base",
+      "pagina": "OPRPG pp. 171–175"
+    },
+    {
+      "id": "ferimentosDebilitantes",
+      "nome": "Ferimentos Debilitantes",
+      "livro": "sah",
+      "pagina": "SaH p. 105"
+    },
+    {
+      "id": "vidaAlemDaOrdem",
+      "nome": "Vida Além da Ordem",
+      "livro": "sah",
+      "pagina": "SaH p. 94"
+    }
+  ],
+  "padrao": {
+    "livros": {
+      "base": true,
+      "sah": true,
+      "sahComunidade": true
+    },
+    "progressao": "nex",
+    "recursos": "padrao",
+    "iniciante": "nenhum",
+    "aprendizadoRituais": "padrao",
+    "opcionais": {},
+    "desativados": {
+      "classes": [],
+      "trilhas": [],
+      "origens": []
+    },
+    "automacao": {
+      "municao": true,
+      "ocultarDanoAmeacas": false
+    }
+  },
+  "automacao": [
+    {
+      "id": "municao",
+      "nome": "Controlar munição",
+      "dica": "Gasta os pacotes de munição sozinho: um pacote dura as cenas indicadas nele (Livro de Regras, p. 59). Com a regra opcional Contagem de munição, conta cada ataque e o carregador."
+    },
+    {
+      "id": "ocultarDanoAmeacas",
+      "nome": "Esconder dos jogadores o dano nas ameaças",
+      "dica": "Os números que flutuam sobre as ameaças aparecem como \"−?\" para os jogadores. O mestre sempre vê o valor."
+    }
+  ]
+}

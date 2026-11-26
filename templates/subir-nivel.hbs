@@ -1,0 +1,119 @@
+<div class="op-subir__frame">
+	{{#if erro}}
+	<div class="op-subir__scroll">
+		<div class="op-note op-note--warn" role="status"><p>{{erro}}</p></div>
+	</div>
+	<footer class="op-criacao__foot">
+		<p class="op-criacao__pend"></p>
+		<button type="button" class="op-btn op-btn--ghost" data-action="cancelar">Fechar</button>
+	</footer>
+	{{else}}
+	<div class="op-subir__scroll">
+		<div class="op-subir__jump">
+			<span class="op-subir__de">{{passo.de}}</span>
+			<i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+			<span class="op-subir__para">{{passo.para}}</span>
+		</div>
+
+		{{#if recursos.length}}
+		<dl class="op-subir__res">
+			{{#each recursos}}<div class="{{#if sobe}}is-up{{/if}}"><dt>{{abv}}</dt><dd>{{de}} <i class="fa-solid fa-arrow-right" aria-hidden="true"></i> <b>{{para}}</b></dd></div>{{/each}}
+		</dl>
+		{{/if}}
+
+		{{#if podeTreinar}}
+		<label class="op-toggle op-subir__treino">
+			<input type="checkbox" name="treinamento" {{checked treinamento}}>
+			<span class="op-toggle__box" aria-hidden="true"></span>
+			<span class="op-toggle__text">Treinamento Especial<small>Só o mestre libera: em vez de subir de estágio, vira agente de NEX 5% (SaH p. 32).</small></span>
+		</label>
+		{{/if}}
+
+		{{#if classes}}
+		<section class="op-block">
+			<h3 class="op-block__title">Classe</h3>
+			<div class="op-options op-options--3">
+				{{#each classes}}
+				<label class="op-option {{#if checked}}is-checked{{/if}}"><input type="radio" name="classe" value="{{id}}" {{checked checked}}><span class="op-option__top"><span class="op-option__name">{{nome}}</span></span></label>
+				{{/each}}
+			</div>
+		</section>
+		{{/if}}
+
+		{{#if novaClasse}}
+		<section class="op-block">
+			<h3 class="op-block__title">Perícias da nova classe</h3>
+			{{#each novaClasse.fixas}}
+			<div class="op-fixa">
+				<span class="op-fixa__label">{{nome}}</span>
+				<div class="op-pills">
+					{{#each opcoes}}
+					{{#if ../unica}}<span class="op-pill op-pill--fixa">{{nome}}{{#if ja}} <small>já treinada</small>{{/if}}</span>
+					{{else}}<label class="op-pill"><input type="radio" name="fixa-{{../i}}" data-campo="fixa" data-i="{{../i}}" value="{{k}}" {{checked checked}}>{{nome}}{{#if ja}} <small>já treinada</small>{{/if}}</label>{{/if}}
+					{{/each}}
+				</div>
+			</div>
+			{{/each}}
+			{{#if novaClasse.livres}}
+			<div class="op-block__row"><span class="op-fixa__label">À sua escolha</span><span class="op-count">{{novaClasse.livres.marcadas}} de {{novaClasse.livres.conta}}</span></div>
+			<div class="op-pills">
+				{{#each novaClasse.livres.itens}}<label class="op-pill {{#if bloqueada}}is-off{{/if}}"><input type="checkbox" data-campo="livre" value="{{k}}" {{checked checked}} {{disabled bloqueada}}>{{nome}}</label>{{/each}}
+			</div>
+			{{/if}}
+		</section>
+		{{/if}}
+
+		{{#if atributos}}
+		<section class="op-block">
+			<h3 class="op-block__title">Aumento de atributo</h3>
+			<div class="op-pills" role="radiogroup" aria-label="Atributo que sobe">
+				{{#each atributos}}
+				<label class="op-pill {{#if bloqueado}}is-off{{/if}}"><input type="radio" name="atributo" value="{{k}}" {{checked checked}} {{disabled bloqueado}}>{{nome}} <small>{{#if motivo}}{{motivo}}{{else}}{{v}} → {{#if bloqueado}}máx.{{else}}{{v}}+1{{/if}}{{/if}}</small></label>
+				{{/each}}
+			</div>
+		</section>
+		{{/if}}
+
+		{{#if graus}}
+		<section class="op-block">
+			<div class="op-block__row">
+				<h3 class="op-block__title">Grau de treinamento</h3>
+				<span class="op-count">{{graus.marcadas}} de {{graus.conta}}</span>
+			</div>
+			<div class="op-pills">
+				{{#each graus.itens}}
+				<label class="op-pill {{#if bloqueada}}is-off{{/if}}"><input type="checkbox" data-campo="grau" value="{{k}}" {{checked checked}} {{disabled bloqueada}}>{{nome}} <small>{{de}} → {{para}}</small></label>
+				{{else}}
+				<p class="op-hint">Nenhuma perícia treinada para subir.</p>
+				{{/each}}
+			</div>
+		</section>
+		{{/if}}
+
+		{{#if trilhas}}
+		<section class="op-block">
+			<h3 class="op-block__title">Trilha</h3>
+			<div class="op-pills" role="radiogroup" aria-label="Trilha">
+				{{#each trilhas}}
+				<label class="op-pill"><input type="radio" name="trilha" value="{{id}}" {{checked checked}}>{{nome}}</label>
+				{{else}}
+				<p class="op-hint">Nenhuma trilha dessa classe está ligada nas Regras da Mesa.</p>
+				{{/each}}
+			</div>
+		</section>
+		{{/if}}
+
+		{{#if lembretes.length}}
+		<section class="op-block">
+			<h3 class="op-block__title">Também ganha (escolha na ficha)</h3>
+			<ul class="op-gains">{{#each lembretes}}<li>{{this}}</li>{{/each}}</ul>
+		</section>
+		{{/if}}
+	</div>
+	<footer class="op-criacao__foot">
+		<p class="op-criacao__pend" role="status">{{#if falta}}<i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> {{falta}}{{/if}}</p>
+		<button type="button" class="op-btn op-btn--ghost" data-action="cancelar">Cancelar</button>
+		<button type="button" class="op-btn op-btn--primary" data-action="confirmar" {{#unless pode}}disabled{{/unless}}><i class="fa-solid fa-angles-up" aria-hidden="true"></i> Subir para {{passo.para}}</button>
+	</footer>
+	{{/if}}
+</div>

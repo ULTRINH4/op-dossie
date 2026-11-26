@@ -1,0 +1,23 @@
+<section class="tab op-tab-body {{tab.cssClass}}" data-group="primary" data-tab="skills">
+	<p class="op-hint">Clique no nome para rolar. Clique no grau para subir o treino; botão direito volta.</p>
+	<ul class="op-skills">
+		{{#each skills}}
+		<li class="op-skill {{#if untrained}}is-untrained{{/if}}" data-key="{{key}}">
+			{{#if (and livre ../edit)}}
+			<input class="op-skill__freename" type="text" name="system.pericias.{{key}}.nome" value="{{name}}" placeholder="Perícia livre" aria-label="Nome da perícia livre">
+			<button type="button" class="op-skill__dice" data-action="rolarPericia" aria-label="Rolar"><i class="fa-solid fa-dice-d20" aria-hidden="true"></i></button>
+			{{else}}
+			<button type="button" class="op-skill__name" data-action="rolarPericia" data-tooltip="Rolar {{label}}">
+				{{label}}{{#if trainedOnly}}<sup data-tooltip="Só treinado">*</sup>{{/if}}{{#if load}}<sup data-tooltip="Sofre penalidade de carga">+</sup>{{/if}}
+			</button>
+			{{/if}}
+			<span class="op-skill__attr" data-tooltip="Atributo">{{attr}}</span>
+			<button type="button" class="op-degree op-degree--g{{degree}}" data-action="grau" data-tooltip="{{degreeLabel}}" aria-label="Grau: {{degreeLabel}}" {{disabled (not ../editable)}}>{{degreeShort}}</button>
+			{{#if ../edit}}
+			<input class="op-skill__mod" type="number" name="system.pericias.{{key}}.bonus" value="{{mod}}" aria-label="Bônus de {{label}}" data-tooltip="Bônus">
+			{{/if}}
+			<span class="op-skill__total">{{numberFormat total decimals=0 sign=true}}</span>
+		</li>
+		{{/each}}
+	</ul>
+</section>

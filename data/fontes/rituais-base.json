@@ -1,0 +1,3350 @@
+[
+  {
+    "id": "alterar-destino",
+    "nome": "Alterar Destino",
+    "livro": "base",
+    "pagina": 124,
+    "revisar": false,
+    "elemento": "energy",
+    "circulo": 4,
+    "execucao": "reaction",
+    "alcance": "personal",
+    "alcanceTexto": "pessoal",
+    "alvo": "você",
+    "alvoTipo": "people",
+    "area": null,
+    "duracao": "instantaneous",
+    "duracaoTexto": "instantânea",
+    "resistencia": null,
+    "custo": 10,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 124.</p>",
+    "discente": null,
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": null,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 124.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "alterar-memoria",
+    "nome": "Alterar Memória",
+    "livro": "base",
+    "pagina": 124,
+    "revisar": false,
+    "elemento": "knowledge",
+    "circulo": 3,
+    "execucao": "default",
+    "alcance": "touch",
+    "alcanceTexto": "toque",
+    "alvo": "1 pessoa",
+    "alvoTipo": "people",
+    "area": null,
+    "duracao": "instantaneous",
+    "duracaoTexto": "instantânea",
+    "resistencia": {
+      "pericia": "Vontade",
+      "efeito": "nullifies",
+      "texto": "Vontade anula"
+    },
+    "custo": 6,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 124.</p>",
+    "discente": null,
+    "verdadeiro": {
+      "custoExtra": 4,
+      "circuloMin": 4,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 124.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "amaldicoar-arma-conhecimento",
+    "nome": "Amaldiçoar Arma (Conhecimento)",
+    "livro": "base",
+    "pagina": 124,
+    "revisar": false,
+    "elemento": "knowledge",
+    "circulo": 1,
+    "execucao": "default",
+    "alcance": "touch",
+    "alcanceTexto": "toque",
+    "alvo": "1 arma corpo a corpo ou pacote de munição",
+    "alvoTipo": "weapons",
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": null,
+    "custo": 1,
+    "dano": {
+      "formula": "1d6",
+      "tipo": "knowledgeDamage"
+    },
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 124.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": 2,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 124.</p>",
+      "dano": {
+        "formula": "2d6",
+        "tipo": "knowledgeDamage"
+      }
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": 3,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 124.</p>",
+      "dano": {
+        "formula": "4d6",
+        "tipo": "knowledgeDamage"
+      }
+    }
+  },
+  {
+    "id": "amaldicoar-arma-energia",
+    "nome": "Amaldiçoar Arma (Energia)",
+    "livro": "base",
+    "pagina": 124,
+    "revisar": false,
+    "elemento": "energy",
+    "circulo": 1,
+    "execucao": "default",
+    "alcance": "touch",
+    "alcanceTexto": "toque",
+    "alvo": "1 arma corpo a corpo ou pacote de munição",
+    "alvoTipo": "weapons",
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": null,
+    "custo": 1,
+    "dano": {
+      "formula": "1d6",
+      "tipo": "energyDamage"
+    },
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 124.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": 2,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 124.</p>",
+      "dano": {
+        "formula": "2d6",
+        "tipo": "energyDamage"
+      }
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": 3,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 124.</p>",
+      "dano": {
+        "formula": "4d6",
+        "tipo": "energyDamage"
+      }
+    }
+  },
+  {
+    "id": "amaldicoar-arma-morte",
+    "nome": "Amaldiçoar Arma (Morte)",
+    "livro": "base",
+    "pagina": 124,
+    "revisar": false,
+    "elemento": "death",
+    "circulo": 1,
+    "execucao": "default",
+    "alcance": "touch",
+    "alcanceTexto": "toque",
+    "alvo": "1 arma corpo a corpo ou pacote de munição",
+    "alvoTipo": "weapons",
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": null,
+    "custo": 1,
+    "dano": {
+      "formula": "1d6",
+      "tipo": "deathDamage"
+    },
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 124.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": 2,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 124.</p>",
+      "dano": {
+        "formula": "2d6",
+        "tipo": "deathDamage"
+      }
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": 3,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 124.</p>",
+      "dano": {
+        "formula": "4d6",
+        "tipo": "deathDamage"
+      }
+    }
+  },
+  {
+    "id": "amaldicoar-arma-sangue",
+    "nome": "Amaldiçoar Arma (Sangue)",
+    "livro": "base",
+    "pagina": 124,
+    "revisar": false,
+    "elemento": "blood",
+    "circulo": 1,
+    "execucao": "default",
+    "alcance": "touch",
+    "alcanceTexto": "toque",
+    "alvo": "1 arma corpo a corpo ou pacote de munição",
+    "alvoTipo": "weapons",
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": null,
+    "custo": 1,
+    "dano": {
+      "formula": "1d6",
+      "tipo": "bloodDamage"
+    },
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 124.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": 2,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 124.</p>",
+      "dano": {
+        "formula": "2d6",
+        "tipo": "bloodDamage"
+      }
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": 3,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 124.</p>",
+      "dano": {
+        "formula": "4d6",
+        "tipo": "bloodDamage"
+      }
+    }
+  },
+  {
+    "id": "amaldicoar-tecnologia",
+    "nome": "Amaldiçoar Tecnologia",
+    "livro": "base",
+    "pagina": 124,
+    "revisar": false,
+    "elemento": "energy",
+    "circulo": 1,
+    "execucao": "default",
+    "alcance": "touch",
+    "alcanceTexto": "toque",
+    "alvo": "1 acessório ou arma de fogo",
+    "alvoTipo": "equipment",
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": null,
+    "custo": 1,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 124.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": 2,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 124.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": 3,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 124.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "ancora-temporal",
+    "nome": "Âncora Temporal",
+    "livro": "base",
+    "pagina": 124,
+    "revisar": false,
+    "elemento": "death",
+    "circulo": 3,
+    "execucao": "default",
+    "alcance": "short",
+    "alcanceTexto": "curto",
+    "alvo": "1 ser",
+    "alvoTipo": "creatures",
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": {
+      "pericia": "Vontade",
+      "efeito": "partial",
+      "texto": "Vontade parcial"
+    },
+    "custo": 6,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 124.</p>",
+    "discente": null,
+    "verdadeiro": {
+      "custoExtra": 4,
+      "circuloMin": 4,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 124.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "aprimorar-fisico",
+    "nome": "Aprimorar Físico",
+    "livro": "base",
+    "pagina": 125,
+    "revisar": false,
+    "elemento": "blood",
+    "circulo": 2,
+    "execucao": "default",
+    "alcance": "touch",
+    "alcanceTexto": "toque",
+    "alvo": "1 ser",
+    "alvoTipo": "creatures",
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": null,
+    "custo": 3,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 125.</p>",
+    "discente": {
+      "custoExtra": 3,
+      "circuloMin": 3,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 125.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 7,
+      "circuloMin": 4,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 125.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "aprimorar-mente",
+    "nome": "Aprimorar Mente",
+    "livro": "base",
+    "pagina": 125,
+    "revisar": false,
+    "elemento": "knowledge",
+    "circulo": 2,
+    "execucao": "default",
+    "alcance": "touch",
+    "alcanceTexto": "toque",
+    "alvo": "1 ser",
+    "alvoTipo": "creatures",
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": null,
+    "custo": 3,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 125.</p>",
+    "discente": {
+      "custoExtra": 3,
+      "circuloMin": 3,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 125.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 7,
+      "circuloMin": 4,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 125.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "arma-atroz",
+    "nome": "Arma Atroz",
+    "livro": "base",
+    "pagina": 125,
+    "revisar": false,
+    "elemento": "blood",
+    "circulo": 1,
+    "execucao": "default",
+    "alcance": "touch",
+    "alcanceTexto": "toque",
+    "alvo": "1 arma corpo a corpo",
+    "alvoTipo": "weapons",
+    "area": null,
+    "duracao": "sustained",
+    "duracaoTexto": "sustentada",
+    "resistencia": null,
+    "custo": 1,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 125.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": 2,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 125.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": 3,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 125.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "armadura-de-sangue",
+    "nome": "Armadura de Sangue",
+    "livro": "base",
+    "pagina": 125,
+    "revisar": false,
+    "elemento": "blood",
+    "circulo": 1,
+    "execucao": "default",
+    "alcance": "personal",
+    "alcanceTexto": "pessoal",
+    "alvo": "você",
+    "alvoTipo": "people",
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": null,
+    "custo": 1,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 125.</p>",
+    "discente": {
+      "custoExtra": 5,
+      "circuloMin": 3,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 125.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 9,
+      "circuloMin": 4,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 125.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "canalizar-o-medo",
+    "nome": "Canalizar o Medo",
+    "livro": "base",
+    "pagina": 125,
+    "revisar": false,
+    "elemento": "fear",
+    "circulo": 4,
+    "execucao": "default",
+    "alcance": "touch",
+    "alcanceTexto": "toque",
+    "alvo": "1 pessoa",
+    "alvoTipo": "people",
+    "area": null,
+    "duracao": "permanent",
+    "duracaoTexto": "permanente até ser descarregada",
+    "resistencia": null,
+    "custo": 10,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 125.</p>",
+    "discente": null,
+    "verdadeiro": null
+  },
+  {
+    "id": "capturar-o-coracao",
+    "nome": "Capturar o Coração",
+    "livro": "base",
+    "pagina": 125,
+    "revisar": false,
+    "elemento": "blood",
+    "circulo": 4,
+    "execucao": "default",
+    "alcance": "short",
+    "alcanceTexto": "curto",
+    "alvo": "1 pessoa",
+    "alvoTipo": "people",
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": {
+      "pericia": "Vontade",
+      "efeito": "partial",
+      "texto": "Vontade parcial"
+    },
+    "custo": 10,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 125.</p>",
+    "discente": null,
+    "verdadeiro": null
+  },
+  {
+    "id": "chamas-do-caos",
+    "nome": "Chamas do Caos",
+    "livro": "base",
+    "pagina": 126,
+    "revisar": false,
+    "elemento": "energy",
+    "circulo": 2,
+    "execucao": "default",
+    "alcance": "short",
+    "alcanceTexto": "curto",
+    "alvo": "veja texto",
+    "alvoTipo": null,
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": null,
+    "custo": 3,
+    "dano": {
+      "formula": "3d6",
+      "tipo": "fireDamage"
+    },
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 126.</p>",
+    "discente": {
+      "custoExtra": 3,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 126.</p>",
+      "dano": {
+        "formula": "4d6",
+        "tipo": "energyDamage"
+      }
+    },
+    "verdadeiro": {
+      "custoExtra": 7,
+      "circuloMin": 3,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 126.</p>",
+      "dano": {
+        "formula": "8d6",
+        "tipo": "energyDamage"
+      }
+    }
+  },
+  {
+    "id": "cicatrizacao",
+    "nome": "Cicatrização",
+    "livro": "base",
+    "pagina": 126,
+    "revisar": false,
+    "elemento": "death",
+    "circulo": 1,
+    "execucao": "default",
+    "alcance": "touch",
+    "alcanceTexto": "toque",
+    "alvo": "1 ser",
+    "alvoTipo": "creatures",
+    "area": null,
+    "duracao": "instantaneous",
+    "duracaoTexto": "instantânea",
+    "resistencia": null,
+    "custo": 1,
+    "dano": null,
+    "cura": "3d8+3",
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 126.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": 2,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 126.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 9,
+      "circuloMin": 4,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 126.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "cineraria",
+    "nome": "Cinerária",
+    "livro": "base",
+    "pagina": 126,
+    "revisar": false,
+    "elemento": "fear",
+    "circulo": 1,
+    "execucao": "default",
+    "alcance": "short",
+    "alcanceTexto": "curto",
+    "alvo": "",
+    "alvoTipo": "area",
+    "area": {
+      "forma": "sphere",
+      "tamanho": "6m",
+      "medida": "radius",
+      "texto": "nuvem de 6m de raio"
+    },
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": null,
+    "custo": 1,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 126.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 126.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": null,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 126.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "coincidencia-forcada",
+    "nome": "Coincidência Forçada",
+    "livro": "base",
+    "pagina": 126,
+    "revisar": false,
+    "elemento": "energy",
+    "circulo": 1,
+    "execucao": "default",
+    "alcance": "short",
+    "alcanceTexto": "curto",
+    "alvo": "1 ser",
+    "alvoTipo": "creatures",
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": null,
+    "custo": 1,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 126.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": 2,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 126.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": 3,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 126.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "compreensao-paranormal",
+    "nome": "Compreensão Paranormal",
+    "livro": "base",
+    "pagina": 126,
+    "revisar": false,
+    "elemento": "knowledge",
+    "circulo": 1,
+    "execucao": "default",
+    "alcance": "touch",
+    "alcanceTexto": "toque",
+    "alvo": "1 ser ou objeto",
+    "alvoTipo": "creatures",
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": {
+      "pericia": "Vontade",
+      "efeito": "nullifies",
+      "texto": "Vontade anula (veja texto)"
+    },
+    "custo": 1,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 126.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": 2,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 126.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": 3,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 126.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "conhecendo-o-medo",
+    "nome": "Conhecendo o Medo",
+    "livro": "base",
+    "pagina": 127,
+    "revisar": false,
+    "elemento": "fear",
+    "circulo": 4,
+    "execucao": "default",
+    "alcance": "touch",
+    "alcanceTexto": "toque",
+    "alvo": "1 pessoa",
+    "alvoTipo": "people",
+    "area": null,
+    "duracao": "instantaneous",
+    "duracaoTexto": "instantânea",
+    "resistencia": {
+      "pericia": "Vontade",
+      "efeito": "partial",
+      "texto": "Vontade parcial"
+    },
+    "custo": 10,
+    "dano": {
+      "formula": "10d6",
+      "tipo": "mentalDamage"
+    },
+    "cura": null,
+    "condicoes": [
+      "enlouquecendo",
+      "apavorado"
+    ],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 127.</p>",
+    "discente": null,
+    "verdadeiro": null
+  },
+  {
+    "id": "consumir-manancial",
+    "nome": "Consumir Manancial",
+    "livro": "base",
+    "pagina": 127,
+    "revisar": false,
+    "elemento": "death",
+    "circulo": 1,
+    "execucao": "default",
+    "alcance": "personal",
+    "alcanceTexto": "pessoal",
+    "alvo": "você",
+    "alvoTipo": "people",
+    "area": null,
+    "duracao": "instantaneous",
+    "duracaoTexto": "instantânea",
+    "resistencia": null,
+    "custo": 1,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 127.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": 2,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 127.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": 3,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 127.</p>",
+      "dano": {
+        "formula": "3d6",
+        "tipo": "deathDamage"
+      }
+    }
+  },
+  {
+    "id": "contato-paranormal",
+    "nome": "Contato Paranormal",
+    "livro": "base",
+    "pagina": 127,
+    "revisar": false,
+    "elemento": "knowledge",
+    "circulo": 3,
+    "execucao": "complete",
+    "alcance": "personal",
+    "alcanceTexto": "pessoal",
+    "alvo": "você",
+    "alvoTipo": "people",
+    "area": null,
+    "duracao": "setDuration",
+    "duracaoTexto": "1 dia",
+    "resistencia": null,
+    "custo": 6,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 127.</p>",
+    "discente": {
+      "custoExtra": 4,
+      "circuloMin": 4,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 127.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 9,
+      "circuloMin": 4,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 127.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "contencao-fantasmagorica",
+    "nome": "Contenção Fantasmagórica",
+    "livro": "base",
+    "pagina": 127,
+    "revisar": false,
+    "elemento": "energy",
+    "circulo": 2,
+    "execucao": "default",
+    "alcance": "medium",
+    "alcanceTexto": "médio",
+    "alvo": "1 ser",
+    "alvoTipo": "creatures",
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": {
+      "pericia": "Reflexos",
+      "efeito": "nullifies",
+      "texto": "Reflexos anula"
+    },
+    "custo": 3,
+    "dano": null,
+    "cura": null,
+    "condicoes": [
+      "agarrado"
+    ],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 127.</p>",
+    "discente": {
+      "custoExtra": 3,
+      "circuloMin": 3,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 127.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": 3,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 127.</p>",
+      "dano": {
+        "formula": "2d6+2",
+        "tipo": "energyDamage"
+      }
+    }
+  },
+  {
+    "id": "controle-mental",
+    "nome": "Controle Mental",
+    "livro": "base",
+    "pagina": 128,
+    "revisar": false,
+    "elemento": "knowledge",
+    "circulo": 4,
+    "execucao": "default",
+    "alcance": "medium",
+    "alcanceTexto": "médio",
+    "alvo": "1 pessoa ou animal",
+    "alvoTipo": "people",
+    "area": null,
+    "duracao": "sustained",
+    "duracaoTexto": "sustentada",
+    "resistencia": {
+      "pericia": "Vontade",
+      "efeito": "partial",
+      "texto": "Vontade parcial"
+    },
+    "custo": 10,
+    "dano": null,
+    "cura": null,
+    "condicoes": [
+      "pasmo"
+    ],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 128.</p>",
+    "discente": {
+      "custoExtra": 5,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 128.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 10,
+      "circuloMin": null,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 128.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "convocacao-instantanea",
+    "nome": "Convocação Instantânea",
+    "livro": "base",
+    "pagina": 128,
+    "revisar": false,
+    "elemento": "energy",
+    "circulo": 3,
+    "execucao": "default",
+    "alcance": "unlimited",
+    "alcanceTexto": "ilimitado",
+    "alvo": "1 objeto de até 2 espaços",
+    "alvoTipo": "equipment",
+    "area": null,
+    "duracao": "instantaneous",
+    "duracaoTexto": "instantânea",
+    "resistencia": {
+      "pericia": "Vontade",
+      "efeito": "nullifies",
+      "texto": "Vontade anula"
+    },
+    "custo": 6,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 128.</p>",
+    "discente": {
+      "custoExtra": 4,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 128.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 9,
+      "circuloMin": null,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 128.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "convocar-o-algoz",
+    "nome": "Convocar o Algoz",
+    "livro": "base",
+    "pagina": 128,
+    "revisar": false,
+    "elemento": "death",
+    "circulo": 4,
+    "execucao": "default",
+    "alcance": "touch",
+    "alcanceTexto": "1,5m",
+    "alvo": "1 pessoa",
+    "alvoTipo": "people",
+    "area": null,
+    "duracao": "sustained",
+    "duracaoTexto": "sustentada",
+    "resistencia": {
+      "pericia": "Vontade",
+      "efeito": "partial",
+      "texto": "Vontade parcial, Fortitude parcial"
+    },
+    "custo": 10,
+    "dano": {
+      "formula": "6d6",
+      "tipo": "deathDamage"
+    },
+    "cura": null,
+    "condicoes": [
+      "abalado"
+    ],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 128.</p>",
+    "discente": null,
+    "verdadeiro": null
+  },
+  {
+    "id": "corpo-adaptado",
+    "nome": "Corpo Adaptado",
+    "livro": "base",
+    "pagina": 128,
+    "revisar": false,
+    "elemento": "blood",
+    "circulo": 1,
+    "execucao": "default",
+    "alcance": "touch",
+    "alcanceTexto": "toque",
+    "alvo": "1 pessoa ou animal",
+    "alvoTipo": "people",
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": null,
+    "custo": 1,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 128.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 128.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": null,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 128.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "decadencia",
+    "nome": "Decadência",
+    "livro": "base",
+    "pagina": 129,
+    "revisar": false,
+    "elemento": "death",
+    "circulo": 1,
+    "execucao": "default",
+    "alcance": "touch",
+    "alcanceTexto": "toque",
+    "alvo": "1 ser",
+    "alvoTipo": "creatures",
+    "area": null,
+    "duracao": "instantaneous",
+    "duracaoTexto": "instantânea",
+    "resistencia": {
+      "pericia": "Fortitude",
+      "efeito": "reducesByHalf",
+      "texto": "Fortitude reduz à metade"
+    },
+    "custo": 1,
+    "dano": {
+      "formula": "2d8+2",
+      "tipo": "deathDamage"
+    },
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 129.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 129.</p>",
+      "dano": {
+        "formula": "3d8+3",
+        "tipo": "deathDamage"
+      }
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": 3,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 129.</p>",
+      "dano": {
+        "formula": "8d8+8",
+        "tipo": "deathDamage"
+      }
+    }
+  },
+  {
+    "id": "definhar",
+    "nome": "Definhar",
+    "livro": "base",
+    "pagina": 129,
+    "revisar": false,
+    "elemento": "death",
+    "circulo": 1,
+    "execucao": "default",
+    "alcance": "short",
+    "alcanceTexto": "curto",
+    "alvo": "1 ser",
+    "alvoTipo": "creatures",
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": {
+      "pericia": "Fortitude",
+      "efeito": "partial",
+      "texto": "Fortitude parcial"
+    },
+    "custo": 1,
+    "dano": null,
+    "cura": null,
+    "condicoes": [
+      "fatigado",
+      "vulnerável",
+      "exausto"
+    ],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 129.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": 2,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 129.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": 3,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 129.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "deflagracao-de-energia",
+    "nome": "Deflagração de Energia",
+    "livro": "base",
+    "pagina": 129,
+    "revisar": false,
+    "elemento": "energy",
+    "circulo": 4,
+    "execucao": "complete",
+    "alcance": "personal",
+    "alcanceTexto": "pessoal",
+    "alvo": "",
+    "alvoTipo": "area",
+    "area": {
+      "forma": "sphere",
+      "tamanho": "15m",
+      "medida": "radius",
+      "texto": "explosão de 15m de raio"
+    },
+    "duracao": "instantaneous",
+    "duracaoTexto": "",
+    "resistencia": {
+      "pericia": "Fortitude",
+      "efeito": "partial",
+      "texto": "Fortitude parcial"
+    },
+    "custo": 10,
+    "dano": {
+      "formula": "3d10*10",
+      "tipo": "energyDamage"
+    },
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 129.</p>",
+    "discente": null,
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": null,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 129.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "desacelerar-impacto",
+    "nome": "Desacelerar Impacto",
+    "livro": "base",
+    "pagina": 129,
+    "revisar": false,
+    "elemento": "death",
+    "circulo": 2,
+    "execucao": "reaction",
+    "alcance": "short",
+    "alcanceTexto": "curto",
+    "alvo": "1 ser ou objetos somando até 10 espaços",
+    "alvoTipo": "creatures",
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "até chegar ao solo ou cena, o que vier primeiro",
+    "resistencia": null,
+    "custo": 3,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 129.</p>",
+    "discente": null,
+    "verdadeiro": {
+      "custoExtra": 3,
+      "circuloMin": null,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 129.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "descarnar",
+    "nome": "Descarnar",
+    "livro": "base",
+    "pagina": 129,
+    "revisar": false,
+    "elemento": "blood",
+    "circulo": 2,
+    "execucao": "default",
+    "alcance": "touch",
+    "alcanceTexto": "toque",
+    "alvo": "1 ser",
+    "alvoTipo": "creatures",
+    "area": null,
+    "duracao": "instantaneous",
+    "duracaoTexto": "instantânea",
+    "resistencia": {
+      "pericia": "Fortitude",
+      "efeito": "partial",
+      "texto": "Fortitude parcial"
+    },
+    "custo": 3,
+    "dano": {
+      "formula": "6d8",
+      "tipo": "bloodDamage"
+    },
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 129.</p>",
+    "discente": {
+      "custoExtra": 3,
+      "circuloMin": 3,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 129.</p>",
+      "dano": {
+        "formula": "10d8",
+        "tipo": "bloodDamage"
+      }
+    },
+    "verdadeiro": {
+      "custoExtra": 7,
+      "circuloMin": 3,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 129.</p>",
+      "dano": {
+        "formula": "4d8",
+        "tipo": "bloodDamage"
+      }
+    }
+  },
+  {
+    "id": "deteccao-de-ameacas",
+    "nome": "Detecção de Ameaças",
+    "livro": "base",
+    "pagina": 130,
+    "revisar": false,
+    "elemento": "knowledge",
+    "circulo": 2,
+    "execucao": "default",
+    "alcance": "personal",
+    "alcanceTexto": "pessoal",
+    "alvo": "",
+    "alvoTipo": "area",
+    "area": {
+      "forma": "sphere",
+      "tamanho": "18m",
+      "medida": "radius",
+      "texto": "esfera de 18m de raio"
+    },
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": null,
+    "custo": 3,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 130.</p>",
+    "discente": {
+      "custoExtra": 3,
+      "circuloMin": 3,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 130.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": 4,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 130.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "dissipar-ritual",
+    "nome": "Dissipar Ritual",
+    "livro": "base",
+    "pagina": 130,
+    "revisar": false,
+    "elemento": "fear",
+    "circulo": 3,
+    "execucao": "default",
+    "alcance": "medium",
+    "alcanceTexto": "médio",
+    "alvo": "1 ser ou objeto, ou esfera com 3m de raio",
+    "alvoTipo": "creatures",
+    "area": {
+      "forma": "sphere",
+      "tamanho": "3m",
+      "medida": "radius",
+      "texto": "esfera com 3m de raio"
+    },
+    "duracao": "instantaneous",
+    "duracaoTexto": "instantânea",
+    "resistencia": null,
+    "custo": 6,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 130.</p>",
+    "discente": null,
+    "verdadeiro": null
+  },
+  {
+    "id": "dissonancia-acustica",
+    "nome": "Dissonância Acústica",
+    "livro": "base",
+    "pagina": 130,
+    "revisar": false,
+    "elemento": "energy",
+    "circulo": 2,
+    "execucao": "default",
+    "alcance": "medium",
+    "alcanceTexto": "médio",
+    "alvo": "",
+    "alvoTipo": "area",
+    "area": {
+      "forma": "sphere",
+      "tamanho": "6m",
+      "medida": "radius",
+      "texto": "esfera com 6m de raio"
+    },
+    "duracao": "sustained",
+    "duracaoTexto": "sustentada",
+    "resistencia": null,
+    "custo": 3,
+    "dano": null,
+    "cura": null,
+    "condicoes": [
+      "surdo"
+    ],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 130.</p>",
+    "discente": {
+      "custoExtra": 1,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 130.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 3,
+      "circuloMin": 3,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 130.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "distorcao-temporal",
+    "nome": "Distorção Temporal",
+    "livro": "base",
+    "pagina": 130,
+    "revisar": false,
+    "elemento": "death",
+    "circulo": 4,
+    "execucao": "default",
+    "alcance": "personal",
+    "alcanceTexto": "pessoal",
+    "alvo": "veja texto",
+    "alvoTipo": null,
+    "area": null,
+    "duracao": "setDuration",
+    "duracaoTexto": "veja texto",
+    "resistencia": null,
+    "custo": 10,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 130.</p>",
+    "discente": null,
+    "verdadeiro": null
+  },
+  {
+    "id": "distorcer-aparencia",
+    "nome": "Distorcer Aparência",
+    "livro": "base",
+    "pagina": 130,
+    "revisar": false,
+    "elemento": "blood",
+    "circulo": 1,
+    "execucao": "default",
+    "alcance": "personal",
+    "alcanceTexto": "pessoal",
+    "alvo": "você",
+    "alvoTipo": "people",
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": {
+      "pericia": "Vontade",
+      "efeito": "discredits",
+      "texto": "Vontade desacredita"
+    },
+    "custo": 1,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 130.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 130.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": 3,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 130.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "eco-espiral",
+    "nome": "Eco Espiral",
+    "livro": "base",
+    "pagina": 131,
+    "revisar": false,
+    "elemento": "death",
+    "circulo": 2,
+    "execucao": "default",
+    "alcance": "short",
+    "alcanceTexto": "curto",
+    "alvo": "1 ser",
+    "alvoTipo": "creatures",
+    "area": null,
+    "duracao": "setDuration",
+    "duracaoTexto": "2 rodadas",
+    "resistencia": {
+      "pericia": "Fortitude",
+      "efeito": "reducesByHalf",
+      "texto": "Fortitude reduz à metade"
+    },
+    "custo": 3,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 131.</p>",
+    "discente": {
+      "custoExtra": 3,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 131.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 7,
+      "circuloMin": 4,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 131.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "eletrocussao",
+    "nome": "Eletrocussão",
+    "livro": "base",
+    "pagina": 131,
+    "revisar": false,
+    "elemento": "energy",
+    "circulo": 1,
+    "execucao": "default",
+    "alcance": "short",
+    "alcanceTexto": "curto",
+    "alvo": "1 ser ou objeto",
+    "alvoTipo": "creatures",
+    "area": null,
+    "duracao": "instantaneous",
+    "duracaoTexto": "instantânea",
+    "resistencia": {
+      "pericia": "Fortitude",
+      "efeito": "partial",
+      "texto": "Fortitude parcial"
+    },
+    "custo": 1,
+    "dano": {
+      "formula": "3d6",
+      "tipo": "eletricDamage"
+    },
+    "cura": null,
+    "condicoes": [
+      "vulnerável"
+    ],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 131.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": 2,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 131.</p>",
+      "dano": {
+        "formula": "6d6",
+        "tipo": "energyDamage"
+      }
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": 3,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 131.</p>",
+      "dano": {
+        "formula": "8d6",
+        "tipo": "energyDamage"
+      }
+    }
+  },
+  {
+    "id": "embaralhar",
+    "nome": "Embaralhar",
+    "livro": "base",
+    "pagina": 131,
+    "revisar": false,
+    "elemento": "energy",
+    "circulo": 1,
+    "execucao": "default",
+    "alcance": "personal",
+    "alcanceTexto": "pessoal",
+    "alvo": "você",
+    "alvoTipo": "people",
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": null,
+    "custo": 1,
+    "dano": null,
+    "cura": null,
+    "condicoes": [
+      "ofuscado"
+    ],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 131.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": 2,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 131.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": 3,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 131.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "enfeiticar",
+    "nome": "Enfeitiçar",
+    "livro": "base",
+    "pagina": 131,
+    "revisar": false,
+    "elemento": "knowledge",
+    "circulo": 1,
+    "execucao": "default",
+    "alcance": "short",
+    "alcanceTexto": "curto",
+    "alvo": "1 pessoa",
+    "alvoTipo": "people",
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": {
+      "pericia": "Vontade",
+      "efeito": "nullifies",
+      "texto": "Vontade anula"
+    },
+    "custo": 1,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 131.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": 2,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 131.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": 3,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 131.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "esconder-dos-olhos",
+    "nome": "Esconder dos Olhos",
+    "livro": "base",
+    "pagina": 132,
+    "revisar": false,
+    "elemento": "knowledge",
+    "circulo": 2,
+    "execucao": "free",
+    "alcance": "personal",
+    "alcanceTexto": "pessoal",
+    "alvo": "você",
+    "alvoTipo": "people",
+    "area": null,
+    "duracao": "setDuration",
+    "duracaoTexto": "1 rodada",
+    "resistencia": null,
+    "custo": 3,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 132.</p>",
+    "discente": {
+      "custoExtra": 3,
+      "circuloMin": 3,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 132.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 7,
+      "circuloMin": 4,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 132.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "espirais-da-perdicao",
+    "nome": "Espirais da Perdição",
+    "livro": "base",
+    "pagina": 132,
+    "revisar": false,
+    "elemento": "death",
+    "circulo": 1,
+    "execucao": "default",
+    "alcance": "short",
+    "alcanceTexto": "curto",
+    "alvo": "1 ser",
+    "alvoTipo": "creatures",
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": null,
+    "custo": 1,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 132.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": 2,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 132.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 8,
+      "circuloMin": 3,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 132.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "ferver-sangue",
+    "nome": "Ferver Sangue",
+    "livro": "base",
+    "pagina": 132,
+    "revisar": false,
+    "elemento": "blood",
+    "circulo": 3,
+    "execucao": "default",
+    "alcance": "short",
+    "alcanceTexto": "curto",
+    "alvo": "1 ser",
+    "alvoTipo": "creatures",
+    "area": null,
+    "duracao": "sustained",
+    "duracaoTexto": "sustentada",
+    "resistencia": {
+      "pericia": "Fortitude",
+      "efeito": "partial",
+      "texto": "Fortitude parcial"
+    },
+    "custo": 6,
+    "dano": {
+      "formula": "4d8",
+      "tipo": "bloodDamage"
+    },
+    "cura": null,
+    "condicoes": [
+      "fraco"
+    ],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 132.</p>",
+    "discente": null,
+    "verdadeiro": {
+      "custoExtra": 4,
+      "circuloMin": 4,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 132.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "fim-inevitavel",
+    "nome": "Fim Inevitável",
+    "livro": "base",
+    "pagina": 132,
+    "revisar": false,
+    "elemento": "death",
+    "circulo": 4,
+    "execucao": "complete",
+    "alcance": "extreme",
+    "alcanceTexto": "extremo",
+    "alvo": "",
+    "alvoTipo": "area",
+    "area": {
+      "forma": "sphere",
+      "tamanho": "1,5m",
+      "medida": "diameter",
+      "texto": "Efeito: buraco negro com 1,5m de diâmetro"
+    },
+    "duracao": "setDuration",
+    "duracaoTexto": "4 rodadas",
+    "resistencia": {
+      "pericia": "Fortitude",
+      "efeito": "partial",
+      "texto": "Fortitude parcial"
+    },
+    "custo": 10,
+    "dano": {
+      "formula": "100",
+      "tipo": "deathDamage"
+    },
+    "cura": null,
+    "condicoes": [
+      "caído"
+    ],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 132.</p>",
+    "discente": {
+      "custoExtra": 5,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 132.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 10,
+      "circuloMin": null,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 132.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "flagelo-de-sangue",
+    "nome": "Flagelo de Sangue",
+    "livro": "base",
+    "pagina": 133,
+    "revisar": false,
+    "elemento": "blood",
+    "circulo": 2,
+    "execucao": "default",
+    "alcance": "touch",
+    "alcanceTexto": "toque",
+    "alvo": "1 pessoa",
+    "alvoTipo": "people",
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": {
+      "pericia": "Fortitude",
+      "efeito": "partial",
+      "texto": "Fortitude parcial"
+    },
+    "custo": 3,
+    "dano": {
+      "formula": "10d6",
+      "tipo": "bloodDamage"
+    },
+    "cura": null,
+    "condicoes": [
+      "enjoado"
+    ],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 133.</p>",
+    "discente": {
+      "custoExtra": 3,
+      "circuloMin": 3,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 133.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 7,
+      "circuloMin": 4,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 133.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "forma-monstruosa",
+    "nome": "Forma Monstruosa",
+    "livro": "base",
+    "pagina": 133,
+    "revisar": false,
+    "elemento": "blood",
+    "circulo": 3,
+    "execucao": "default",
+    "alcance": "personal",
+    "alcanceTexto": "pessoal",
+    "alvo": "você",
+    "alvoTipo": "people",
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": null,
+    "custo": 6,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 133.</p>",
+    "discente": {
+      "custoExtra": 3,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 133.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 9,
+      "circuloMin": 4,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 133.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "fortalecimento-sensorial",
+    "nome": "Fortalecimento Sensorial",
+    "livro": "base",
+    "pagina": 133,
+    "revisar": false,
+    "elemento": "blood",
+    "circulo": 1,
+    "execucao": "default",
+    "alcance": "personal",
+    "alcanceTexto": "pessoal",
+    "alvo": "você",
+    "alvoTipo": "people",
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": null,
+    "custo": 1,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 133.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": 2,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 133.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": 4,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 133.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "hemofagia",
+    "nome": "Hemofagia",
+    "livro": "base",
+    "pagina": 133,
+    "revisar": false,
+    "elemento": "blood",
+    "circulo": 2,
+    "execucao": "default",
+    "alcance": "touch",
+    "alcanceTexto": "toque",
+    "alvo": "1 ser",
+    "alvoTipo": "creatures",
+    "area": null,
+    "duracao": "instantaneous",
+    "duracaoTexto": "instantânea",
+    "resistencia": {
+      "pericia": "Fortitude",
+      "efeito": "reducesByHalf",
+      "texto": "Fortitude reduz à metade"
+    },
+    "custo": 3,
+    "dano": {
+      "formula": "6d6",
+      "tipo": "bloodDamage"
+    },
+    "cura": "metade do dano causado",
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 133.</p>",
+    "discente": {
+      "custoExtra": 3,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 133.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 7,
+      "circuloMin": 4,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 133.</p>",
+      "dano": {
+        "formula": "4d6",
+        "tipo": "bloodDamage"
+      }
+    }
+  },
+  {
+    "id": "inexistir",
+    "nome": "Inexistir",
+    "livro": "base",
+    "pagina": 134,
+    "revisar": false,
+    "elemento": "knowledge",
+    "circulo": 4,
+    "execucao": "default",
+    "alcance": "touch",
+    "alcanceTexto": "toque",
+    "alvo": "1 ser",
+    "alvoTipo": "creatures",
+    "area": null,
+    "duracao": "instantaneous",
+    "duracaoTexto": "instantânea",
+    "resistencia": {
+      "pericia": "Vontade",
+      "efeito": "partial",
+      "texto": "Vontade parcial"
+    },
+    "custo": 10,
+    "dano": {
+      "formula": "10d12+10",
+      "tipo": "knowledgeDamage"
+    },
+    "cura": null,
+    "condicoes": [
+      "debilitado"
+    ],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 134.</p>",
+    "discente": {
+      "custoExtra": 5,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 134.</p>",
+      "dano": {
+        "formula": "15d12+15",
+        "tipo": "knowledgeDamage"
+      }
+    },
+    "verdadeiro": {
+      "custoExtra": 10,
+      "circuloMin": null,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 134.</p>",
+      "dano": {
+        "formula": "20d12+20",
+        "tipo": "knowledgeDamage"
+      }
+    }
+  },
+  {
+    "id": "invadir-mente",
+    "nome": "Invadir Mente",
+    "livro": "base",
+    "pagina": 134,
+    "revisar": false,
+    "elemento": "knowledge",
+    "circulo": 2,
+    "execucao": "default",
+    "alcance": "medium",
+    "alcanceTexto": "médio ou toque",
+    "alvo": "1 ser ou 2 pessoas voluntárias",
+    "alvoTipo": "creatures",
+    "area": null,
+    "duracao": "instantaneous",
+    "duracaoTexto": "instantânea ou 1 dia",
+    "resistencia": {
+      "pericia": "Vontade",
+      "efeito": "partial",
+      "texto": "Vontade parcial ou nenhuma"
+    },
+    "custo": 3,
+    "dano": {
+      "formula": "6d6",
+      "tipo": "knowledgeDamage"
+    },
+    "cura": null,
+    "condicoes": [
+      "atordoado"
+    ],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 134.</p>",
+    "discente": {
+      "custoExtra": 3,
+      "circuloMin": 3,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 134.</p>",
+      "dano": {
+        "formula": "10d6",
+        "tipo": "knowledgeDamage"
+      }
+    },
+    "verdadeiro": {
+      "custoExtra": 7,
+      "circuloMin": 4,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 134.</p>",
+      "dano": {
+        "formula": "10d6",
+        "tipo": "knowledgeDamage"
+      }
+    }
+  },
+  {
+    "id": "involucro-de-carne",
+    "nome": "Invólucro de Carne",
+    "livro": "base",
+    "pagina": 134,
+    "revisar": false,
+    "elemento": "blood",
+    "circulo": 4,
+    "execucao": "default",
+    "alcance": "short",
+    "alcanceTexto": "curto",
+    "alvo": "Efeito: 1 clone seu",
+    "alvoTipo": null,
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": null,
+    "custo": 10,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 134.</p>",
+    "discente": null,
+    "verdadeiro": null
+  },
+  {
+    "id": "lamina-do-medo",
+    "nome": "Lâmina do Medo",
+    "livro": "base",
+    "pagina": 135,
+    "revisar": false,
+    "elemento": "fear",
+    "circulo": 4,
+    "execucao": "default",
+    "alcance": "touch",
+    "alcanceTexto": "toque",
+    "alvo": "1 ser",
+    "alvoTipo": "creatures",
+    "area": null,
+    "duracao": "instantaneous",
+    "duracaoTexto": "instantânea",
+    "resistencia": {
+      "pericia": "Fortitude",
+      "efeito": "partial",
+      "texto": "Fortitude parcial"
+    },
+    "custo": 10,
+    "dano": {
+      "formula": "10d8",
+      "tipo": "fearDamage"
+    },
+    "cura": null,
+    "condicoes": [
+      "morrendo",
+      "apavorado"
+    ],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 135.</p>",
+    "discente": null,
+    "verdadeiro": null
+  },
+  {
+    "id": "localizacao",
+    "nome": "Localização",
+    "livro": "base",
+    "pagina": 135,
+    "revisar": false,
+    "elemento": "knowledge",
+    "circulo": 2,
+    "execucao": "default",
+    "alcance": "personal",
+    "alcanceTexto": "pessoal",
+    "alvo": "",
+    "alvoTipo": "area",
+    "area": {
+      "forma": "sphere",
+      "tamanho": "90m",
+      "medida": "radius",
+      "texto": "círculo com 90m de raio"
+    },
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": null,
+    "custo": 3,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 135.</p>",
+    "discente": {
+      "custoExtra": 3,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 135.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 7,
+      "circuloMin": 4,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 135.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "luz",
+    "nome": "Luz",
+    "livro": "base",
+    "pagina": 135,
+    "revisar": false,
+    "elemento": "energy",
+    "circulo": 1,
+    "execucao": "default",
+    "alcance": "short",
+    "alcanceTexto": "curto",
+    "alvo": "1 objeto",
+    "alvoTipo": "equipment",
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": {
+      "pericia": "Vontade",
+      "efeito": "nullifies",
+      "texto": "Vontade anula (veja texto)"
+    },
+    "custo": 1,
+    "dano": null,
+    "cura": null,
+    "condicoes": [
+      "ofuscado"
+    ],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 135.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": 2,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 135.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": 3,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 135.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "medo-tangivel",
+    "nome": "Medo Tangível",
+    "livro": "base",
+    "pagina": 135,
+    "revisar": false,
+    "elemento": "fear",
+    "circulo": 4,
+    "execucao": "default",
+    "alcance": "personal",
+    "alcanceTexto": "pessoal",
+    "alvo": "você",
+    "alvoTipo": "people",
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": null,
+    "custo": 10,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 135.</p>",
+    "discente": null,
+    "verdadeiro": null
+  },
+  {
+    "id": "mergulho-mental",
+    "nome": "Mergulho Mental",
+    "livro": "base",
+    "pagina": 136,
+    "revisar": false,
+    "elemento": "knowledge",
+    "circulo": 3,
+    "execucao": "default",
+    "alcance": "touch",
+    "alcanceTexto": "toque",
+    "alvo": "1 pessoa",
+    "alvoTipo": "people",
+    "area": null,
+    "duracao": "sustained",
+    "duracaoTexto": "sustentada",
+    "resistencia": {
+      "pericia": "Vontade",
+      "efeito": "partial",
+      "texto": "Vontade parcial (veja texto)"
+    },
+    "custo": 6,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 136.</p>",
+    "discente": null,
+    "verdadeiro": {
+      "custoExtra": 4,
+      "circuloMin": 4,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 136.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "miasma-entropico",
+    "nome": "Miasma Entrópico",
+    "livro": "base",
+    "pagina": 136,
+    "revisar": false,
+    "elemento": "death",
+    "circulo": 2,
+    "execucao": "default",
+    "alcance": "medium",
+    "alcanceTexto": "médio",
+    "alvo": "",
+    "alvoTipo": "area",
+    "area": {
+      "forma": "sphere",
+      "tamanho": "6m",
+      "medida": "radius",
+      "texto": "nuvem com 6m de raio"
+    },
+    "duracao": "instantaneous",
+    "duracaoTexto": "instantânea",
+    "resistencia": {
+      "pericia": "Fortitude",
+      "efeito": "partial",
+      "texto": "Fortitude parcial (veja texto)"
+    },
+    "custo": 3,
+    "dano": {
+      "formula": "4d8",
+      "tipo": "chemicalDamage"
+    },
+    "cura": null,
+    "condicoes": [
+      "enjoado"
+    ],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 136.</p>",
+    "discente": {
+      "custoExtra": 3,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 136.</p>",
+      "dano": {
+        "formula": "6d8",
+        "tipo": "deathDamage"
+      }
+    },
+    "verdadeiro": {
+      "custoExtra": 7,
+      "circuloMin": 3,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 136.</p>",
+      "dano": {
+        "formula": "6d8",
+        "tipo": "deathDamage"
+      }
+    }
+  },
+  {
+    "id": "nuvem-de-cinzas",
+    "nome": "Nuvem de Cinzas",
+    "livro": "base",
+    "pagina": 136,
+    "revisar": false,
+    "elemento": "death",
+    "circulo": 1,
+    "execucao": "default",
+    "alcance": "short",
+    "alcanceTexto": "curto",
+    "alvo": "",
+    "alvoTipo": "area",
+    "area": {
+      "forma": "sphere",
+      "tamanho": "6m",
+      "medida": "radius",
+      "texto": "Efeito: nuvem com 6m de raio e 6m de altura"
+    },
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": null,
+    "custo": 1,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 136.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": 2,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 136.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": 3,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 136.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "odio-incontrolavel",
+    "nome": "Ódio Incontrolável",
+    "livro": "base",
+    "pagina": 136,
+    "revisar": false,
+    "elemento": "blood",
+    "circulo": 1,
+    "execucao": "default",
+    "alcance": "touch",
+    "alcanceTexto": "toque",
+    "alvo": "1 pessoa",
+    "alvoTipo": "people",
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": null,
+    "custo": 1,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 136.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 136.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": 3,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 136.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "ouvir-os-sussurros",
+    "nome": "Ouvir os Sussurros",
+    "livro": "base",
+    "pagina": 137,
+    "revisar": false,
+    "elemento": "knowledge",
+    "circulo": 1,
+    "execucao": "complete",
+    "alcance": "personal",
+    "alcanceTexto": "pessoal",
+    "alvo": "você",
+    "alvoTipo": "people",
+    "area": null,
+    "duracao": "instantaneous",
+    "duracaoTexto": "instantânea",
+    "resistencia": null,
+    "custo": 1,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 137.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": 2,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 137.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": 3,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 137.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "paradoxo",
+    "nome": "Paradoxo",
+    "livro": "base",
+    "pagina": 137,
+    "revisar": false,
+    "elemento": "death",
+    "circulo": 2,
+    "execucao": "default",
+    "alcance": "medium",
+    "alcanceTexto": "médio",
+    "alvo": "",
+    "alvoTipo": "area",
+    "area": {
+      "forma": "sphere",
+      "tamanho": "6m",
+      "medida": "radius",
+      "texto": "esfera com 6m de raio"
+    },
+    "duracao": "instantaneous",
+    "duracaoTexto": "instantânea",
+    "resistencia": {
+      "pericia": "Fortitude",
+      "efeito": "reducesByHalf",
+      "texto": "Fortitude reduz à metade"
+    },
+    "custo": 3,
+    "dano": {
+      "formula": "6d6",
+      "tipo": "deathDamage"
+    },
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 137.</p>",
+    "discente": {
+      "custoExtra": 3,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 137.</p>",
+      "dano": {
+        "formula": "4d6",
+        "tipo": "deathDamage"
+      }
+    },
+    "verdadeiro": {
+      "custoExtra": 7,
+      "circuloMin": 4,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 137.</p>",
+      "dano": {
+        "formula": "13d6",
+        "tipo": "deathDamage"
+      }
+    }
+  },
+  {
+    "id": "perturbacao",
+    "nome": "Perturbação",
+    "livro": "base",
+    "pagina": 137,
+    "revisar": false,
+    "elemento": "knowledge",
+    "circulo": 1,
+    "execucao": "default",
+    "alcance": "short",
+    "alcanceTexto": "curto",
+    "alvo": "1 pessoa",
+    "alvoTipo": "people",
+    "area": null,
+    "duracao": "setDuration",
+    "duracaoTexto": "1 rodada",
+    "resistencia": {
+      "pericia": "Vontade",
+      "efeito": "nullifies",
+      "texto": "Vontade anula"
+    },
+    "custo": 1,
+    "dano": null,
+    "cura": null,
+    "condicoes": [
+      "pasmo",
+      "abalado"
+    ],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 137.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 137.</p>",
+      "dano": {
+        "formula": "3d8",
+        "tipo": "knowledgeDamage"
+      }
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": 3,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 137.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "poeira-da-podridao",
+    "nome": "Poeira da Podridão",
+    "livro": "base",
+    "pagina": 138,
+    "revisar": false,
+    "elemento": "death",
+    "circulo": 3,
+    "execucao": "default",
+    "alcance": "medium",
+    "alcanceTexto": "médio",
+    "alvo": "",
+    "alvoTipo": "area",
+    "area": {
+      "forma": "sphere",
+      "tamanho": "6m",
+      "medida": "radius",
+      "texto": "nuvem com 6m de raio"
+    },
+    "duracao": "sustained",
+    "duracaoTexto": "sustentada",
+    "resistencia": {
+      "pericia": "Fortitude",
+      "efeito": "reducesByHalf",
+      "texto": "Fortitude (veja texto)"
+    },
+    "custo": 6,
+    "dano": {
+      "formula": "4d8",
+      "tipo": "deathDamage"
+    },
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 138.</p>",
+    "discente": null,
+    "verdadeiro": {
+      "custoExtra": 4,
+      "circuloMin": null,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 138.</p>",
+      "dano": {
+        "formula": "4d8+16",
+        "tipo": "deathDamage"
+      }
+    }
+  },
+  {
+    "id": "polarizacao-caotica",
+    "nome": "Polarização Caótica",
+    "livro": "base",
+    "pagina": 138,
+    "revisar": false,
+    "elemento": "energy",
+    "circulo": 1,
+    "execucao": "default",
+    "alcance": "short",
+    "alcanceTexto": "curto",
+    "alvo": "você",
+    "alvoTipo": "people",
+    "area": null,
+    "duracao": "sustained",
+    "duracaoTexto": "sustentada",
+    "resistencia": {
+      "pericia": "Vontade",
+      "efeito": "nullifies",
+      "texto": "Vontade anula"
+    },
+    "custo": 1,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 138.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 138.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": null,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 138.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "possessao",
+    "nome": "Possessão",
+    "livro": "base",
+    "pagina": 138,
+    "revisar": false,
+    "elemento": "knowledge",
+    "circulo": 4,
+    "execucao": "default",
+    "alcance": "long",
+    "alcanceTexto": "longo",
+    "alvo": "1 pessoa viva ou morta",
+    "alvoTipo": "people",
+    "area": null,
+    "duracao": "setDuration",
+    "duracaoTexto": "1 dia",
+    "resistencia": {
+      "pericia": "Vontade",
+      "efeito": "nullifies",
+      "texto": "Vontade anula"
+    },
+    "custo": 10,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 138.</p>",
+    "discente": null,
+    "verdadeiro": null
+  },
+  {
+    "id": "presenca-do-medo",
+    "nome": "Presença do Medo",
+    "livro": "base",
+    "pagina": 139,
+    "revisar": false,
+    "elemento": "fear",
+    "circulo": 4,
+    "execucao": "default",
+    "alcance": "personal",
+    "alcanceTexto": "pessoal",
+    "alvo": "",
+    "alvoTipo": "area",
+    "area": {
+      "forma": "sphere",
+      "tamanho": "9m",
+      "medida": "radius",
+      "texto": "emanação de 9m de raio"
+    },
+    "duracao": "sustained",
+    "duracaoTexto": "sustentada",
+    "resistencia": {
+      "pericia": "Vontade",
+      "efeito": "reducesByHalf",
+      "texto": "Vontade reduz à metade (no texto; sem linha de Resistência)"
+    },
+    "custo": 10,
+    "dano": {
+      "formula": "5d8",
+      "tipo": "mentalDamage"
+    },
+    "cura": null,
+    "condicoes": [
+      "atordoado"
+    ],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 139.</p>",
+    "discente": null,
+    "verdadeiro": null
+  },
+  {
+    "id": "protecao-contra-rituais",
+    "nome": "Proteção contra Rituais",
+    "livro": "base",
+    "pagina": 139,
+    "revisar": false,
+    "elemento": "fear",
+    "circulo": 2,
+    "execucao": "default",
+    "alcance": "touch",
+    "alcanceTexto": "toque",
+    "alvo": "1 ser",
+    "alvoTipo": "creatures",
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": null,
+    "custo": 3,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 139.</p>",
+    "discente": {
+      "custoExtra": 3,
+      "circuloMin": 3,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 139.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 6,
+      "circuloMin": 4,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 139.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "purgatorio",
+    "nome": "Purgatório",
+    "livro": "base",
+    "pagina": 139,
+    "revisar": false,
+    "elemento": "blood",
+    "circulo": 3,
+    "execucao": "default",
+    "alcance": "short",
+    "alcanceTexto": "curto",
+    "alvo": "",
+    "alvoTipo": "area",
+    "area": {
+      "forma": "sphere",
+      "tamanho": "6m",
+      "medida": "radius",
+      "texto": "Alvo: área de 6m de raio"
+    },
+    "duracao": "sustained",
+    "duracaoTexto": "sustentada",
+    "resistencia": {
+      "pericia": "Fortitude",
+      "efeito": "partial",
+      "texto": "Fortitude parcial"
+    },
+    "custo": 6,
+    "dano": {
+      "formula": "6d6",
+      "tipo": "bloodDamage"
+    },
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 139.</p>",
+    "discente": null,
+    "verdadeiro": null
+  },
+  {
+    "id": "rejeitar-nevoa",
+    "nome": "Rejeitar Névoa",
+    "livro": "base",
+    "pagina": 139,
+    "revisar": false,
+    "elemento": "fear",
+    "circulo": 2,
+    "execucao": "default",
+    "alcance": "short",
+    "alcanceTexto": "curto",
+    "alvo": "",
+    "alvoTipo": "area",
+    "area": {
+      "forma": "sphere",
+      "tamanho": "6m",
+      "medida": "radius",
+      "texto": "nuvem de 6m de raio"
+    },
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": null,
+    "custo": 3,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 139.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 139.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": null,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 139.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "salto-fantasma",
+    "nome": "Salto Fantasma",
+    "livro": "base",
+    "pagina": 139,
+    "revisar": false,
+    "elemento": "energy",
+    "circulo": 3,
+    "execucao": "default",
+    "alcance": "medium",
+    "alcanceTexto": "médio",
+    "alvo": "você",
+    "alvoTipo": "people",
+    "area": null,
+    "duracao": "instantaneous",
+    "duracaoTexto": "instantânea",
+    "resistencia": null,
+    "custo": 6,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 139.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 139.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 4,
+      "circuloMin": null,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 139.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "sopro-do-caos",
+    "nome": "Sopro do Caos",
+    "livro": "base",
+    "pagina": 140,
+    "revisar": false,
+    "elemento": "energy",
+    "circulo": 2,
+    "execucao": "default",
+    "alcance": "medium",
+    "alcanceTexto": "médio",
+    "alvo": "",
+    "alvoTipo": "area",
+    "area": {
+      "forma": null,
+      "tamanho": null,
+      "medida": null,
+      "texto": "varia"
+    },
+    "duracao": "sustained",
+    "duracaoTexto": "sustentada",
+    "resistencia": {
+      "pericia": null,
+      "efeito": null,
+      "texto": "veja texto"
+    },
+    "custo": 3,
+    "dano": null,
+    "cura": null,
+    "condicoes": [
+      "vulnerável"
+    ],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 140.</p>",
+    "discente": {
+      "custoExtra": 3,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 140.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 9,
+      "circuloMin": null,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 140.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "tecer-ilusao",
+    "nome": "Tecer Ilusão",
+    "livro": "base",
+    "pagina": 140,
+    "revisar": false,
+    "elemento": "knowledge",
+    "circulo": 1,
+    "execucao": "default",
+    "alcance": "medium",
+    "alcanceTexto": "médio",
+    "alvo": "",
+    "alvoTipo": "area",
+    "area": {
+      "forma": "cube",
+      "tamanho": "1,5m",
+      "medida": null,
+      "texto": "Efeito: ilusão que se estende a até 4 cubos de 1,5m"
+    },
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": {
+      "pericia": "Vontade",
+      "efeito": "discredits",
+      "texto": "Vontade desacredita"
+    },
+    "custo": 1,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 140.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": 2,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 140.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": 3,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 140.</p>",
+      "dano": {
+        "formula": "6d6",
+        "tipo": "knowledgeDamage"
+      }
+    }
+  },
+  {
+    "id": "tela-de-ruido",
+    "nome": "Tela de Ruído",
+    "livro": "base",
+    "pagina": 141,
+    "revisar": false,
+    "elemento": "energy",
+    "circulo": 2,
+    "execucao": "default",
+    "alcance": "personal",
+    "alcanceTexto": "pessoal",
+    "alvo": "você",
+    "alvoTipo": "people",
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": null,
+    "custo": 3,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 141.</p>",
+    "discente": {
+      "custoExtra": 3,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 141.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 7,
+      "circuloMin": 4,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 141.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "teletransporte",
+    "nome": "Teletransporte",
+    "livro": "base",
+    "pagina": 141,
+    "revisar": false,
+    "elemento": "energy",
+    "circulo": 4,
+    "execucao": "default",
+    "alcance": "touch",
+    "alcanceTexto": "toque",
+    "alvo": "até 5 seres voluntários",
+    "alvoTipo": "creatures",
+    "area": null,
+    "duracao": "instantaneous",
+    "duracaoTexto": "instantânea",
+    "resistencia": null,
+    "custo": 10,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 141.</p>",
+    "discente": null,
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": null,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 141.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "tentaculos-de-lodo",
+    "nome": "Tentáculos de Lodo",
+    "livro": "base",
+    "pagina": 141,
+    "revisar": false,
+    "elemento": "death",
+    "circulo": 3,
+    "execucao": "default",
+    "alcance": "medium",
+    "alcanceTexto": "médio",
+    "alvo": "",
+    "alvoTipo": "area",
+    "area": {
+      "forma": "sphere",
+      "tamanho": "6m",
+      "medida": "radius",
+      "texto": "círculo com 6m de raio"
+    },
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": null,
+    "custo": 6,
+    "dano": {
+      "formula": "4d6",
+      "tipo": "deathDamage"
+    },
+    "cura": null,
+    "condicoes": [
+      "agarrado"
+    ],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 141.</p>",
+    "discente": null,
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": null,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 141.</p>",
+      "dano": {
+        "formula": "6d6",
+        "tipo": "deathDamage"
+      }
+    }
+  },
+  {
+    "id": "terceiro-olho",
+    "nome": "Terceiro Olho",
+    "livro": "base",
+    "pagina": 141,
+    "revisar": false,
+    "elemento": "knowledge",
+    "circulo": 1,
+    "execucao": "default",
+    "alcance": "personal",
+    "alcanceTexto": "pessoal",
+    "alvo": "você",
+    "alvoTipo": "people",
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": null,
+    "custo": 1,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 141.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 141.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": null,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 141.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "transfigurar-agua",
+    "nome": "Transfigurar Água",
+    "livro": "base",
+    "pagina": 142,
+    "revisar": false,
+    "elemento": "energy",
+    "circulo": 3,
+    "execucao": "default",
+    "alcance": "long",
+    "alcanceTexto": "longo",
+    "alvo": "",
+    "alvoTipo": "area",
+    "area": {
+      "forma": "sphere",
+      "tamanho": "30m",
+      "medida": "radius",
+      "texto": "esfera com 30m de raio"
+    },
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": {
+      "pericia": "Fortitude",
+      "efeito": "reducesByHalf",
+      "texto": "veja texto"
+    },
+    "custo": 6,
+    "dano": {
+      "formula": "5d8",
+      "tipo": "energyDamage"
+    },
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 142.</p>",
+    "discente": null,
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": null,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 142.</p>",
+      "dano": {
+        "formula": "10d8",
+        "tipo": "energyDamage"
+      }
+    }
+  },
+  {
+    "id": "transfigurar-terra",
+    "nome": "Transfigurar Terra",
+    "livro": "base",
+    "pagina": 142,
+    "revisar": false,
+    "elemento": "energy",
+    "circulo": 3,
+    "execucao": "default",
+    "alcance": "long",
+    "alcanceTexto": "longo",
+    "alvo": "",
+    "alvoTipo": "area",
+    "area": {
+      "forma": "cube",
+      "tamanho": "1,5m",
+      "medida": null,
+      "texto": "9 cubos com 1,5m de lado"
+    },
+    "duracao": "instantaneous",
+    "duracaoTexto": "instantânea",
+    "resistencia": {
+      "pericia": "Reflexos",
+      "efeito": "reducesByHalf",
+      "texto": "veja texto"
+    },
+    "custo": 6,
+    "dano": {
+      "formula": "10d6",
+      "tipo": "impactDamage"
+    },
+    "cura": null,
+    "condicoes": [
+      "agarrado"
+    ],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 142.</p>",
+    "discente": {
+      "custoExtra": 3,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 142.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 7,
+      "circuloMin": 4,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 142.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "transfusao-vital",
+    "nome": "Transfusão Vital",
+    "livro": "base",
+    "pagina": 142,
+    "revisar": false,
+    "elemento": "blood",
+    "circulo": 2,
+    "execucao": "default",
+    "alcance": "touch",
+    "alcanceTexto": "toque",
+    "alvo": "1 ser",
+    "alvoTipo": "creatures",
+    "area": null,
+    "duracao": "instantaneous",
+    "duracaoTexto": "instantânea",
+    "resistencia": null,
+    "custo": 3,
+    "dano": null,
+    "cura": "até 30 (PV transferidos)",
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 142.</p>",
+    "discente": {
+      "custoExtra": 3,
+      "circuloMin": 3,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 142.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 7,
+      "circuloMin": 4,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 142.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "velocidade-mortal",
+    "nome": "Velocidade Mortal",
+    "livro": "base",
+    "pagina": 142,
+    "revisar": false,
+    "elemento": "death",
+    "circulo": 2,
+    "execucao": "default",
+    "alcance": "short",
+    "alcanceTexto": "curto",
+    "alvo": "1 ser",
+    "alvoTipo": "creatures",
+    "area": null,
+    "duracao": "sustained",
+    "duracaoTexto": "sustentada",
+    "resistencia": null,
+    "custo": 3,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 142.</p>",
+    "discente": {
+      "custoExtra": 3,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 142.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 7,
+      "circuloMin": 4,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 142.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "videncia",
+    "nome": "Vidência",
+    "livro": "base",
+    "pagina": 143,
+    "revisar": false,
+    "elemento": "knowledge",
+    "circulo": 3,
+    "execucao": "complete",
+    "alcance": "unlimited",
+    "alcanceTexto": "ilimitado",
+    "alvo": "1 ser",
+    "alvoTipo": "creatures",
+    "area": null,
+    "duracao": "setDuration",
+    "duracaoTexto": "5 rodadas",
+    "resistencia": {
+      "pericia": "Vontade",
+      "efeito": "nullifies",
+      "texto": "Vontade anula"
+    },
+    "custo": 6,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 143.</p>",
+    "discente": null,
+    "verdadeiro": null
+  },
+  {
+    "id": "vinculo-de-sangue",
+    "nome": "Vínculo de Sangue",
+    "livro": "base",
+    "pagina": 143,
+    "revisar": false,
+    "elemento": "blood",
+    "circulo": 4,
+    "execucao": "default",
+    "alcance": "short",
+    "alcanceTexto": "curto",
+    "alvo": "1 ser",
+    "alvoTipo": "creatures",
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": {
+      "pericia": "Fortitude",
+      "efeito": "nullifies",
+      "texto": "Fortitude anula"
+    },
+    "custo": 10,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 143.</p>",
+    "discente": null,
+    "verdadeiro": null
+  },
+  {
+    "id": "vomitar-pestes",
+    "nome": "Vomitar Pestes",
+    "livro": "base",
+    "pagina": 143,
+    "revisar": false,
+    "elemento": "blood",
+    "circulo": 3,
+    "execucao": "default",
+    "alcance": "medium",
+    "alcanceTexto": "médio",
+    "alvo": "",
+    "alvoTipo": "area",
+    "area": {
+      "forma": "cube",
+      "tamanho": "3m",
+      "medida": null,
+      "texto": "Efeito: 1 enxame Grande (quadrado de 3m)"
+    },
+    "duracao": "sustained",
+    "duracaoTexto": "sustentada",
+    "resistencia": {
+      "pericia": "Reflexos",
+      "efeito": "reducesByHalf",
+      "texto": "Reflexos reduz à metade"
+    },
+    "custo": 6,
+    "dano": {
+      "formula": "5d12",
+      "tipo": "bloodDamage"
+    },
+    "cura": null,
+    "condicoes": [
+      "agarrado"
+    ],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 143.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 143.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": null,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 143.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "zerar-entropia",
+    "nome": "Zerar Entropia",
+    "livro": "base",
+    "pagina": 143,
+    "revisar": false,
+    "elemento": "death",
+    "circulo": 3,
+    "execucao": "default",
+    "alcance": "short",
+    "alcanceTexto": "curto",
+    "alvo": "1 pessoa",
+    "alvoTipo": "people",
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": {
+      "pericia": "Vontade",
+      "efeito": "partial",
+      "texto": "Vontade parcial"
+    },
+    "custo": 6,
+    "dano": null,
+    "cura": null,
+    "condicoes": [
+      "paralisado",
+      "lento"
+    ],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 143.</p>",
+    "discente": {
+      "custoExtra": 4,
+      "circuloMin": 4,
+      "texto": "<p>Discente: veja <em>Livro de Regras</em>, p. 143.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 11,
+      "circuloMin": 4,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Livro de Regras</em>, p. 143.</p>",
+      "dano": null
+    }
+  }
+]

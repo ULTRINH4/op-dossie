@@ -1,0 +1,942 @@
+[
+  {
+    "id": "coronhada",
+    "nome": "Coronhada",
+    "livro": "base",
+    "pagina": 56,
+    "revisar": false,
+    "categoria": null,
+    "espacos": null,
+    "proficiencia": "simples",
+    "tipo": "corpo a corpo",
+    "empunhadura": "leve",
+    "dano": "1d4/1d6",
+    "tipoDano": "impacto",
+    "critico": {
+      "margem": 20,
+      "multiplicador": 2
+    },
+    "alcance": "—",
+    "municao": null,
+    "especial": [],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 56.</p>"
+  },
+  {
+    "id": "faca",
+    "nome": "Faca",
+    "livro": "base",
+    "pagina": 56,
+    "revisar": false,
+    "categoria": 0,
+    "espacos": 1,
+    "proficiencia": "simples",
+    "tipo": "corpo a corpo",
+    "empunhadura": "leve",
+    "dano": "1d4",
+    "tipoDano": "corte",
+    "critico": {
+      "margem": 19,
+      "multiplicador": 2
+    },
+    "alcance": "curto",
+    "municao": null,
+    "especial": [
+      "ágil",
+      "arremessável"
+    ],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 56.</p>"
+  },
+  {
+    "id": "martelo",
+    "nome": "Martelo",
+    "livro": "base",
+    "pagina": 56,
+    "revisar": false,
+    "categoria": 0,
+    "espacos": 1,
+    "proficiencia": "simples",
+    "tipo": "corpo a corpo",
+    "empunhadura": "leve",
+    "dano": "1d6",
+    "tipoDano": "impacto",
+    "critico": {
+      "margem": 20,
+      "multiplicador": 2
+    },
+    "alcance": "—",
+    "municao": null,
+    "especial": [],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 56.</p>"
+  },
+  {
+    "id": "punhal",
+    "nome": "Punhal",
+    "livro": "base",
+    "pagina": 56,
+    "revisar": false,
+    "categoria": 0,
+    "espacos": 1,
+    "proficiencia": "simples",
+    "tipo": "corpo a corpo",
+    "empunhadura": "leve",
+    "dano": "1d4",
+    "tipoDano": "perfuracao",
+    "critico": {
+      "margem": 20,
+      "multiplicador": 3
+    },
+    "alcance": "—",
+    "municao": null,
+    "especial": [
+      "ágil"
+    ],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 56.</p>"
+  },
+  {
+    "id": "bastao",
+    "nome": "Bastão",
+    "livro": "base",
+    "pagina": 56,
+    "revisar": false,
+    "categoria": 0,
+    "espacos": 1,
+    "proficiencia": "simples",
+    "tipo": "corpo a corpo",
+    "empunhadura": "uma mão",
+    "dano": "1d6/1d8",
+    "tipoDano": "impacto",
+    "critico": {
+      "margem": 20,
+      "multiplicador": 2
+    },
+    "alcance": "—",
+    "municao": null,
+    "especial": [
+      "versátil"
+    ],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 56.</p>"
+  },
+  {
+    "id": "machete",
+    "nome": "Machete",
+    "livro": "base",
+    "pagina": 56,
+    "revisar": false,
+    "categoria": 0,
+    "espacos": 1,
+    "proficiencia": "simples",
+    "tipo": "corpo a corpo",
+    "empunhadura": "uma mão",
+    "dano": "1d6",
+    "tipoDano": "corte",
+    "critico": {
+      "margem": 19,
+      "multiplicador": 2
+    },
+    "alcance": "—",
+    "municao": null,
+    "especial": [],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 56.</p>"
+  },
+  {
+    "id": "lanca",
+    "nome": "Lança",
+    "livro": "base",
+    "pagina": 56,
+    "revisar": false,
+    "categoria": 0,
+    "espacos": 1,
+    "proficiencia": "simples",
+    "tipo": "corpo a corpo",
+    "empunhadura": "uma mão",
+    "dano": "1d6",
+    "tipoDano": "perfuracao",
+    "critico": {
+      "margem": 20,
+      "multiplicador": 2
+    },
+    "alcance": "curto",
+    "municao": null,
+    "especial": [
+      "arremessável"
+    ],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 56.</p>"
+  },
+  {
+    "id": "cajado",
+    "nome": "Cajado",
+    "livro": "base",
+    "pagina": 56,
+    "revisar": false,
+    "categoria": 0,
+    "espacos": 2,
+    "proficiencia": "simples",
+    "tipo": "corpo a corpo",
+    "empunhadura": "duas mãos",
+    "dano": "1d6/1d6",
+    "tipoDano": "impacto",
+    "critico": {
+      "margem": 20,
+      "multiplicador": 2
+    },
+    "alcance": "—",
+    "municao": null,
+    "especial": [
+      "ágil",
+      "dupla"
+    ],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 56.</p>"
+  },
+  {
+    "id": "arco",
+    "nome": "Arco",
+    "livro": "base",
+    "pagina": 56,
+    "revisar": false,
+    "categoria": 0,
+    "espacos": 2,
+    "proficiencia": "simples",
+    "tipo": "disparo",
+    "empunhadura": "duas mãos",
+    "dano": "1d6",
+    "tipoDano": "perfuracao",
+    "critico": {
+      "margem": 20,
+      "multiplicador": 3
+    },
+    "alcance": "médio",
+    "municao": "flechas",
+    "especial": [],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 56.</p>"
+  },
+  {
+    "id": "besta",
+    "nome": "Besta",
+    "livro": "base",
+    "pagina": 56,
+    "revisar": false,
+    "categoria": 0,
+    "espacos": 2,
+    "proficiencia": "simples",
+    "tipo": "disparo",
+    "empunhadura": "duas mãos",
+    "dano": "1d8",
+    "tipoDano": "perfuracao",
+    "critico": {
+      "margem": 19,
+      "multiplicador": 2
+    },
+    "alcance": "médio",
+    "municao": "flechas",
+    "especial": [
+      "recarga (movimento)"
+    ],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 56.</p>"
+  },
+  {
+    "id": "pistola",
+    "nome": "Pistola",
+    "livro": "base",
+    "pagina": 56,
+    "revisar": false,
+    "categoria": 1,
+    "espacos": 1,
+    "proficiencia": "simples",
+    "tipo": "fogo",
+    "empunhadura": "leve",
+    "dano": "1d12",
+    "tipoDano": "balistico",
+    "critico": {
+      "margem": 18,
+      "multiplicador": 2
+    },
+    "alcance": "curto",
+    "municao": "balas curtas",
+    "especial": [],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 56.</p>"
+  },
+  {
+    "id": "revolver",
+    "nome": "Revólver",
+    "livro": "base",
+    "pagina": 56,
+    "revisar": false,
+    "categoria": 1,
+    "espacos": 1,
+    "proficiencia": "simples",
+    "tipo": "fogo",
+    "empunhadura": "leve",
+    "dano": "2d6",
+    "tipoDano": "balistico",
+    "critico": {
+      "margem": 19,
+      "multiplicador": 3
+    },
+    "alcance": "curto",
+    "municao": "balas curtas",
+    "especial": [],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 56.</p>"
+  },
+  {
+    "id": "fuzil-de-caca",
+    "nome": "Fuzil de caça",
+    "livro": "base",
+    "pagina": 56,
+    "revisar": false,
+    "categoria": 1,
+    "espacos": 2,
+    "proficiencia": "simples",
+    "tipo": "fogo",
+    "empunhadura": "duas mãos",
+    "dano": "2d8",
+    "tipoDano": "balistico",
+    "critico": {
+      "margem": 19,
+      "multiplicador": 3
+    },
+    "alcance": "médio",
+    "municao": "balas longas",
+    "especial": [],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 56.</p>"
+  },
+  {
+    "id": "machadinha",
+    "nome": "Machadinha",
+    "livro": "base",
+    "pagina": 56,
+    "revisar": false,
+    "categoria": 0,
+    "espacos": 1,
+    "proficiencia": "taticas",
+    "tipo": "corpo a corpo",
+    "empunhadura": "leve",
+    "dano": "1d6",
+    "tipoDano": "corte",
+    "critico": {
+      "margem": 20,
+      "multiplicador": 3
+    },
+    "alcance": "curto",
+    "municao": null,
+    "especial": [
+      "arremessável"
+    ],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 56.</p>"
+  },
+  {
+    "id": "nunchaku",
+    "nome": "Nunchaku",
+    "livro": "base",
+    "pagina": 56,
+    "revisar": false,
+    "categoria": 0,
+    "espacos": 1,
+    "proficiencia": "taticas",
+    "tipo": "corpo a corpo",
+    "empunhadura": "leve",
+    "dano": "1d8",
+    "tipoDano": "impacto",
+    "critico": {
+      "margem": 20,
+      "multiplicador": 2
+    },
+    "alcance": "—",
+    "municao": null,
+    "especial": [
+      "ágil"
+    ],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 56.</p>"
+  },
+  {
+    "id": "corrente",
+    "nome": "Corrente",
+    "livro": "base",
+    "pagina": 56,
+    "revisar": false,
+    "categoria": 0,
+    "espacos": 1,
+    "proficiencia": "taticas",
+    "tipo": "corpo a corpo",
+    "empunhadura": "uma mão",
+    "dano": "1d8",
+    "tipoDano": "impacto",
+    "critico": {
+      "margem": 20,
+      "multiplicador": 2
+    },
+    "alcance": "—",
+    "municao": null,
+    "especial": [
+      "+2 desarmar/derrubar"
+    ],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 56.</p>"
+  },
+  {
+    "id": "espada",
+    "nome": "Espada",
+    "livro": "base",
+    "pagina": 56,
+    "revisar": false,
+    "categoria": 1,
+    "espacos": 1,
+    "proficiencia": "taticas",
+    "tipo": "corpo a corpo",
+    "empunhadura": "uma mão",
+    "dano": "1d8/1d10",
+    "tipoDano": "corte",
+    "critico": {
+      "margem": 19,
+      "multiplicador": 2
+    },
+    "alcance": "—",
+    "municao": null,
+    "especial": [
+      "versátil"
+    ],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 56.</p>"
+  },
+  {
+    "id": "florete",
+    "nome": "Florete",
+    "livro": "base",
+    "pagina": 56,
+    "revisar": false,
+    "categoria": 1,
+    "espacos": 1,
+    "proficiencia": "taticas",
+    "tipo": "corpo a corpo",
+    "empunhadura": "uma mão",
+    "dano": "1d6",
+    "tipoDano": "corte",
+    "critico": {
+      "margem": 18,
+      "multiplicador": 2
+    },
+    "alcance": "—",
+    "municao": null,
+    "especial": [
+      "ágil"
+    ],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 56.</p>"
+  },
+  {
+    "id": "machado",
+    "nome": "Machado",
+    "livro": "base",
+    "pagina": 56,
+    "revisar": false,
+    "categoria": 1,
+    "espacos": 1,
+    "proficiencia": "taticas",
+    "tipo": "corpo a corpo",
+    "empunhadura": "uma mão",
+    "dano": "1d8",
+    "tipoDano": "corte",
+    "critico": {
+      "margem": 20,
+      "multiplicador": 3
+    },
+    "alcance": "—",
+    "municao": null,
+    "especial": [],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 56.</p>"
+  },
+  {
+    "id": "maca",
+    "nome": "Maça",
+    "livro": "base",
+    "pagina": 56,
+    "revisar": false,
+    "categoria": 1,
+    "espacos": 1,
+    "proficiencia": "taticas",
+    "tipo": "corpo a corpo",
+    "empunhadura": "uma mão",
+    "dano": "2d4",
+    "tipoDano": "impacto",
+    "critico": {
+      "margem": 20,
+      "multiplicador": 2
+    },
+    "alcance": "—",
+    "municao": null,
+    "especial": [],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 56.</p>"
+  },
+  {
+    "id": "acha",
+    "nome": "Acha",
+    "livro": "base",
+    "pagina": 57,
+    "revisar": false,
+    "categoria": 1,
+    "espacos": 2,
+    "proficiencia": "taticas",
+    "tipo": "corpo a corpo",
+    "empunhadura": "duas mãos",
+    "dano": "1d12",
+    "tipoDano": "corte",
+    "critico": {
+      "margem": 20,
+      "multiplicador": 3
+    },
+    "alcance": "—",
+    "municao": null,
+    "especial": [],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 57.</p>"
+  },
+  {
+    "id": "gadanho",
+    "nome": "Gadanho",
+    "livro": "base",
+    "pagina": 57,
+    "revisar": false,
+    "categoria": 1,
+    "espacos": 2,
+    "proficiencia": "taticas",
+    "tipo": "corpo a corpo",
+    "empunhadura": "duas mãos",
+    "dano": "2d4",
+    "tipoDano": "corte",
+    "critico": {
+      "margem": 20,
+      "multiplicador": 4
+    },
+    "alcance": "—",
+    "municao": null,
+    "especial": [],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 57.</p>"
+  },
+  {
+    "id": "katana",
+    "nome": "Katana",
+    "livro": "base",
+    "pagina": 57,
+    "revisar": false,
+    "categoria": 1,
+    "espacos": 2,
+    "proficiencia": "taticas",
+    "tipo": "corpo a corpo",
+    "empunhadura": "duas mãos",
+    "dano": "1d10",
+    "tipoDano": "corte",
+    "critico": {
+      "margem": 19,
+      "multiplicador": 2
+    },
+    "alcance": "—",
+    "municao": null,
+    "especial": [
+      "ágil"
+    ],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 57.</p>"
+  },
+  {
+    "id": "marreta",
+    "nome": "Marreta",
+    "livro": "base",
+    "pagina": 57,
+    "revisar": false,
+    "categoria": 1,
+    "espacos": 2,
+    "proficiencia": "taticas",
+    "tipo": "corpo a corpo",
+    "empunhadura": "duas mãos",
+    "dano": "3d4",
+    "tipoDano": "impacto",
+    "critico": {
+      "margem": 20,
+      "multiplicador": 2
+    },
+    "alcance": "—",
+    "municao": null,
+    "especial": [],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 57.</p>"
+  },
+  {
+    "id": "montante",
+    "nome": "Montante",
+    "livro": "base",
+    "pagina": 57,
+    "revisar": false,
+    "categoria": 1,
+    "espacos": 2,
+    "proficiencia": "taticas",
+    "tipo": "corpo a corpo",
+    "empunhadura": "duas mãos",
+    "dano": "2d6",
+    "tipoDano": "corte",
+    "critico": {
+      "margem": 19,
+      "multiplicador": 2
+    },
+    "alcance": "—",
+    "municao": null,
+    "especial": [],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 57.</p>"
+  },
+  {
+    "id": "motosserra",
+    "nome": "Motosserra",
+    "livro": "base",
+    "pagina": 57,
+    "revisar": false,
+    "categoria": 1,
+    "espacos": 2,
+    "proficiencia": "taticas",
+    "tipo": "corpo a corpo",
+    "empunhadura": "duas mãos",
+    "dano": "3d6",
+    "tipoDano": "corte",
+    "critico": {
+      "margem": 20,
+      "multiplicador": 2
+    },
+    "alcance": "—",
+    "municao": null,
+    "especial": [
+      "dano explosivo (6)",
+      "–1d20 ataque"
+    ],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 57.</p>"
+  },
+  {
+    "id": "arco-composto",
+    "nome": "Arco composto",
+    "livro": "base",
+    "pagina": 57,
+    "revisar": false,
+    "categoria": 1,
+    "espacos": 2,
+    "proficiencia": "taticas",
+    "tipo": "disparo",
+    "empunhadura": "duas mãos",
+    "dano": "1d10",
+    "tipoDano": "perfuracao",
+    "critico": {
+      "margem": 20,
+      "multiplicador": 3
+    },
+    "alcance": "médio",
+    "municao": "flechas",
+    "especial": [
+      "soma Força no dano"
+    ],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 57.</p>"
+  },
+  {
+    "id": "balestra",
+    "nome": "Balestra",
+    "livro": "base",
+    "pagina": 57,
+    "revisar": false,
+    "categoria": 1,
+    "espacos": 2,
+    "proficiencia": "taticas",
+    "tipo": "disparo",
+    "empunhadura": "duas mãos",
+    "dano": "1d12",
+    "tipoDano": "perfuracao",
+    "critico": {
+      "margem": 19,
+      "multiplicador": 2
+    },
+    "alcance": "médio",
+    "municao": "flechas",
+    "especial": [
+      "recarga (movimento)"
+    ],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 57.</p>"
+  },
+  {
+    "id": "submetralhadora",
+    "nome": "Submetralhadora",
+    "livro": "base",
+    "pagina": 57,
+    "revisar": false,
+    "categoria": 1,
+    "espacos": 1,
+    "proficiencia": "taticas",
+    "tipo": "fogo",
+    "empunhadura": "uma mão",
+    "dano": "2d6",
+    "tipoDano": "balistico",
+    "critico": {
+      "margem": 19,
+      "multiplicador": 3
+    },
+    "alcance": "curto",
+    "municao": "balas curtas",
+    "especial": [
+      "automática"
+    ],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 57.</p>"
+  },
+  {
+    "id": "espingarda",
+    "nome": "Espingarda",
+    "livro": "base",
+    "pagina": 57,
+    "revisar": false,
+    "categoria": 1,
+    "espacos": 2,
+    "proficiencia": "taticas",
+    "tipo": "fogo",
+    "empunhadura": "duas mãos",
+    "dano": "4d6",
+    "tipoDano": "balistico",
+    "critico": {
+      "margem": 20,
+      "multiplicador": 3
+    },
+    "alcance": "curto",
+    "municao": "cartuchos",
+    "especial": [
+      "metade do dano em alcance médio+"
+    ],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 57.</p>"
+  },
+  {
+    "id": "fuzil-de-assalto",
+    "nome": "Fuzil de assalto",
+    "livro": "base",
+    "pagina": 57,
+    "revisar": false,
+    "categoria": 2,
+    "espacos": 2,
+    "proficiencia": "taticas",
+    "tipo": "fogo",
+    "empunhadura": "duas mãos",
+    "dano": "2d10",
+    "tipoDano": "balistico",
+    "critico": {
+      "margem": 19,
+      "multiplicador": 3
+    },
+    "alcance": "médio",
+    "municao": "balas longas",
+    "especial": [
+      "automática"
+    ],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 57.</p>"
+  },
+  {
+    "id": "fuzil-de-precisao",
+    "nome": "Fuzil de precisão",
+    "livro": "base",
+    "pagina": 57,
+    "revisar": false,
+    "categoria": 3,
+    "espacos": 2,
+    "proficiencia": "taticas",
+    "tipo": "fogo",
+    "empunhadura": "duas mãos",
+    "dano": "2d10",
+    "tipoDano": "balistico",
+    "critico": {
+      "margem": 19,
+      "multiplicador": 3
+    },
+    "alcance": "longo",
+    "municao": "balas longas",
+    "especial": [
+      "+5 margem ao mirar (veterano)"
+    ],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 57.</p>"
+  },
+  {
+    "id": "bazuca",
+    "nome": "Bazuca",
+    "livro": "base",
+    "pagina": 57,
+    "revisar": false,
+    "categoria": 3,
+    "espacos": 2,
+    "proficiencia": "pesadas",
+    "tipo": "fogo",
+    "empunhadura": "duas mãos",
+    "dano": "10d8",
+    "tipoDano": "impacto",
+    "critico": {
+      "margem": 20,
+      "multiplicador": 2
+    },
+    "alcance": "médio",
+    "municao": "foguete",
+    "especial": [
+      "área (raio 3m)",
+      "recarga (movimento)"
+    ],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 57.</p>"
+  },
+  {
+    "id": "lanca-chamas",
+    "nome": "Lança-chamas",
+    "livro": "base",
+    "pagina": 57,
+    "revisar": false,
+    "categoria": 3,
+    "espacos": 2,
+    "proficiencia": "pesadas",
+    "tipo": "fogo",
+    "empunhadura": "duas mãos",
+    "dano": "6d6",
+    "tipoDano": "fogo",
+    "critico": {
+      "margem": 20,
+      "multiplicador": 2
+    },
+    "alcance": "curto",
+    "municao": "combustível",
+    "especial": [
+      "área (linha 1,5m)",
+      "em chamas"
+    ],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 57.</p>"
+  },
+  {
+    "id": "metralhadora",
+    "nome": "Metralhadora",
+    "livro": "base",
+    "pagina": 57,
+    "revisar": false,
+    "categoria": 2,
+    "espacos": 2,
+    "proficiencia": "pesadas",
+    "tipo": "fogo",
+    "empunhadura": "duas mãos",
+    "dano": "2d12",
+    "tipoDano": "balistico",
+    "critico": {
+      "margem": 19,
+      "multiplicador": 3
+    },
+    "alcance": "médio",
+    "municao": "balas longas",
+    "especial": [
+      "automática",
+      "For 4 ou apoio"
+    ],
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 57.</p>"
+  },
+  {
+    "id": "balas-curtas",
+    "nome": "Balas curtas",
+    "livro": "base",
+    "pagina": 59,
+    "revisar": false,
+    "categoria": 0,
+    "espacos": 1,
+    "proficiencia": null,
+    "tipo": "municao",
+    "empunhadura": null,
+    "dano": null,
+    "tipoDano": null,
+    "critico": null,
+    "alcance": null,
+    "municao": null,
+    "especial": [],
+    "duracao": "2 cenas",
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 59.</p>"
+  },
+  {
+    "id": "balas-longas",
+    "nome": "Balas longas",
+    "livro": "base",
+    "pagina": 59,
+    "revisar": false,
+    "categoria": 1,
+    "espacos": 1,
+    "proficiencia": null,
+    "tipo": "municao",
+    "empunhadura": null,
+    "dano": null,
+    "tipoDano": null,
+    "critico": null,
+    "alcance": null,
+    "municao": null,
+    "especial": [],
+    "duracao": "1 cena",
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 59.</p>"
+  },
+  {
+    "id": "cartuchos",
+    "nome": "Cartuchos",
+    "livro": "base",
+    "pagina": 59,
+    "revisar": false,
+    "categoria": 1,
+    "espacos": 1,
+    "proficiencia": null,
+    "tipo": "municao",
+    "empunhadura": null,
+    "dano": null,
+    "tipoDano": null,
+    "critico": null,
+    "alcance": null,
+    "municao": null,
+    "especial": [],
+    "duracao": "1 cena",
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 59.</p>"
+  },
+  {
+    "id": "combustivel",
+    "nome": "Combustível",
+    "livro": "base",
+    "pagina": 59,
+    "revisar": false,
+    "categoria": 1,
+    "espacos": 1,
+    "proficiencia": null,
+    "tipo": "municao",
+    "empunhadura": null,
+    "dano": null,
+    "tipoDano": null,
+    "critico": null,
+    "alcance": null,
+    "municao": null,
+    "especial": [],
+    "duracao": "1 cena",
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 59.</p>"
+  },
+  {
+    "id": "flechas",
+    "nome": "Flechas",
+    "livro": "base",
+    "pagina": 59,
+    "revisar": false,
+    "categoria": 0,
+    "espacos": 1,
+    "proficiencia": null,
+    "tipo": "municao",
+    "empunhadura": null,
+    "dano": null,
+    "tipoDano": null,
+    "critico": null,
+    "alcance": null,
+    "municao": null,
+    "especial": [],
+    "duracao": "1 missão",
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 59.</p>"
+  },
+  {
+    "id": "foguete",
+    "nome": "Foguete",
+    "livro": "base",
+    "pagina": 59,
+    "revisar": false,
+    "categoria": 1,
+    "espacos": 1,
+    "proficiencia": null,
+    "tipo": "municao",
+    "empunhadura": null,
+    "dano": null,
+    "tipoDano": null,
+    "critico": null,
+    "alcance": null,
+    "municao": null,
+    "especial": [],
+    "duracao": "1 disparo",
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 59.</p>"
+  }
+]

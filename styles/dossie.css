@@ -1,0 +1,96 @@
+/* ==========================================================================
+   Dossiê — peças do sistema (usa os tokens de op-ficha.css)
+   ========================================================================== */
+
+/* identidade no cabeçalho da ficha */
+.op-ident__chip {
+	all: unset; display: block; height: 28px; line-height: 28px; padding: 0 4px;
+	font-size: .92rem; font-weight: 600; color: var(--op-ink); cursor: pointer;
+	white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+	border-bottom: 1px dashed transparent; transition: border-color .15s var(--op-ease);
+}
+.op-ident__chip:hover { border-bottom-color: var(--op-accent); }
+.op-ident__chip.is-empty { color: var(--op-ink-3); cursor: default; }
+.op-bar__temp { font-family: var(--op-font-mono); font-size: .66rem; color: #a9cbe3; }
+.op-bar__extra { display: flex; align-items: center; justify-content: space-between; gap: 6px; font-size: .7rem; color: var(--op-ink-3); }
+.op-dossie.op-agent .op-bar__extra input { width: 48px; height: 22px; text-align: center; border-color: var(--op-line); }
+.op-card.is-empty { border-style: dashed; }
+
+/* graus de treino */
+.op-degree--g5 { background: #3d3335; color: var(--op-ink); border-color: #6b5b5f; }
+.op-degree--g10 { background: #6d4d1e; color: #ffe8b8; border-color: var(--op-focus); }
+.op-degree--g15 { background: var(--op-accent); color: #fff; border-color: #e0574e; }
+
+/* ficha de item */
+.op-item .window-content { display: flex; flex-direction: column; padding: 0; min-height: 0; overflow: clip; }
+.op-ihead { display: grid; grid-template-columns: 64px 1fr; gap: var(--op-space-4); align-items: center; padding: var(--op-space-4) var(--op-space-5); border-bottom: 1px solid var(--op-line); }
+.op-ihead__img { all: unset; cursor: pointer; width: 64px; height: 64px; border: 1px solid var(--op-line); border-radius: var(--op-r-2); background: var(--op-surface); overflow: hidden; }
+.op-ihead__img img { width: 100%; height: 100%; object-fit: contain; border: 0; }
+.op-dossie .op-ihead__name { width: 100%; height: auto; padding: 0 4px; margin-left: -4px; background: transparent; border: 1px solid transparent; color: var(--op-ink); font-family: var(--op-font-head); font-size: 1.7rem; text-transform: uppercase; }
+.op-dossie .op-ihead__name:hover:not(:disabled) { border-color: var(--op-line); }
+.op-ihead__rev { margin: 4px 0 0; font-size: .78rem; color: var(--op-warn); }
+.op-ibody { flex: 1; min-height: 0; overflow-y: auto; padding: var(--op-space-4) var(--op-space-5) var(--op-space-5); }
+
+.op-fields { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--op-space-3); margin-bottom: var(--op-space-4); }
+.op-fields--inline { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); margin: var(--op-space-2) 0 0; }
+.op-fields label { display: flex; flex-direction: column; gap: 4px; font-family: var(--op-font-mono); font-size: .64rem; letter-spacing: .06em; text-transform: uppercase; color: var(--op-ink-3); }
+.op-fields label.op-wide { grid-column: 1 / -1; }
+.op-fields label.op-check { flex-direction: row; align-items: center; text-transform: none; letter-spacing: 0; font-family: var(--op-font-body); font-size: .85rem; color: var(--op-ink-2); }
+.op-dossie .op-fields input, .op-dossie .op-fields select, .op-dossie .op-fields textarea {
+	height: 30px; padding: 0 8px; border: 1px solid var(--op-line); border-radius: var(--op-r-1);
+	background: var(--op-surface); color: var(--op-ink); font-family: var(--op-font-body); font-size: .9rem; text-transform: none; letter-spacing: 0;
+}
+.op-dossie .op-fields textarea { height: auto; padding: 6px 8px; resize: vertical; }
+.op-dossie .op-fields input:focus, .op-dossie .op-fields select:focus, .op-dossie .op-fields textarea:focus { outline: none; border-color: var(--op-focus); box-shadow: none; }
+.op-forma { padding: var(--op-space-3) var(--op-space-4); border: 1px solid var(--op-line-soft); border-radius: var(--op-r-2); background: var(--op-surface); }
+.op-forma .op-fields { margin: var(--op-space-2) 0 0; }
+.op-dossie prose-mirror { display: block; min-height: 140px; border: 1px solid var(--op-line-soft); border-radius: var(--op-r-2); background: var(--op-surface); color: var(--op-ink); }
+
+/* ficha de ameaça */
+.op-threat .window-content { display: flex; flex-direction: column; padding: 0; min-height: 0; overflow: clip; }
+.op-threat__frame { display: flex; flex-direction: column; flex: 1; min-height: 0; }
+.op-threat__head { display: grid; grid-template-columns: 84px minmax(0, 1fr) 92px 32px; gap: var(--op-space-4); align-items: center; padding: var(--op-space-4) var(--op-space-5); border-bottom: 1px solid var(--op-line); background: linear-gradient(180deg, rgba(179, 38, 30, .07), transparent 70%); }
+.op-threat__scroll { flex: 1; min-height: 0; overflow-y: auto; padding: var(--op-space-4) var(--op-space-5) var(--op-space-5); }
+.op-threat .op-bars { margin: 0 0 var(--op-space-4); }
+.op-threat .op-chipstat input { width: 64px; height: 26px; text-align: center; background: transparent; border: 1px solid var(--op-line); color: var(--op-ink); }
+.op-threat .op-bar__max input { width: 3.2ch; background: transparent; border: 1px solid var(--op-line); color: var(--op-ink); font: inherit; }
+.op-threat-tests { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--op-space-2); margin: 0 0 var(--op-space-4); padding: 0; list-style: none; }
+.op-threat-tests li { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 64px; padding: 6px; border: 1px solid var(--op-line-soft); border-radius: var(--op-r-2); background: var(--op-surface); transition: border-color .15s var(--op-ease); }
+.op-threat-tests li:hover { border-color: var(--op-line); }
+.op-threat-tests button { all: unset; cursor: pointer; font-size: .8rem; color: var(--op-ink-2); }
+.op-threat-tests button:hover { text-decoration: underline; text-decoration-color: var(--op-accent); text-underline-offset: 3px; }
+.op-threat-tests strong { font-family: var(--op-font-head); font-size: 1.1rem; font-weight: 400; }
+.op-threat-tests input { width: 40px; height: 24px; text-align: center; background: transparent; border: 1px solid var(--op-line); color: var(--op-ink); }
+.op-threat-tests span { font-size: .7rem; color: var(--op-ink-3); }
+.op-threat-attrs { justify-content: flex-start; }
+.op-threat input, .op-threat select { color: var(--op-ink); }
+.op-threat .op-ident__name { background: transparent; border: 1px solid transparent; }
+
+
+.op-threat .op-stamp { width: 92px; min-width: 0; }
+.op-dossie.op-threat .op-ident__name {
+	width: 100%; height: auto; padding: 0 4px; margin-left: -4px; color: var(--op-ink);
+	font-family: var(--op-font-head); font-size: 2rem; line-height: 1.1; letter-spacing: .03em; text-transform: uppercase;
+}
+.op-threat .op-bar__nums { justify-content: flex-end; }
+.op-threat .op-bar__max { display: inline-flex; align-items: baseline; gap: 2px; }
+.op-threat .op-bar__nums { flex-wrap: nowrap; white-space: nowrap; }
+
+/* campos editáveis do modo de edição: sempre com cara de campo */
+.op-dossie.op-agent .op-attr__input, .op-dossie.op-agent .op-skill__mod, .op-dossie.op-agent .op-qty,
+.op-dossie.op-agent .op-patent__pp input, .op-dossie.op-agent .op-bar__extra input,
+.op-dossie.op-agent .op-skill__freename, .op-dossie.op-threat .op-threat-tests input, .op-dossie.op-threat .op-attr__input {
+	border: 1px solid var(--op-line); background: var(--op-surface);
+}
+.op-dossie.op-agent .op-attr__input:focus, .op-dossie.op-agent .op-skill__mod:focus { border-color: var(--op-focus); }
+/* PV da ameaça com o mesmo número grande da ficha de agente */
+.op-dossie.op-threat .op-bar__nums input { width: 3.2ch; height: auto; padding: 0; border-color: transparent; background: transparent; text-align: right; font-family: var(--op-font-head); font-size: 1.5rem; line-height: 1; }
+.op-dossie.op-threat .op-bar__nums { justify-content: flex-start; gap: 4px; }
+
+/* cores por elemento (chaves do Dossiê) */
+.op-el--sangue { --el: var(--op-el-sangue); }
+.op-el--morte { --el: var(--op-el-morte); }
+.op-el--conhecimento { --el: var(--op-el-conhecimento); }
+.op-el--energia { --el: var(--op-el-energia); }
+.op-el--medo { --el: var(--op-el-medo); }
+.op-cast__el[class*="op-el--"] { border-color: var(--el); color: var(--op-ink); background: color-mix(in srgb, var(--el) 18%, transparent); }

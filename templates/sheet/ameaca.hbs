@@ -1,0 +1,107 @@
+<div class="op-threat__frame">
+	<header class="op-threat__head">
+		<button type="button" class="op-portrait" data-action="trocarImagem" aria-label="Trocar imagem" {{disabled (not editable)}}><img src="{{actor.img}}" alt=""></button>
+		<div class="op-ident">
+			<p class="op-eyebrow">{{#if (eq system.tipo "pessoa")}}Pessoa{{else}}Criatura{{/if}}{{#if elemento}} · {{elemento}}{{/if}}</p>
+			<input class="op-ident__name" name="name" type="text" value="{{actor.name}}" aria-label="Nome" {{disabled (not editable)}}>
+			{{#if edit}}
+			<div class="op-fields op-fields--inline">
+				<label>Tipo<select name="system.tipo"><option value="criatura" {{#if (eq system.tipo "criatura")}}selected{{/if}}>Criatura</option><option value="pessoa" {{#if (eq system.tipo "pessoa")}}selected{{/if}}>Pessoa</option></select></label>
+				<label>Elemento<select name="system.elemento">{{selectOptions elementos selected=system.elemento valueAttr="value" labelAttr="label"}}</select></label>
+			</div>
+			{{/if}}
+		</div>
+		<div class="op-stamp"><span class="op-stamp__label">VD</span><span class="op-stamp__value"><input type="number" name="system.vd" value="{{system.vd}}" aria-label="VD" {{disabled (not editable)}}></span></div>
+		{{#if editable}}<button type="button" class="op-icon-btn {{#if edit}}is-on{{/if}}" data-action="edicao" aria-label="Modo de edição" data-tooltip="Modo de edição"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i></button>{{/if}}
+	</header>
+
+	<div class="op-threat__scroll">
+		<div class="op-bars">
+			<div class="op-bar op-bar--pv {{#if machucado}}is-low{{/if}}">
+				<div class="op-bar__head">
+					<span class="op-bar__label">Vida <abbr>PV</abbr>{{#if machucado}} · machucado{{/if}}</span>
+					<span class="op-bar__nums"><input type="number" name="system.pv.valor" value="{{system.pv.valor}}" aria-label="PV atual"><span class="op-bar__max">/ {{#if edit}}<input type="number" name="system.pv.max" value="{{system.pv.max}}" aria-label="PV máximo">{{else}}{{system.pv.max}}{{/if}}</span></span>
+				</div>
+				<div class="op-bar__track" aria-hidden="true"><span style="width: {{pvPct}}%"></span></div>
+				{{#if editable}}<div class="op-bar__btns"><button type="button" data-action="pv" data-step="-1" aria-label="Diminuir PV">−</button><button type="button" data-action="pv" data-step="1" aria-label="Aumentar PV">+</button></div>{{/if}}
+			</div>
+			<div class="op-chipstat"><span>Defesa</span>{{#if edit}}<input type="number" name="system.defesa" value="{{system.defesa}}">{{else}}<strong>{{system.defesa}}</strong>{{/if}}</div>
+			<div class="op-chipstat"><span>Deslocamento</span>{{#if edit}}<input type="text" name="system.deslocamento" value="{{system.deslocamento}}">{{else}}<strong>{{system.deslocamento}}</strong>{{/if}}</div>
+		</div>
+
+		<section class="op-section">
+			<header class="op-section__head"><h2>Testes</h2></header>
+			<ul class="op-threat-tests">
+				{{#each testes}}
+				<li data-key="{{key}}">
+					<button type="button" data-action="rolarTeste">{{label}}</button>
+					{{#if ../edit}}<input type="number" name="system.{{key}}.dados" value="{{dados}}" aria-label="Dados"><span>d20 +</span><input type="number" name="system.{{key}}.bonus" value="{{bonus}}" aria-label="Bônus">
+					{{else}}<strong>{{fmt}}</strong>{{/if}}
+				</li>
+				{{/each}}
+			</ul>
+			<ul class="op-attrs__list op-threat-attrs">
+				{{#each attrs}}
+				<li class="op-attr" data-key="{{key}}">
+					<button type="button" class="op-attr__roll" data-action="rolarAtributo" data-tooltip="Rolar {{nome}}"><span class="op-attr__abv">{{abv}}</span>{{#unless ../edit}}<span class="op-attr__value">{{value}}</span>{{/unless}}</button>
+					{{#if ../edit}}<input class="op-attr__input" type="number" name="system.atributos.{{key}}.valor" value="{{value}}" aria-label="{{nome}}">{{/if}}
+				</li>
+				{{/each}}
+			</ul>
+		</section>
+
+		<section class="op-section">
+			<header class="op-section__head"><h2>Resistências</h2></header>
+			{{#if resistencias.length}}
+			<ul class="op-resist">
+				{{#each resistencias}}<li class="op-resist__item {{#if value}}has-value{{/if}}"><label>{{label}}</label><input type="number" min="0" name="system.resistencias.{{key}}" value="{{value}}" {{disabled (not ../edit)}}></li>{{/each}}
+			</ul>
+			{{else}}<p class="op-empty">Nenhuma. Use o modo de edição para adicionar.</p>{{/if}}
+		</section>
+
+		<section class="op-section">
+			<header class="op-section__head"><h2>Ataques</h2>{{#if editable}}<button type="button" class="op-add" data-action="criar" data-type="arma"><i class="fa-solid fa-plus" aria-hidden="true"></i> Ataque</button>{{/if}}</header>
+			<ol class="op-list op-list--protection">
+				{{#each ataques}}
+				{{#> opItemRow this edit=../edit}}<span class="op-cell">{{attack}}</span><span class="op-cell op-cell--strong">{{damage}}</span>{{/opItemRow}}
+				{{else}}<li class="op-empty">Nenhum ataque.</li>{{/each}}
+			</ol>
+		</section>
+
+		{{#if rituais.length}}
+		<section class="op-section">
+			<header class="op-section__head"><h2>Rituais</h2></header>
+			<ol class="op-list op-list--protection">
+				{{#each rituais}}{{#> opItemRow this edit=../edit rollAction="conjurar"}}<span class="op-cell"></span>{{/opItemRow}}{{/each}}
+			</ol>
+		</section>
+		{{/if}}
+
+		<section class="op-section">
+			<header class="op-section__head"><h2>Habilidades</h2>{{#if editable}}<button type="button" class="op-add" data-action="criar" data-type="poder"><i class="fa-solid fa-plus" aria-hidden="true"></i> Habilidade</button>{{/if}}</header>
+			<ol class="op-list op-list--protection">
+				{{#each habilidades}}{{#> opItemRow this edit=../edit}}<span class="op-cell"></span>{{/opItemRow}}{{else}}<li class="op-empty">Nenhuma.</li>{{/each}}
+			</ol>
+		</section>
+
+		<section class="op-section">
+			<header class="op-section__head"><h2>Presença perturbadora</h2></header>
+			<div class="op-fields op-fields--inline">
+				<label>DT<input type="number" name="system.presencaPerturbadora.dt" value="{{system.presencaPerturbadora.dt}}" {{disabled (not editable)}}></label>
+				<label>Dano mental<input type="text" name="system.presencaPerturbadora.dano" value="{{system.presencaPerturbadora.dano}}" {{disabled (not editable)}}></label>
+				<label>NEX imune<input type="number" name="system.presencaPerturbadora.nexImune" value="{{system.presencaPerturbadora.nexImune}}" {{disabled (not editable)}}></label>
+			</div>
+		</section>
+
+		<section class="op-section">
+			<header class="op-section__head"><h2>Descrição</h2></header>
+			{{#if editable}}<prose-mirror name="system.descricao" data-document-uuid="{{actor.uuid}}" value="{{system.descricao}}" collaborate="true" toggled="true">{{{descricaoHTML}}}</prose-mirror>
+			{{else}}<div class="op-prose">{{{descricaoHTML}}}</div>{{/if}}
+		</section>
+		<section class="op-section">
+			<header class="op-section__head"><h2>Enigma de Medo</h2></header>
+			{{#if editable}}<prose-mirror name="system.enigma" data-document-uuid="{{actor.uuid}}" value="{{system.enigma}}" collaborate="true" toggled="true">{{{enigmaHTML}}}</prose-mirror>
+			{{else}}<div class="op-prose">{{{enigmaHTML}}}</div>{{/if}}
+		</section>
+	</div>
+</div>

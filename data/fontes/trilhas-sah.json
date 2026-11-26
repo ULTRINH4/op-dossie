@@ -1,0 +1,403 @@
+[
+  {
+    "id": "agente-secreto",
+    "nome": "Agente Secreto",
+    "classe": "combatente",
+    "livro": "sah",
+    "pagina": 15,
+    "revisar": false,
+    "requisitos": null,
+    "habilidades": [
+      {
+        "nex": 10,
+        "nome": "Carteirada",
+        "custo": null,
+        "texto": "<p>Carteirada: veja <em>Sobrevivendo ao Horror</em>, p. 15.</p>"
+      },
+      {
+        "nex": 40,
+        "nome": "O Sorriso",
+        "custo": "2 PE",
+        "texto": "<p>O Sorriso: veja <em>Sobrevivendo ao Horror</em>, p. 15.</p>"
+      },
+      {
+        "nex": 65,
+        "nome": "Método Investigativo",
+        "custo": "2 PE (+2 por uso extra na cena)",
+        "texto": "<p>Método Investigativo: veja <em>Sobrevivendo ao Horror</em>, p. 15.</p>"
+      },
+      {
+        "nex": 99,
+        "nome": "Multifacetado",
+        "custo": "5 SAN",
+        "texto": "<p>Multifacetado: veja <em>Sobrevivendo ao Horror</em>, p. 15.</p>"
+      }
+    ]
+  },
+  {
+    "id": "cacador",
+    "nome": "Caçador",
+    "classe": "combatente",
+    "livro": "sah",
+    "pagina": 16,
+    "revisar": false,
+    "requisitos": null,
+    "habilidades": [
+      {
+        "nex": 10,
+        "nome": "Rastrear o Paranormal",
+        "custo": null,
+        "texto": "<p>Rastrear o Paranormal: veja <em>Sobrevivendo ao Horror</em>, p. 16.</p>"
+      },
+      {
+        "nex": 40,
+        "nome": "Estudar Fraquezas",
+        "custo": null,
+        "texto": "<p>Estudar Fraquezas: veja <em>Sobrevivendo ao Horror</em>, p. 16.</p>"
+      },
+      {
+        "nex": 65,
+        "nome": "Atacar das Sombras",
+        "custo": null,
+        "texto": "<p>Atacar das Sombras: veja <em>Sobrevivendo ao Horror</em>, p. 16.</p>"
+      },
+      {
+        "nex": 99,
+        "nome": "Estudar a Presa",
+        "custo": null,
+        "texto": "<p>Estudar a Presa: veja <em>Sobrevivendo ao Horror</em>, p. 16.</p>"
+      }
+    ]
+  },
+  {
+    "id": "monstruoso",
+    "nome": "Monstruoso",
+    "classe": "combatente",
+    "livro": "sah",
+    "pagina": 17,
+    "revisar": false,
+    "requisitos": null,
+    "especial": "<p>veja <em>Sobrevivendo ao Horror</em>, p. 17.</p>",
+    "habilidades": [
+      {
+        "nex": 10,
+        "nome": "Ser Amaldiçoado",
+        "custo": null,
+        "texto": "<p>Ser Amaldiçoado: veja <em>Sobrevivendo ao Horror</em>, p. 17.</p>",
+        "elementos": [
+          "sangue",
+          "morte",
+          "conhecimento",
+          "energia"
+        ],
+        "rd": 5,
+        "penalidade": "-1 dado"
+      },
+      {
+        "nex": 40,
+        "nome": "Ser Macabro",
+        "custo": "variável",
+        "texto": "<p>Ser Macabro: veja <em>Sobrevivendo ao Horror</em>, p. 17.</p>",
+        "rd": 10,
+        "penalidade": "-2 dados"
+      },
+      {
+        "nex": 65,
+        "nome": "Ser Assustador",
+        "custo": "variável",
+        "texto": "<p>Ser Assustador: veja <em>Sobrevivendo ao Horror</em>, p. 17.</p>",
+        "rd": 15
+      },
+      {
+        "nex": 99,
+        "nome": "Ser Aterrorizante",
+        "custo": null,
+        "texto": "<p>Ser Aterrorizante: veja <em>Sobrevivendo ao Horror</em>, p. 17.</p>",
+        "rd": 20
+      }
+    ]
+  },
+  {
+    "id": "bibliotecario",
+    "nome": "Bibliotecário",
+    "classe": "especialista",
+    "livro": "sah",
+    "pagina": 23,
+    "revisar": false,
+    "requisitos": null,
+    "habilidades": [
+      {
+        "nex": 10,
+        "nome": "Conhecimento Prático",
+        "custo": "2 PE",
+        "texto": "<p>Conhecimento Prático: veja <em>Sobrevivendo ao Horror</em>, p. 23.</p>"
+      },
+      {
+        "nex": 40,
+        "nome": "Leitor Contumaz",
+        "custo": "2 PE",
+        "texto": "<p>Leitor Contumaz: veja <em>Sobrevivendo ao Horror</em>, p. 23.</p>"
+      },
+      {
+        "nex": 65,
+        "nome": "Rato de Biblioteca",
+        "custo": null,
+        "texto": "<p>Rato de Biblioteca: veja <em>Sobrevivendo ao Horror</em>, p. 23.</p>"
+      },
+      {
+        "nex": 99,
+        "nome": "A Força do Saber",
+        "custo": null,
+        "texto": "<p>A Força do Saber: veja <em>Sobrevivendo ao Horror</em>, p. 23.</p>"
+      }
+    ]
+  },
+  {
+    "id": "perseverante",
+    "nome": "Perseverante",
+    "classe": "especialista",
+    "livro": "sah",
+    "pagina": 24,
+    "revisar": false,
+    "requisitos": null,
+    "habilidades": [
+      {
+        "nex": 10,
+        "nome": "Soluções Improvisadas",
+        "custo": "2 PE",
+        "texto": "<p>Soluções Improvisadas: veja <em>Sobrevivendo ao Horror</em>, p. 24.</p>"
+      },
+      {
+        "nex": 40,
+        "nome": "Fuga Obstinada",
+        "custo": null,
+        "texto": "<p>Fuga Obstinada: veja <em>Sobrevivendo ao Horror</em>, p. 24.</p>"
+      },
+      {
+        "nex": 65,
+        "nome": "Determinação Inquestionável",
+        "custo": "5 PE",
+        "texto": "<p>Determinação Inquestionável: veja <em>Sobrevivendo ao Horror</em>, p. 24.</p>"
+      },
+      {
+        "nex": 99,
+        "nome": "Só Mais um Passo...",
+        "custo": "5 PE",
+        "texto": "<p>Só Mais um Passo...: veja <em>Sobrevivendo ao Horror</em>, p. 24.</p>"
+      }
+    ]
+  },
+  {
+    "id": "muambeiro",
+    "nome": "Muambeiro",
+    "classe": "especialista",
+    "livro": "sah",
+    "pagina": 25,
+    "revisar": false,
+    "requisitos": null,
+    "habilidades": [
+      {
+        "nex": 10,
+        "nome": "Mascate",
+        "custo": null,
+        "texto": "<p>Mascate: veja <em>Sobrevivendo ao Horror</em>, p. 25.</p>"
+      },
+      {
+        "nex": 40,
+        "nome": "Fabricação Própria",
+        "custo": null,
+        "texto": "<p>Fabricação Própria: veja <em>Sobrevivendo ao Horror</em>, p. 25.</p>"
+      },
+      {
+        "nex": 65,
+        "nome": "Laboratório de Campo",
+        "custo": null,
+        "texto": "<p>Laboratório de Campo: veja <em>Sobrevivendo ao Horror</em>, p. 25.</p>"
+      },
+      {
+        "nex": 99,
+        "nome": "Achado Conveniente",
+        "custo": "5 PE",
+        "texto": "<p>Achado Conveniente: veja <em>Sobrevivendo ao Horror</em>, p. 25.</p>"
+      }
+    ]
+  },
+  {
+    "id": "exorcista",
+    "nome": "Exorcista",
+    "classe": "ocultista",
+    "livro": "sah",
+    "pagina": 27,
+    "revisar": false,
+    "requisitos": null,
+    "habilidades": [
+      {
+        "nex": 10,
+        "nome": "Revelação do Mal",
+        "custo": null,
+        "texto": "<p>Revelação do Mal: veja <em>Sobrevivendo ao Horror</em>, p. 27.</p>"
+      },
+      {
+        "nex": 40,
+        "nome": "Poder da Fé",
+        "custo": "2 PE",
+        "texto": "<p>Poder da Fé: veja <em>Sobrevivendo ao Horror</em>, p. 27.</p>"
+      },
+      {
+        "nex": 65,
+        "nome": "Parareligiosidade",
+        "custo": "+2 PE",
+        "texto": "<p>Parareligiosidade: veja <em>Sobrevivendo ao Horror</em>, p. 27.</p>"
+      },
+      {
+        "nex": 99,
+        "nome": "Chagas da Resistência",
+        "custo": "10 PV",
+        "texto": "<p>Chagas da Resistência: veja <em>Sobrevivendo ao Horror</em>, p. 27.</p>"
+      }
+    ]
+  },
+  {
+    "id": "possuido",
+    "nome": "Possuído",
+    "classe": "ocultista",
+    "livro": "sah",
+    "pagina": 28,
+    "revisar": false,
+    "requisitos": null,
+    "recurso": {
+      "nome": "Pontos de possessão (PP)",
+      "max": "3 + 2 por poder Transcender"
+    },
+    "habilidades": [
+      {
+        "nex": 10,
+        "nome": "Poder Não Desejado",
+        "custo": null,
+        "texto": "<p>Poder Não Desejado: veja <em>Sobrevivendo ao Horror</em>, p. 28.</p>"
+      },
+      {
+        "nex": 40,
+        "nome": "As Sombras Dentro de Mim",
+        "custo": "2 PE",
+        "texto": "<p>As Sombras Dentro de Mim: veja <em>Sobrevivendo ao Horror</em>, p. 28.</p>"
+      },
+      {
+        "nex": 65,
+        "nome": "Ele Me Ensina",
+        "custo": null,
+        "texto": "<p>Ele Me Ensina: veja <em>Sobrevivendo ao Horror</em>, p. 28.</p>"
+      },
+      {
+        "nex": 99,
+        "nome": "Tornamo-nos Um",
+        "custo": "6 PE",
+        "texto": "<p>Tornamo-nos Um: veja <em>Sobrevivendo ao Horror</em>, p. 28.</p>"
+      }
+    ]
+  },
+  {
+    "id": "parapsicologo",
+    "nome": "Parapsicólogo",
+    "classe": "ocultista",
+    "livro": "sah",
+    "pagina": 29,
+    "revisar": false,
+    "requisitos": "Treinado em Profissão (psicólogo)",
+    "habilidades": [
+      {
+        "nex": 10,
+        "nome": "Terapia",
+        "custo": "2 PE",
+        "texto": "<p>Terapia: veja <em>Sobrevivendo ao Horror</em>, p. 29.</p>"
+      },
+      {
+        "nex": 40,
+        "nome": "Palavras-chave",
+        "custo": "1 PE por SAN",
+        "texto": "<p>Palavras-chave: veja <em>Sobrevivendo ao Horror</em>, p. 29.</p>"
+      },
+      {
+        "nex": 65,
+        "nome": "Reprogramação Mental",
+        "custo": "5 PE",
+        "texto": "<p>Reprogramação Mental: veja <em>Sobrevivendo ao Horror</em>, p. 29.</p>"
+      },
+      {
+        "nex": 99,
+        "nome": "A Sanidade Está Lá Fora",
+        "custo": "5 PE",
+        "texto": "<p>A Sanidade Está Lá Fora: veja <em>Sobrevivendo ao Horror</em>, p. 29.</p>"
+      }
+    ]
+  },
+  {
+    "id": "durao",
+    "nome": "Durão",
+    "classe": "sobrevivente",
+    "livro": "sah",
+    "pagina": 31,
+    "revisar": false,
+    "requisitos": null,
+    "habilidades": [
+      {
+        "estagio": 2,
+        "nome": "Durão",
+        "custo": null,
+        "texto": "<p>Durão: veja <em>Sobrevivendo ao Horror</em>, p. 31.</p>"
+      },
+      {
+        "estagio": 4,
+        "nome": "Pancada Forte",
+        "custo": "1 PE",
+        "texto": "<p>Pancada Forte: veja <em>Sobrevivendo ao Horror</em>, p. 31.</p>"
+      }
+    ]
+  },
+  {
+    "id": "esperto",
+    "nome": "Esperto",
+    "classe": "sobrevivente",
+    "livro": "sah",
+    "pagina": 32,
+    "revisar": false,
+    "requisitos": null,
+    "habilidades": [
+      {
+        "estagio": 2,
+        "nome": "Esperto",
+        "custo": null,
+        "texto": "<p>Esperto: veja <em>Sobrevivendo ao Horror</em>, p. 32.</p>"
+      },
+      {
+        "estagio": 4,
+        "nome": "Entendido",
+        "custo": "1 PE",
+        "texto": "<p>Entendido: veja <em>Sobrevivendo ao Horror</em>, p. 32.</p>"
+      }
+    ]
+  },
+  {
+    "id": "esoterico",
+    "nome": "Esotérico",
+    "classe": "sobrevivente",
+    "livro": "sah",
+    "pagina": 32,
+    "revisar": false,
+    "requisitos": null,
+    "habilidades": [
+      {
+        "estagio": 2,
+        "nome": "Esotérico",
+        "custo": "1 PE",
+        "texto": "<p>Esotérico: veja <em>Sobrevivendo ao Horror</em>, p. 32.</p>"
+      },
+      {
+        "estagio": 4,
+        "nome": "Iniciado",
+        "custo": null,
+        "texto": "<p>Iniciado: veja <em>Sobrevivendo ao Horror</em>, p. 32.</p>"
+      }
+    ]
+  }
+]

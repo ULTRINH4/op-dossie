@@ -1,0 +1,721 @@
+[
+  {
+    "id": "combatente",
+    "nome": "Combatente",
+    "livro": "base",
+    "pagina": 24,
+    "revisar": false,
+    "pv": {
+      "inicial": "20+VIG",
+      "porNivel": "4+VIG"
+    },
+    "pe": {
+      "inicial": "2+PRE",
+      "porNivel": "2+PRE"
+    },
+    "san": {
+      "inicial": 12,
+      "porNivel": 3
+    },
+    "pd": {
+      "inicial": "6+PRE",
+      "porNivel": "3+PRE"
+    },
+    "periciasFixas": [
+      "Luta|Pontaria",
+      "Fortitude|Reflexos"
+    ],
+    "periciasLivres": "1+INT",
+    "proficiencias": [
+      "armas simples",
+      "armas táticas",
+      "proteções leves"
+    ],
+    "progressao": [
+      {
+        "nex": 5,
+        "ganhos": [
+          "Ataque Especial (2 PE, +5)"
+        ]
+      },
+      {
+        "nex": 10,
+        "ganhos": [
+          "Habilidade de trilha"
+        ]
+      },
+      {
+        "nex": 15,
+        "ganhos": [
+          "Poder de combatente"
+        ]
+      },
+      {
+        "nex": 20,
+        "ganhos": [
+          "Aumento de atributo"
+        ]
+      },
+      {
+        "nex": 25,
+        "ganhos": [
+          "Ataque Especial (3 PE, +10)"
+        ]
+      },
+      {
+        "nex": 30,
+        "ganhos": [
+          "Poder de combatente"
+        ]
+      },
+      {
+        "nex": 35,
+        "ganhos": [
+          "Grau de treinamento"
+        ]
+      },
+      {
+        "nex": 40,
+        "ganhos": [
+          "Habilidade de trilha"
+        ]
+      },
+      {
+        "nex": 45,
+        "ganhos": [
+          "Poder de combatente"
+        ]
+      },
+      {
+        "nex": 50,
+        "ganhos": [
+          "Aumento de atributo",
+          "Versatilidade"
+        ]
+      },
+      {
+        "nex": 55,
+        "ganhos": [
+          "Ataque Especial (4 PE, +15)"
+        ]
+      },
+      {
+        "nex": 60,
+        "ganhos": [
+          "Poder de combatente"
+        ]
+      },
+      {
+        "nex": 65,
+        "ganhos": [
+          "Habilidade de trilha"
+        ]
+      },
+      {
+        "nex": 70,
+        "ganhos": [
+          "Grau de treinamento"
+        ]
+      },
+      {
+        "nex": 75,
+        "ganhos": [
+          "Poder de combatente"
+        ]
+      },
+      {
+        "nex": 80,
+        "ganhos": [
+          "Aumento de atributo"
+        ]
+      },
+      {
+        "nex": 85,
+        "ganhos": [
+          "Ataque Especial (5 PE, +20)"
+        ]
+      },
+      {
+        "nex": 90,
+        "ganhos": [
+          "Poder de combatente"
+        ]
+      },
+      {
+        "nex": 95,
+        "ganhos": [
+          "Aumento de atributo"
+        ]
+      },
+      {
+        "nex": 99,
+        "ganhos": [
+          "Habilidade de trilha"
+        ]
+      }
+    ],
+    "habilidades": [
+      {
+        "nome": "Ataque Especial",
+        "nex": 5,
+        "texto": "<p>Ataque Especial: veja <em>Livro de Regras</em>, p. 24.</p>"
+      },
+      {
+        "nome": "Habilidade de Trilha",
+        "nex": 10,
+        "texto": "<p>Habilidade de Trilha: veja <em>Livro de Regras</em>, p. 24.</p>"
+      },
+      {
+        "nome": "Poder de Combatente",
+        "nex": 15,
+        "texto": "<p>Poder de Combatente: veja <em>Livro de Regras</em>, p. 24.</p>"
+      },
+      {
+        "nome": "Aumento de Atributo",
+        "nex": 20,
+        "texto": "<p>Aumento de Atributo: veja <em>Livro de Regras</em>, p. 24.</p>"
+      },
+      {
+        "nome": "Grau de Treinamento",
+        "nex": 35,
+        "texto": "<p>Grau de Treinamento: veja <em>Livro de Regras</em>, p. 24.</p>"
+      },
+      {
+        "nome": "Versatilidade",
+        "nex": 50,
+        "texto": "<p>Versatilidade: veja <em>Livro de Regras</em>, p. 24.</p>"
+      }
+    ],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 24.</p>",
+    "chave": "combatente"
+  },
+  {
+    "id": "especialista",
+    "nome": "Especialista",
+    "livro": "base",
+    "pagina": 28,
+    "revisar": false,
+    "pv": {
+      "inicial": "16+VIG",
+      "porNivel": "3+VIG"
+    },
+    "pe": {
+      "inicial": "3+PRE",
+      "porNivel": "3+PRE"
+    },
+    "san": {
+      "inicial": 16,
+      "porNivel": 4
+    },
+    "pd": {
+      "inicial": "8+PRE",
+      "porNivel": "4+PRE"
+    },
+    "periciasFixas": [],
+    "periciasLivres": "7+INT",
+    "proficiencias": [
+      "armas simples",
+      "proteções leves"
+    ],
+    "progressao": [
+      {
+        "nex": 5,
+        "ganhos": [
+          "Eclético",
+          "Perito (2 PE, +1d6)"
+        ]
+      },
+      {
+        "nex": 10,
+        "ganhos": [
+          "Habilidade de trilha"
+        ]
+      },
+      {
+        "nex": 15,
+        "ganhos": [
+          "Poder de especialista"
+        ]
+      },
+      {
+        "nex": 20,
+        "ganhos": [
+          "Aumento de atributo"
+        ]
+      },
+      {
+        "nex": 25,
+        "ganhos": [
+          "Perito (3 PE, +1d8)"
+        ]
+      },
+      {
+        "nex": 30,
+        "ganhos": [
+          "Poder de especialista"
+        ]
+      },
+      {
+        "nex": 35,
+        "ganhos": [
+          "Grau de treinamento"
+        ]
+      },
+      {
+        "nex": 40,
+        "ganhos": [
+          "Engenhosidade (veterano)",
+          "Habilidade de trilha"
+        ]
+      },
+      {
+        "nex": 45,
+        "ganhos": [
+          "Poder de especialista"
+        ]
+      },
+      {
+        "nex": 50,
+        "ganhos": [
+          "Aumento de atributo",
+          "Versatilidade"
+        ]
+      },
+      {
+        "nex": 55,
+        "ganhos": [
+          "Perito (4 PE, +1d10)"
+        ]
+      },
+      {
+        "nex": 60,
+        "ganhos": [
+          "Poder de especialista"
+        ]
+      },
+      {
+        "nex": 65,
+        "ganhos": [
+          "Habilidade de trilha"
+        ]
+      },
+      {
+        "nex": 70,
+        "ganhos": [
+          "Grau de treinamento"
+        ]
+      },
+      {
+        "nex": 75,
+        "ganhos": [
+          "Engenhosidade (expert)",
+          "Poder de especialista"
+        ]
+      },
+      {
+        "nex": 80,
+        "ganhos": [
+          "Aumento de atributo"
+        ]
+      },
+      {
+        "nex": 85,
+        "ganhos": [
+          "Perito (5 PE, +1d12)"
+        ]
+      },
+      {
+        "nex": 90,
+        "ganhos": [
+          "Poder de especialista"
+        ]
+      },
+      {
+        "nex": 95,
+        "ganhos": [
+          "Aumento de atributo"
+        ]
+      },
+      {
+        "nex": 99,
+        "ganhos": [
+          "Habilidade de trilha"
+        ]
+      }
+    ],
+    "habilidades": [
+      {
+        "nome": "Eclético",
+        "nex": 5,
+        "texto": "<p>Eclético: veja <em>Livro de Regras</em>, p. 28.</p>"
+      },
+      {
+        "nome": "Perito",
+        "nex": 5,
+        "texto": "<p>Perito: veja <em>Livro de Regras</em>, p. 28.</p>"
+      },
+      {
+        "nome": "Habilidade de Trilha",
+        "nex": 10,
+        "texto": "<p>Habilidade de Trilha: veja <em>Livro de Regras</em>, p. 28.</p>"
+      },
+      {
+        "nome": "Poder de Especialista",
+        "nex": 15,
+        "texto": "<p>Poder de Especialista: veja <em>Livro de Regras</em>, p. 28.</p>"
+      },
+      {
+        "nome": "Aumento de Atributo",
+        "nex": 20,
+        "texto": "<p>Aumento de Atributo: veja <em>Livro de Regras</em>, p. 28.</p>"
+      },
+      {
+        "nome": "Grau de Treinamento",
+        "nex": 35,
+        "texto": "<p>Grau de Treinamento: veja <em>Livro de Regras</em>, p. 28.</p>"
+      },
+      {
+        "nome": "Engenhosidade",
+        "nex": 40,
+        "texto": "<p>Engenhosidade: veja <em>Livro de Regras</em>, p. 28.</p>"
+      },
+      {
+        "nome": "Versatilidade",
+        "nex": 50,
+        "texto": "<p>Versatilidade: veja <em>Livro de Regras</em>, p. 28.</p>"
+      }
+    ],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 28.</p>",
+    "chave": "especialista"
+  },
+  {
+    "id": "ocultista",
+    "nome": "Ocultista",
+    "livro": "base",
+    "pagina": 32,
+    "revisar": false,
+    "pv": {
+      "inicial": "12+VIG",
+      "porNivel": "2+VIG"
+    },
+    "pe": {
+      "inicial": "4+PRE",
+      "porNivel": "4+PRE"
+    },
+    "san": {
+      "inicial": 20,
+      "porNivel": 5
+    },
+    "pd": {
+      "inicial": "10+PRE",
+      "porNivel": "5+PRE"
+    },
+    "periciasFixas": [
+      "Ocultismo",
+      "Vontade"
+    ],
+    "periciasLivres": "3+INT",
+    "proficiencias": [
+      "armas simples"
+    ],
+    "progressao": [
+      {
+        "nex": 5,
+        "ganhos": [
+          "Escolhido pelo Outro Lado (1º círculo)"
+        ]
+      },
+      {
+        "nex": 10,
+        "ganhos": [
+          "Habilidade de trilha"
+        ]
+      },
+      {
+        "nex": 15,
+        "ganhos": [
+          "Poder de ocultista"
+        ]
+      },
+      {
+        "nex": 20,
+        "ganhos": [
+          "Aumento de atributo"
+        ]
+      },
+      {
+        "nex": 25,
+        "ganhos": [
+          "Escolhido pelo Outro Lado (2º círculo)"
+        ]
+      },
+      {
+        "nex": 30,
+        "ganhos": [
+          "Poder de ocultista"
+        ]
+      },
+      {
+        "nex": 35,
+        "ganhos": [
+          "Grau de treinamento"
+        ]
+      },
+      {
+        "nex": 40,
+        "ganhos": [
+          "Habilidade de trilha"
+        ]
+      },
+      {
+        "nex": 45,
+        "ganhos": [
+          "Poder de ocultista"
+        ]
+      },
+      {
+        "nex": 50,
+        "ganhos": [
+          "Aumento de atributo",
+          "Versatilidade"
+        ]
+      },
+      {
+        "nex": 55,
+        "ganhos": [
+          "Escolhido pelo Outro Lado (3º círculo)"
+        ]
+      },
+      {
+        "nex": 60,
+        "ganhos": [
+          "Poder de ocultista"
+        ]
+      },
+      {
+        "nex": 65,
+        "ganhos": [
+          "Habilidade de trilha"
+        ]
+      },
+      {
+        "nex": 70,
+        "ganhos": [
+          "Grau de treinamento"
+        ]
+      },
+      {
+        "nex": 75,
+        "ganhos": [
+          "Poder de ocultista"
+        ]
+      },
+      {
+        "nex": 80,
+        "ganhos": [
+          "Aumento de atributo"
+        ]
+      },
+      {
+        "nex": 85,
+        "ganhos": [
+          "Escolhido pelo Outro Lado (4º círculo)"
+        ]
+      },
+      {
+        "nex": 90,
+        "ganhos": [
+          "Poder de ocultista"
+        ]
+      },
+      {
+        "nex": 95,
+        "ganhos": [
+          "Aumento de atributo"
+        ]
+      },
+      {
+        "nex": 99,
+        "ganhos": [
+          "Habilidade de trilha"
+        ]
+      }
+    ],
+    "habilidades": [
+      {
+        "nome": "Escolhido pelo Outro Lado",
+        "nex": 5,
+        "texto": "<p>Escolhido pelo Outro Lado: veja <em>Livro de Regras</em>, p. 32.</p>"
+      },
+      {
+        "nome": "Habilidade de Trilha",
+        "nex": 10,
+        "texto": "<p>Habilidade de Trilha: veja <em>Livro de Regras</em>, p. 32.</p>"
+      },
+      {
+        "nome": "Poder de Ocultista",
+        "nex": 15,
+        "texto": "<p>Poder de Ocultista: veja <em>Livro de Regras</em>, p. 32.</p>"
+      },
+      {
+        "nome": "Aumento de Atributo",
+        "nex": 20,
+        "texto": "<p>Aumento de Atributo: veja <em>Livro de Regras</em>, p. 32.</p>"
+      },
+      {
+        "nome": "Grau de Treinamento",
+        "nex": 35,
+        "texto": "<p>Grau de Treinamento: veja <em>Livro de Regras</em>, p. 32.</p>"
+      },
+      {
+        "nome": "Versatilidade",
+        "nex": 50,
+        "texto": "<p>Versatilidade: veja <em>Livro de Regras</em>, p. 32.</p>"
+      }
+    ],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 32.</p>",
+    "chave": "ocultista"
+  },
+  {
+    "id": "mundano",
+    "nome": "Mundano",
+    "livro": "base",
+    "pagina": 171,
+    "revisar": false,
+    "pv": {
+      "inicial": "8+VIG",
+      "porNivel": null
+    },
+    "pe": {
+      "inicial": "1+PRE",
+      "porNivel": null
+    },
+    "san": {
+      "inicial": 8,
+      "porNivel": null
+    },
+    "pd": null,
+    "periciasFixas": [],
+    "periciasLivres": "1+INT",
+    "proficiencias": [
+      "armas simples"
+    ],
+    "progressao": [
+      {
+        "nex": 0,
+        "ganhos": [
+          "Empenho"
+        ]
+      },
+      {
+        "nex": 5,
+        "ganhos": [
+          "Atingindo NEX 5%: torna-se combatente, especialista ou ocultista"
+        ]
+      }
+    ],
+    "habilidades": [
+      {
+        "nome": "Empenho",
+        "nex": 0,
+        "texto": "<p>Empenho: veja <em>Livro de Regras</em>, p. 171.</p>"
+      },
+      {
+        "nome": "Atingindo NEX 5%",
+        "nex": 5,
+        "texto": "<p>Atingindo NEX 5%: veja <em>Livro de Regras</em>, p. 171.</p>"
+      }
+    ],
+    "descricao": "<p>veja <em>Livro de Regras</em>, p. 171.</p>",
+    "chave": "mundano"
+  },
+  {
+    "id": "sobrevivente",
+    "nome": "Sobrevivente",
+    "livro": "sah",
+    "pagina": 30,
+    "revisar": false,
+    "pv": {
+      "inicial": "8+VIG",
+      "porNivel": "2"
+    },
+    "pe": {
+      "inicial": "2+PRE",
+      "porNivel": "1"
+    },
+    "san": {
+      "inicial": 8,
+      "porNivel": 2
+    },
+    "pd": {
+      "inicial": "4+PRE",
+      "porNivel": "2"
+    },
+    "periciasFixas": [],
+    "periciasLivres": "1+INT",
+    "proficiencias": [
+      "armas simples"
+    ],
+    "progressao": [
+      {
+        "estagio": 1,
+        "ganhos": [
+          "Empenho"
+        ]
+      },
+      {
+        "estagio": 2,
+        "ganhos": [
+          "Trilha (1ª habilidade)"
+        ]
+      },
+      {
+        "estagio": 3,
+        "ganhos": [
+          "Aumento de atributo"
+        ]
+      },
+      {
+        "estagio": 4,
+        "ganhos": [
+          "Trilha (2ª habilidade)"
+        ]
+      },
+      {
+        "estagio": 5,
+        "ganhos": [
+          "Cicatrizado"
+        ]
+      }
+    ],
+    "habilidades": [
+      {
+        "nome": "Empenho",
+        "estagio": 1,
+        "texto": "<p>Empenho: veja <em>Sobrevivendo ao Horror</em>, p. 30.</p>"
+      },
+      {
+        "nome": "Trilha",
+        "estagio": 2,
+        "texto": "<p>Trilha: veja <em>Sobrevivendo ao Horror</em>, p. 30.</p>"
+      },
+      {
+        "nome": "Aumento de Atributo",
+        "estagio": 3,
+        "texto": "<p>Aumento de Atributo: veja <em>Sobrevivendo ao Horror</em>, p. 30.</p>"
+      },
+      {
+        "nome": "Cicatrizado",
+        "estagio": 5,
+        "texto": "<p>Cicatrizado: veja <em>Sobrevivendo ao Horror</em>, p. 30.</p>"
+      },
+      {
+        "nome": "Treinamento Especial",
+        "estagio": null,
+        "texto": "<p>Treinamento Especial: veja <em>Sobrevivendo ao Horror</em>, p. 30.</p>"
+      }
+    ],
+    "descricao": "<p>veja <em>Sobrevivendo ao Horror</em>, p. 30.</p>",
+    "chave": "sobrevivente"
+  }
+]

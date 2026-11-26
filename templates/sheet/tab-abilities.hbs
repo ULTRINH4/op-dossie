@@ -1,0 +1,32 @@
+<section class="tab op-tab-body {{tab.cssClass}}" data-group="primary" data-tab="abilities">
+	<div class="op-origin-cards">
+		{{#each identidade}}
+		<article class="op-card {{#unless id}}is-empty{{/unless}}" {{#if id}}data-item-id="{{id}}"{{/if}}>
+			<p class="op-eyebrow">{{label}}</p>
+			{{#if id}}<button type="button" class="op-card__name" data-action="abrir">{{name}}</button>
+			{{else}}<p class="op-card__sub">Arraste do compêndio {{label}}s.</p>{{/if}}
+		</article>
+		{{/each}}
+	</div>
+
+	{{#each abilityGroups}}
+	<div class="op-section">
+		<header class="op-section__head">
+			<h2>{{label}}</h2>
+			{{#if ../editable}}<button type="button" class="op-add" data-action="criar" data-type="poder" data-tipo-poder="{{type}}"><i class="fa-solid fa-plus" aria-hidden="true"></i> Novo</button>{{/if}}
+		</header>
+		{{#if items.length}}
+		<ol class="op-list op-list--ability">
+			{{#each items}}
+			{{#> opItemRow this edit=../../edit}}
+			<span class="op-cell">{{activation}}</span>
+			<span class="op-cell op-cell--strong">{{#if cost}}{{cost}}{{/if}}{{#if uses}}<small class="op-uses {{#if usesEmpty}}is-empty{{/if}}">{{uses}}</small>{{/if}}</span>
+			{{/opItemRow}}
+			{{/each}}
+		</ol>
+		{{else}}<p class="op-empty">Nada aqui ainda.</p>{{/if}}
+	</div>
+	{{else}}
+	<p class="op-empty op-empty--big">Nenhum poder ou habilidade. Arraste dos compêndios de poderes.</p>
+	{{/each}}
+</section>

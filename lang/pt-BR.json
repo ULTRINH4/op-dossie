@@ -1,0 +1,18 @@
+{
+  "TYPES": {
+    "Actor": {
+      "agente": "Agente",
+      "ameaca": "Ameaça"
+    },
+    "Item": {
+      "arma": "Arma",
+      "protecao": "Proteção",
+      "equipamento": "Equipamento",
+      "ritual": "Ritual",
+      "poder": "Poder",
+      "classe": "Classe",
+      "origem": "Origem",
+      "trilha": "Trilha"
+    }
+  }
+}

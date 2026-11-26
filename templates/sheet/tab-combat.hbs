@@ -1,0 +1,49 @@
+<section class="tab op-tab-body {{tab.cssClass}}" data-group="primary" data-tab="combat">
+	<div class="op-section">
+		<header class="op-section__head">
+			<h2>Armas</h2>
+			{{#if editable}}<button type="button" class="op-add" data-action="criar" data-type="arma"><i class="fa-solid fa-plus" aria-hidden="true"></i> Arma</button>{{/if}}
+		</header>
+		{{#if weapons.length}}
+		<div class="op-cols op-cols--weapon" aria-hidden="true"><span></span><span>Arma</span><span>Ataque</span><span>Dano</span><span>Crítico</span><span>Alcance</span><span></span></div>
+		<ol class="op-list op-list--weapon">
+			{{#each weapons}}
+			{{#> opItemRow this edit=../edit showEquip=true}}
+			<span class="op-cell">{{attackSkill}}</span>
+			<span class="op-cell op-cell--strong">{{damage}} <small>{{damageType}}</small></span>
+			<span class="op-cell">{{critical}}</span>
+			<span class="op-cell">{{range}}{{#if ammo}}<small class="op-ammo {{#if ammoEmpty}}is-empty{{/if}}">{{ammo}}</small>{{/if}}</span>
+			{{/opItemRow}}
+			{{/each}}
+		</ol>
+		{{else}}<p class="op-empty">Nenhuma arma. Arraste uma do compêndio Armas.</p>{{/if}}
+	</div>
+
+	<div class="op-section">
+		<header class="op-section__head">
+			<h2>Proteções</h2>
+			{{#if editable}}<button type="button" class="op-add" data-action="criar" data-type="protecao"><i class="fa-solid fa-plus" aria-hidden="true"></i> Proteção</button>{{/if}}
+		</header>
+		{{#if protections.length}}
+		<ol class="op-list op-list--protection">
+			{{#each protections}}
+			{{#> opItemRow this edit=../edit showEquip=true}}
+			<span class="op-cell op-cell--strong">Defesa +{{defense}}</span>
+			{{/opItemRow}}
+			{{/each}}
+		</ol>
+		{{else}}<p class="op-empty">Nenhuma proteção.</p>{{/if}}
+	</div>
+
+	<div class="op-section">
+		<header class="op-section__head"><h2>Resistências a dano</h2></header>
+		<ul class="op-resist">
+			{{#each resistances}}
+			<li class="op-resist__item {{#if paranormal}}is-paranormal{{/if}} {{#if value}}has-value{{/if}}">
+				<label for="op-res-{{../actor.id}}-{{key}}">{{label}}</label>
+				<input id="op-res-{{../actor.id}}-{{key}}" type="number" min="0" value="{{value}}" name="system.resistencias.{{key}}" {{disabled (not ../editable)}}>
+			</li>
+			{{/each}}
+		</ul>
+	</div>
+</section>

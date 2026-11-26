@@ -1,0 +1,57 @@
+<section class="tab op-tab-body {{tab.cssClass}}" data-group="primary" data-tab="biography">
+	<div class="op-section">
+		<header class="op-section__head"><h2>Biografia</h2></header>
+		{{#if editable}}
+		<prose-mirror name="system.biografia" data-document-uuid="{{actor.uuid}}" value="{{system.biografia}}" collaborate="true" toggled="true">{{{enrichedBiography}}}</prose-mirror>
+		{{else}}<div class="op-prose">{{{enrichedBiography}}}</div>{{/if}}
+	</div>
+	{{#if idadeInfo}}
+	<div class="op-section">
+		<header class="op-section__head"><h2>Idade: {{idadeInfo.nome}}</h2><span class="op-section__hint">{{idadeInfo.anos}}</span></header>
+		<p class="op-prose op-idade__texto">{{idadeInfo.texto}}</p>
+		{{#if idadeInfo.desvantagens.length}}
+		<ul class="op-gains">{{#each idadeInfo.desvantagens}}<li><strong>{{nome}}.</strong> {{texto}}</li>{{/each}}</ul>
+		{{/if}}
+	</div>
+	{{/if}}
+
+	{{#if vidaAlem}}
+	<div class="op-section">
+		<header class="op-section__head"><h2>Interesses pessoais</h2><span class="op-section__hint">Vida Além da Ordem: uma folga por interesse entre missões.</span></header>
+		{{#if vidaAlem.folga}}
+		<div class="op-folga-ativa">
+			<span>Folga ({{vidaAlem.folga.origem}}): PE máximos {{#if (gt vidaAlem.folga.peMax 0)}}+{{/if}}{{vidaAlem.folga.peMax}} até o fim da próxima missão.</span>
+			{{#if editable}}<button type="button" class="op-link" data-action="folgaEncerrar">Encerrar</button>{{/if}}
+		</div>
+		{{/if}}
+		<ul class="op-interesses">
+			{{#each vidaAlem.interesses}}
+			<li data-interesse="{{id}}">
+				<span class="op-interesses__tipo">{{tipoNome}}</span>
+				<span class="op-interesses__nome">{{#if nome}}{{nome}}{{else}}—{{/if}}</span>
+				{{#if ../editable}}
+				<button type="button" class="op-btn op-btn--ghost" data-action="folga"><i class="fa-solid fa-mug-hot" aria-hidden="true"></i> Folga</button>
+				<button type="button" class="op-icon-btn" data-action="interesseRemover" aria-label="Remover interesse" data-tooltip="Remover"><i class="fa-solid fa-trash" aria-hidden="true"></i></button>
+				{{/if}}
+			</li>
+			{{else}}
+			<li class="op-interesses__vazio">Nenhum interesse ainda.</li>
+			{{/each}}
+		</ul>
+		{{#if editable}}
+		<div class="op-interesse-add">
+			<select name="novoInteresseTipo" aria-label="Tipo de interesse">{{#each vidaAlem.tipos}}<option value="{{id}}">{{nome}}</option>{{/each}}</select>
+			<input type="text" name="novoInteresseNome" placeholder="Quem ou o quê (ex.: irmã Clara, oficina, xadrez)" aria-label="Detalhe do interesse">
+			<button type="button" class="op-btn op-btn--ghost" data-action="interesseAdd"><i class="fa-solid fa-plus" aria-hidden="true"></i> Adicionar</button>
+		</div>
+		{{/if}}
+	</div>
+	{{/if}}
+
+	<div class="op-section">
+		<header class="op-section__head"><h2>Objetivos</h2></header>
+		{{#if editable}}
+		<prose-mirror name="system.objetivos" data-document-uuid="{{actor.uuid}}" value="{{system.objetivos}}" collaborate="true" toggled="true">{{{enrichedGoals}}}</prose-mirror>
+		{{else}}<div class="op-prose">{{{enrichedGoals}}}</div>{{/if}}
+	</div>
+</section>

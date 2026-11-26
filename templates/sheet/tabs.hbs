@@ -1,0 +1,7 @@
+<nav class="op-sheet-tabs tabs" data-group="primary" role="tablist" aria-label="Seções da ficha">
+	{{#each tabList}}
+	<button type="button" role="tab" class="op-sheet-tab {{#if active}}active{{/if}}" data-action="tab" data-group="primary" data-tab="{{id}}" aria-selected="{{active}}">
+		<i class="{{icon}}" aria-hidden="true"></i><span>{{label}}</span>
+	</button>
+	{{/each}}
+</nav>

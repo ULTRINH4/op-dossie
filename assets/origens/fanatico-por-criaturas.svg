@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="256" height="256">
+<rect x="1" y="1" width="62" height="62" rx="10" fill="#141113" stroke="#3b3336" stroke-width="1.5"/>
+<path d="M10 18 H26 L30 14 H54 V52 H10 Z" fill="#1f1a1c" stroke="#c9a36a" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="32" y="40" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="15" font-weight="700" fill="#e9e0d2" letter-spacing="1">FPC</text>
+<g stroke="#e9e0d2" fill="none"><path d="M18.939297697972506 46 H45.076270760037005" stroke-width="1.2" opacity=".5"/><path d="M17.587463080417365 49 H45.65039000660181" stroke-width="1.2" opacity=".5"/><path d="M17.602383201941848 52 H45.824310866650194" stroke-width="1.2" opacity=".5"/></g>
+<circle cx="47" cy="22" r="3" fill="#c9a36a"/></svg>

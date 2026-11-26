@@ -1,0 +1,157 @@
+/* ==========================================================================
+   Dossiê — mensagens de chat e diálogos (tokens de op-ficha.css)
+   ========================================================================== */
+
+/* --- mensagens do sistema ------------------------------------------------- */
+.chat-message.op-msg {
+	background: linear-gradient(180deg, #1a1618, var(--op-bg));
+	border: 1px solid var(--op-line);
+	border-left: 3px solid var(--el, var(--op-accent));
+	border-radius: var(--op-r-2);
+	color: var(--op-ink);
+	box-shadow: none;
+}
+.chat-message.op-msg .message-header { color: var(--op-ink-3); }
+.chat-message.op-msg .message-header .message-sender { font-family: var(--op-font-head); font-size: 1rem; letter-spacing: .03em; color: var(--op-ink); }
+.chat-message.op-msg .message-header .flavor-text { color: var(--op-ink-2); }
+.chat-message.op-msg .message-content { color: var(--op-ink-2); }
+.op-flavor { display: block; font-family: var(--op-font-head); font-size: 1.05rem; letter-spacing: .03em; text-transform: uppercase; color: var(--op-ink); }
+
+.chat-message.op-msg .dice-roll { margin-top: 4px; }
+.chat-message.op-msg .dice-result { display: flex; flex-direction: column; gap: 4px; }
+.chat-message.op-msg .dice-formula {
+	order: 2; margin: 0; padding: 2px 8px; border: 1px solid var(--op-line-soft); border-radius: var(--op-r-1);
+	background: transparent; font-family: var(--op-font-mono); font-size: .72rem; color: var(--op-ink-3); text-align: center;
+}
+.chat-message.op-msg .dice-total {
+	order: 1; margin: 0; padding: 4px 0; border: 1px solid var(--op-line); border-radius: var(--op-r-1);
+	background: var(--op-surface); color: var(--op-ink);
+	font-family: var(--op-font-head); font-size: 2rem; font-weight: 400; line-height: 1.1; text-align: center;
+	box-shadow: none;
+}
+.chat-message.op-msg .dice-total.critical { color: #8fd18f; border-color: #3f6b3f; }
+.chat-message.op-msg .dice-total.fumble { color: #ff8b84; border-color: #6b2b27; }
+.chat-message.op-msg .dice-tooltip { order: 3; }
+.chat-message.op-msg .dice-tooltip .part-header { color: var(--op-ink-3); font-family: var(--op-font-mono); font-size: .7rem; }
+.chat-message.op-msg .dice-tooltip .tooltip-part { border-color: var(--op-line-soft); background: transparent; }
+.chat-message.op-msg .dice-rolls .roll.discarded { opacity: .35; }
+
+/* cartões (ataque, ritual, item) */
+.op-attack { padding: 2px 0 6px; }
+.op-attack header { display: grid; grid-template-columns: 32px 1fr auto; gap: 8px; align-items: center; }
+.op-attack header img { width: 32px; height: 32px; border: 1px solid var(--op-line); border-radius: var(--op-r-1); background: var(--op-surface); }
+.op-attack header strong { display: block; font-family: var(--op-font-head); font-size: 1.15rem; font-weight: 400; text-transform: uppercase; color: var(--op-ink); }
+.op-attack header small { font-size: .72rem; color: var(--op-ink-3); }
+.chat-message.op-msg .op-chatcard { margin: 0; padding: 0; border: 0; background: transparent; }
+
+/* --- botões no chat: mesma família dos botões das fichas ------------------ */
+.op-btn-roll, .op-apply button, .op-chatcard__btns button {
+	flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+	min-height: 32px; padding: 0 10px; margin: 0;
+	border: 1px solid var(--el, var(--op-accent)); border-radius: var(--op-r-1);
+	background: var(--op-surface); color: var(--op-ink);
+	font-family: var(--op-font-body); font-size: .8rem; font-weight: 600; line-height: 1;
+	cursor: pointer; transition: background .15s var(--op-ease), transform .15s var(--op-ease);
+}
+.op-btn-roll small { font-weight: 400; color: var(--op-ink-3); }
+.op-btn-roll:hover, .op-apply button:hover, .op-chatcard__btns button:hover { background: color-mix(in srgb, var(--el, var(--op-accent)) 28%, var(--op-surface)); transform: translateY(-1px); }
+.op-btn-roll:active, .op-apply button:active, .op-chatcard__btns button:active { transform: translateY(0); }
+.op-btn-roll:focus-visible, .op-apply button:focus-visible { outline: 2px solid var(--op-focus); outline-offset: 2px; }
+.op-apply { display: flex; gap: 6px; margin-top: 8px; }
+.op-apply button + button { flex: 0 0 44px; }
+
+/* --- diálogos do sistema -------------------------------------------------- */
+.op-dossie.application.dialog .window-content { padding: var(--op-space-4) var(--op-space-5); color: var(--op-ink); }
+.op-dossie.application.dialog .form-footer { gap: var(--op-space-2); padding-top: var(--op-space-3); }
+.op-dossie.application.dialog .form-footer button {
+	min-height: 36px; border: 1px solid var(--op-line); border-radius: var(--op-r-2);
+	background: transparent; color: var(--op-ink-2); font-weight: 600;
+	transition: transform .15s var(--op-ease), background .15s var(--op-ease), border-color .15s var(--op-ease);
+}
+.op-dossie.application.dialog .form-footer button:hover { border-color: #574d51; color: var(--op-ink); transform: translateY(-1px); }
+.op-dossie.application.dialog .form-footer button:active { transform: translateY(1px); }
+.op-dossie.application.dialog .form-footer button[data-action="cast"],
+.op-dossie.application.dialog .form-footer button[data-action="rolar"],
+.op-dossie.application.dialog .form-footer button[data-action="yes"],
+.op-dossie.application.dialog .form-footer button[data-action="save"],
+.op-dossie.application.dialog .form-footer button[data-action="ok"] { background: var(--op-accent); border-color: var(--op-accent); color: var(--op-accent-ink); }
+.op-dossie.application.dialog .form-footer button[data-action="cast"]:hover,
+.op-dossie.application.dialog .form-footer button[data-action="rolar"]:hover,
+.op-dossie.application.dialog .form-footer button[data-action="yes"]:hover,
+.op-dossie.application.dialog .form-footer button[data-action="save"]:hover,
+.op-dossie.application.dialog .form-footer button[data-action="ok"]:hover { background: #c92d24; }
+
+.op-roll-adj { display: grid; grid-template-columns: 1fr 1fr; gap: var(--op-space-3); }
+.op-roll-adj label { display: flex; flex-direction: column; gap: 4px; font-family: var(--op-font-mono); font-size: .64rem; letter-spacing: .06em; text-transform: uppercase; color: var(--op-ink-3); }
+.op-dossie .op-roll-adj input { height: 36px; padding: 0 10px; border: 1px solid var(--op-line); border-radius: var(--op-r-1); background: var(--op-surface); color: var(--op-ink); font-family: var(--op-font-head); font-size: 1.3rem; text-align: center; }
+.op-dossie .op-roll-adj input:focus { outline: none; border-color: var(--op-focus); box-shadow: none; }
+.op-roll-adj__hint { grid-column: 1 / -1; margin: 0; font-size: .78rem; color: var(--op-ink-3); }
+
+.op-migr-list { max-height: 220px; overflow-y: auto; margin: var(--op-space-2) 0 0; padding: var(--op-space-2) var(--op-space-4); border: 1px solid var(--op-line-soft); border-radius: var(--op-r-2); background: var(--op-surface); columns: 2; font-size: .85rem; }
+.op-migr-list small { color: var(--op-ink-3); }
+
+/* placeholders legíveis mas claramente vazios */
+.op-dossie input::placeholder, .op-dossie textarea::placeholder { color: var(--op-ink-3); opacity: .55; font-style: italic; }
+
+/* --- alvos no cartão ----------------------------------------------------- */
+.op-targets { display: flex; flex-direction: column; gap: 4px; margin: 8px 0 0; padding: 0; list-style: none; }
+.op-target {
+	display: grid; grid-template-columns: 26px minmax(0, 1fr) auto auto; align-items: center; gap: 8px;
+	min-height: 34px; padding: 4px 6px; border: 1px solid var(--op-line-soft); border-radius: var(--op-r-1); background: var(--op-surface);
+}
+.op-target img { width: 26px; height: 26px; border: 0; border-radius: 50%; object-fit: cover; background: var(--op-surface-2); }
+.op-target__name { font-size: .84rem; font-weight: 600; color: var(--op-ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.op-target__def { font-family: var(--op-font-mono); font-size: .66rem; color: var(--op-ink-3); }
+.op-target__state { padding: 1px 8px; border-radius: 999px; font-size: .7rem; font-weight: 700; letter-spacing: .02em; }
+.op-target__state.is-hit { background: rgba(111, 191, 111, .16); color: #9fdb9f; }
+.op-target__state.is-miss { background: rgba(179, 38, 30, .18); color: #ffa49e; }
+.op-target__btn {
+	min-height: 26px; padding: 0 10px; margin: 0; border: 1px solid var(--el, var(--op-accent)); border-radius: var(--op-r-1);
+	background: transparent; color: var(--op-ink); font-size: .74rem; font-weight: 600; line-height: 1; cursor: pointer;
+	transition: background .15s var(--op-ease), transform .15s var(--op-ease);
+}
+.op-target__btn:hover { background: color-mix(in srgb, var(--el, var(--op-accent)) 28%, transparent); transform: translateY(-1px); }
+.op-target__btn:active { transform: translateY(0); }
+.op-target__btn:focus-visible { outline: 2px solid var(--op-focus); outline-offset: 2px; }
+
+/* --- etapas do ritual, na ordem da mesa ---------------------------------- */
+.op-steps { counter-reset: op-step; display: flex; flex-direction: column; gap: 10px; margin: 10px 0 0; padding: 0; list-style: none; }
+.op-step { counter-increment: op-step; display: grid; grid-template-columns: 20px minmax(0, 1fr); column-gap: 8px; padding-top: 10px; border-top: 1px solid var(--op-line-soft); }
+.op-step::before {
+	content: counter(op-step); grid-row: 1 / span 2; display: grid; place-items: center; width: 20px; height: 20px;
+	border: 1px solid var(--el, var(--op-accent)); border-radius: 50%;
+	font-family: var(--op-font-mono); font-size: .66rem; color: var(--op-ink);
+}
+.op-step__label { margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px; min-height: 20px; font-family: var(--op-font-mono); font-size: .64rem; letter-spacing: .07em; text-transform: uppercase; color: var(--op-ink-2); }
+.op-step__label small { font-size: .62rem; letter-spacing: .03em; text-transform: none; color: var(--op-ink-3); }
+.op-step__body { margin-top: 6px; min-width: 0; }
+.op-step__body .op-targets, .op-step__body .op-card__test, .op-step__body.op-chatcard__btns { margin-top: 0; }
+.op-step__hint { margin: 0; font-size: .76rem; color: var(--op-ink-3); }
+.op-step__btn {
+	display: inline-flex; align-items: center; justify-content: center; gap: 6px; width: 100%;
+	min-height: 32px; padding: 0 10px; margin: 0;
+	border: 1px solid var(--el, var(--op-accent)); border-radius: var(--op-r-1);
+	background: var(--op-surface); color: var(--op-ink); font-size: .8rem; font-weight: 600; line-height: 1; cursor: pointer;
+	transition: background .15s var(--op-ease), transform .15s var(--op-ease);
+}
+.op-step__btn:hover { background: color-mix(in srgb, var(--el, var(--op-accent)) 28%, var(--op-surface)); transform: translateY(-1px); }
+.op-step__btn:active { transform: translateY(0); }
+.op-step__btn:focus-visible { outline: 2px solid var(--op-focus); outline-offset: 2px; }
+.op-step__btn:disabled { opacity: .5; cursor: progress; transform: none; }
+.op-cast__hint { margin: 0; font-size: .8rem; color: var(--op-ink-3); }
+
+/* botão que não é seu: apagado, sem animação, com a dica no title */
+.op-msg button.is-locked, .op-msg button.is-locked:hover { opacity: .38; cursor: not-allowed; transform: none; background: transparent; }
+
+/* resultado já rolado num cartão */
+.op-card__test.is-done { margin-top: 0; background: var(--op-surface); border: 1px solid var(--op-line-soft); color: var(--op-ink-2); }
+.op-card__test.is-done strong, .op-card__test strong { color: var(--op-ink); font-size: .95rem; }
+.op-step__body.op-chatcard__btns { display: flex; flex-direction: column; gap: 6px; }
+.op-step__body > .op-targets + .op-step__btn { margin-top: 6px; }
+
+/* resultado gravado no próprio cartão: faces dos dados */
+.op-card__dados { display: inline-flex; gap: 3px; margin-left: 8px; vertical-align: middle; }
+.op-card__dados b { min-width: 20px; padding: 0 4px; border: 1px solid var(--op-line); border-radius: 4px; font-family: var(--op-font-mono); font-size: .66rem; font-weight: 400; line-height: 18px; text-align: center; color: var(--op-ink); background: var(--op-surface-2); }
+.op-card__dados b.is-fora { color: var(--op-ink-3); background: transparent; text-decoration: line-through; }
+.op-dano-feito { display: grid; gap: 6px; width: 100%; }
+.op-dano-feito .op-apply { margin: 0; }

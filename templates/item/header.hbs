@@ -1,0 +1,8 @@
+<header class="op-ihead">
+	<button type="button" class="op-ihead__img" data-action="trocarImagem" aria-label="Trocar imagem" {{disabled (not editable)}}><img src="{{item.img}}" alt=""></button>
+	<div class="op-ihead__id">
+		<p class="op-eyebrow">{{tipo}}{{#if fonte}} · {{fonte}}{{/if}}</p>
+		<input class="op-ihead__name" type="text" name="name" value="{{item.name}}" aria-label="Nome" {{disabled (not editable)}}>
+		{{#if system.revisar}}<p class="op-ihead__rev"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> Revisar: {{system.revisar}}</p>{{/if}}
+	</div>
+</header>

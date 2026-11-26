@@ -1,0 +1,82 @@
+[
+  {
+    "id": "espreitar-da-besta",
+    "nome": "Espreitar da Besta",
+    "livro": "sah",
+    "pagina": 46,
+    "revisar": false,
+    "elemento": "blood",
+    "requisito": null,
+    "texto": "<p>veja <em>Sobrevivendo ao Horror</em>, p. 46.</p>"
+  },
+  {
+    "id": "instintos-sanguinarios",
+    "nome": "Instintos Sanguinários",
+    "livro": "sah",
+    "pagina": 46,
+    "revisar": false,
+    "elemento": "blood",
+    "requisito": null,
+    "texto": "<p>veja <em>Sobrevivendo ao Horror</em>, p. 46.</p>"
+  },
+  {
+    "id": "antecipar-vitalidade",
+    "nome": "Antecipar Vitalidade",
+    "livro": "sah",
+    "pagina": 46,
+    "revisar": false,
+    "elemento": "death",
+    "requisito": null,
+    "texto": "<p>veja <em>Sobrevivendo ao Horror</em>, p. 46.</p>"
+  },
+  {
+    "id": "aura-de-pavor",
+    "nome": "Aura de Pavor",
+    "livro": "sah",
+    "pagina": 46,
+    "revisar": false,
+    "elemento": "death",
+    "requisito": null,
+    "texto": "<p>veja <em>Sobrevivendo ao Horror</em>, p. 46.</p>"
+  },
+  {
+    "id": "absorver-conhecimento",
+    "nome": "Absorver Conhecimento",
+    "livro": "sah",
+    "pagina": 46,
+    "revisar": false,
+    "elemento": "knowledge",
+    "requisito": null,
+    "texto": "<p>veja <em>Sobrevivendo ao Horror</em>, p. 46.</p>"
+  },
+  {
+    "id": "apatia-herege",
+    "nome": "Apatia Herege",
+    "livro": "sah",
+    "pagina": 46,
+    "revisar": false,
+    "elemento": "knowledge",
+    "requisito": "Conhecimento 1",
+    "texto": "<p>veja <em>Sobrevivendo ao Horror</em>, p. 46.</p>"
+  },
+  {
+    "id": "conexao-empatica",
+    "nome": "Conexão Empática",
+    "livro": "sah",
+    "pagina": 47,
+    "revisar": false,
+    "elemento": "energy",
+    "requisito": "Energia 1",
+    "texto": "<p>veja <em>Sobrevivendo ao Horror</em>, p. 47.</p>"
+  },
+  {
+    "id": "valer-se-do-caos",
+    "nome": "Valer-se do Caos",
+    "livro": "sah",
+    "pagina": 47,
+    "revisar": false,
+    "elemento": "energy",
+    "requisito": null,
+    "texto": "<p>veja <em>Sobrevivendo ao Horror</em>, p. 47.</p>"
+  }
+]

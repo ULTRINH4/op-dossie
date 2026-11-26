@@ -1,0 +1,76 @@
+/* ==========================================================================
+   OP Ficha — conjuração e cartões de chat
+   ========================================================================== */
+
+/* botão Conjurar na lista de rituais */
+.op-castbtn {
+	all: unset; cursor: pointer;
+	display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+	height: 26px; padding: 0 10px;
+	border: 1px solid var(--el, var(--op-accent)); border-radius: 999px;
+	font-size: .76rem; font-weight: 600; color: var(--op-ink);
+	transition: background .15s var(--op-ease), transform .15s var(--op-ease);
+}
+.op-castbtn:hover { background: color-mix(in srgb, var(--el, var(--op-accent)) 35%, transparent); transform: translateY(-1px); }
+.op-castbtn:active { transform: translateY(0) scale(.98); }
+.op-el--fear .op-castbtn { color: var(--op-ink); }
+
+/* janela de conjuração */
+.op-cast-dialog .window-content { padding: var(--op-space-4) var(--op-space-5); }
+.op-cast { display: flex; flex-direction: column; gap: var(--op-space-3); color: var(--op-ink); }
+.op-cast__meta { margin: 0; font-size: .85rem; color: var(--op-ink-2); }
+.op-cast__el { display: inline-block; padding: 1px 8px; margin-right: 6px; border-radius: 999px; border: 1px solid var(--el, var(--op-line)); color: var(--op-ink); font-size: .78rem; }
+.op-cast__forms { display: flex; flex-direction: column; gap: var(--op-space-2); margin: 0; padding: 0; border: 0; }
+.op-cast__forms legend { padding: 0; margin-bottom: var(--op-space-2); font-family: var(--op-font-mono); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--op-ink-3); }
+.op-cast__opt {
+	position: relative; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2px var(--op-space-3);
+	padding: var(--op-space-2) var(--op-space-3);
+	border: 1px solid var(--op-line); border-radius: var(--op-r-2); background: var(--op-surface);
+	cursor: pointer; transition: border-color .15s var(--op-ease), background .15s var(--op-ease);
+}
+.op-cast__opt input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+.op-cast__opt:hover { border-color: #574d51; background: var(--op-surface-2); }
+.op-cast__opt:has(input:checked) { border-color: var(--op-accent); box-shadow: inset 3px 0 0 var(--op-accent); background: rgba(179, 38, 30, .1); }
+.op-cast__opt:has(input:focus-visible) { outline: 2px solid var(--op-focus); outline-offset: 2px; }
+.op-cast__opt.is-blocked { opacity: .45; cursor: not-allowed; }
+.op-cast__name { font-weight: 600; }
+.op-cast__cost { font-family: var(--op-font-head); font-size: 1.3rem; }
+.op-cast__note { grid-column: 1 / -1; font-size: .76rem; color: var(--op-warn); }
+.op-cast__check { display: flex; align-items: center; gap: var(--op-space-2); font-size: .88rem; color: var(--op-ink-2); }
+.op-cast__pool { margin: 0; font-size: .85rem; color: var(--op-ink-3); }
+.op-cast__pool strong { color: var(--op-ink); }
+.op-cast .op-note { margin: 0; }
+
+/* cartão de chat */
+.op-chatcard {
+	--el: var(--op-accent);
+	margin: -4px -2px; padding: var(--op-space-3);
+	border-left: 3px solid var(--el); border-radius: var(--op-r-1);
+	background: var(--op-bg); color: var(--op-ink);
+	font-family: var(--op-font-body);
+}
+.op-chatcard__head { display: grid; grid-template-columns: 36px 1fr auto; gap: var(--op-space-2); align-items: center; }
+.op-chatcard__head img { width: 36px; height: 36px; border: 1px solid var(--op-line); border-radius: var(--op-r-1); background: var(--op-surface); }
+.op-chatcard__head h3 { margin: 0; border: 0; font-family: var(--op-font-head); font-size: 1.3rem; font-weight: 400; text-transform: uppercase; color: var(--op-ink); line-height: 1.1; }
+.op-chatcard__eyebrow { margin: 0; font-family: var(--op-font-mono); font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; color: var(--op-ink-3); }
+.op-chatcard__cost { font-family: var(--op-font-head); font-size: 1.2rem; color: var(--el); }
+.op-chatcard__stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2px var(--op-space-3); margin: var(--op-space-2) 0; }
+.op-chatcard__stats div { display: flex; flex-direction: column; }
+.op-chatcard__stats dt { font-family: var(--op-font-mono); font-size: .58rem; letter-spacing: .06em; text-transform: uppercase; color: var(--op-ink-3); }
+.op-chatcard__stats dd { margin: 0; font-size: .8rem; color: var(--op-ink-2); }
+.op-chatcard__text { font-size: .82rem; line-height: 1.45; color: var(--op-ink-2); }
+.op-chatcard__text p { margin: 0 0 4px; }
+.op-chatcard__text .op-fonte { display: none; }
+.op-card__test { display: flex; justify-content: space-between; gap: var(--op-space-2); margin-top: var(--op-space-2); padding: 6px 8px; border-radius: var(--op-r-1); font-size: .8rem; }
+.op-card__test.is-ok { background: rgba(111, 163, 199, .12); color: #a9cbe3; }
+.op-card__test.is-fail { background: rgba(179, 38, 30, .16); color: #ffb3ad; }
+.op-chatcard__btns { display: flex; flex-wrap: wrap; gap: var(--op-space-2); margin-top: var(--op-space-2); }
+.op-chatcard__btns button {
+	flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+	min-height: 30px; padding: 0 10px; margin: 0;
+	border: 1px solid var(--el); border-radius: var(--op-r-1);
+	background: var(--op-surface); color: var(--op-ink); font-size: .8rem; font-weight: 600; line-height: 1;
+	cursor: pointer; transition: background .15s var(--op-ease), transform .15s var(--op-ease);
+}
+.op-chatcard__btns button:hover { background: color-mix(in srgb, var(--el) 30%, var(--op-surface)); transform: translateY(-1px); }
+.op-chatcard__btns button:active { transform: translateY(0); }

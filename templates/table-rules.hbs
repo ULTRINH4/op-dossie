@@ -1,0 +1,138 @@
+<div class="op-rules__frame">
+	<header class="op-rules__head">
+		<p class="op-eyebrow">Ordo Realitas · configuração da mesa</p>
+		<ul class="op-chips">
+			{{#each resumo}}<li class="op-chip">{{this}}</li>{{/each}}
+		</ul>
+		<nav class="op-tabs" role="tablist">
+			<button type="button" role="tab" class="op-tab {{#if (eq tab 'regras')}}is-active{{/if}}" data-action="opTab" data-tab="regras" aria-selected="{{eq tab 'regras'}}">Regras</button>
+			<button type="button" role="tab" class="op-tab {{#if (eq tab 'conteudo')}}is-active{{/if}}" data-action="opTab" data-tab="conteudo" aria-selected="{{eq tab 'conteudo'}}">Classes, trilhas e origens</button>
+		</nav>
+	</header>
+
+	<div class="op-rules__scroll">
+		{{#if ajustes.length}}
+		<div class="op-note op-note--fix" role="status">
+			{{#each ajustes}}<p>{{this}}</p>{{/each}}
+		</div>
+		{{/if}}
+		{{#if avisos.length}}
+		<div class="op-note op-note--warn" role="status">
+			{{#each avisos}}<p>{{this}}</p>{{/each}}
+		</div>
+		{{/if}}
+
+		{{#if (eq tab 'regras')}}
+		<section class="op-block">
+			<h2 class="op-block__title">Livros</h2>
+			<div class="op-toggles">
+				{{#each livros}}
+				<label class="op-toggle {{#if disabled}}is-disabled{{/if}}" {{#if dica}}data-tooltip="{{dica}}"{{/if}}>
+					<input type="checkbox" data-kind="livro" data-id="{{id}}" {{checked checked}} {{disabled disabled}}>
+					<span class="op-toggle__box" aria-hidden="true"></span>
+					<span class="op-toggle__text">{{nome}}</span>
+					<span class="op-tag">{{sigla}}</span>
+				</label>
+				{{/each}}
+			</div>
+		</section>
+
+		{{#each escolhas}}
+		<section class="op-block">
+			<h2 class="op-block__title">{{nome}}</h2>
+			<div class="op-options">
+				{{#each opcoes}}
+				<label class="op-option {{#if checked}}is-checked{{/if}} {{#if disabled}}is-disabled{{/if}}">
+					<input type="radio" name="escolha-{{../group}}" value="{{id}}" data-kind="escolha" data-group="{{../group}}" {{checked checked}} {{disabled disabled}}>
+					<span class="op-option__top">
+						<span class="op-option__name">{{nome}}</span>
+						<span class="op-tag">{{sigla}}</span>
+					</span>
+					{{#if dica}}<span class="op-option__hint">{{dica}}</span>{{/if}}
+					<span class="op-option__foot">
+						{{#if motivo}}<span class="op-option__why">{{motivo}}</span>{{else if pagina}}<span class="op-option__page">{{pagina}}</span>{{/if}}
+					</span>
+				</label>
+				{{/each}}
+			</div>
+		</section>
+		{{/each}}
+
+		<section class="op-block">
+			<h2 class="op-block__title">Regras opcionais</h2>
+			<div class="op-toggles op-toggles--grid">
+				{{#each opcionais}}
+				<label class="op-toggle {{#if disabled}}is-disabled{{/if}}" {{#if motivo}}data-tooltip="{{motivo}}"{{/if}}>
+					<input type="checkbox" data-kind="opcional" data-id="{{id}}" {{checked checked}} {{disabled disabled}}>
+					<span class="op-toggle__box" aria-hidden="true"></span>
+					<span class="op-toggle__text">{{nome}}<small>{{pagina}}</small></span>
+					<span class="op-tag">{{sigla}}</span>
+				</label>
+				{{/each}}
+			</div>
+		</section>
+
+		<section class="op-block">
+			<h2 class="op-block__title">Automação do sistema</h2>
+			<div class="op-toggles op-toggles--grid">
+				{{#each automacao}}
+				<label class="op-toggle">
+					<input type="checkbox" data-kind="automacao" data-id="{{id}}" {{checked checked}}>
+					<span class="op-toggle__box" aria-hidden="true"></span>
+					<span class="op-toggle__text">{{nome}}<small>{{dica}}</small></span>
+				</label>
+				{{/each}}
+			</div>
+		</section>
+		{{/if}}
+
+		{{#if (eq tab 'conteudo')}}
+		<p class="op-lead">Desmarque o que não pode ser escolhido na criação de personagem. Itens de livros desligados aparecem apagados.</p>
+
+		<section class="op-block">
+			<header class="op-block__row">
+				<h2 class="op-block__title">Classes</h2>
+				<button type="button" class="op-link" data-action="toggleGroup" data-list="classes">Marcar ou desmarcar todas</button>
+			</header>
+			<div class="op-pills">
+				{{#each classes}}{{> "systems/op-dossie/templates/partials/pill.hbs" this list="classes" scope="classes"}}{{/each}}
+			</div>
+		</section>
+
+		<section class="op-block">
+			<h2 class="op-block__title">Trilhas</h2>
+			{{#each trilhas}}
+			<div class="op-subgroup">
+				<header class="op-block__row">
+					<h3 class="op-subgroup__title">{{nome}}</h3>
+					<button type="button" class="op-link" data-action="toggleGroup" data-list="trilhas" data-scope="{{@index}}">Marcar ou desmarcar</button>
+				</header>
+				<div class="op-pills">
+					{{#each itens}}{{> "systems/op-dossie/templates/partials/pill.hbs" this list="trilhas" scope=@../index}}{{/each}}
+				</div>
+			</div>
+			{{/each}}
+		</section>
+
+		<section class="op-block">
+			<h2 class="op-block__title">Origens</h2>
+			{{#each origens}}
+			<div class="op-subgroup">
+				<header class="op-block__row">
+					<h3 class="op-subgroup__title">{{nome}} <span class="op-count">{{itens.length}}</span></h3>
+					<button type="button" class="op-link" data-action="toggleGroup" data-list="origens" data-scope="o{{@index}}">Marcar ou desmarcar</button>
+				</header>
+				<div class="op-pills">
+					{{#each itens}}{{> "systems/op-dossie/templates/partials/pill.hbs" this list="origens" scope=(concat "o" @../index)}}{{/each}}
+				</div>
+			</div>
+			{{/each}}
+		</section>
+		{{/if}}
+	</div>
+
+	<footer class="op-rules__foot">
+		<button type="button" class="op-btn op-btn--ghost" data-action="reset"><i class="fa-solid fa-rotate-left" aria-hidden="true"></i> Restaurar padrão</button>
+		<button type="submit" class="op-btn op-btn--primary"><i class="fa-solid fa-check" aria-hidden="true"></i> Salvar regras</button>
+	</footer>
+</div>

@@ -1,0 +1,542 @@
+[
+  {
+    "id": "aniquilador",
+    "nome": "Aniquilador",
+    "classe": "combatente",
+    "livro": "base",
+    "pagina": 26,
+    "revisar": false,
+    "requisito": null,
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 26.</p>",
+    "habilidades": [
+      {
+        "nex": 10,
+        "nome": "A Favorita",
+        "custo": null,
+        "texto": "<p>A Favorita: veja <em>Livro de Regras</em>, p. 26.</p>"
+      },
+      {
+        "nex": 40,
+        "nome": "Técnica Secreta",
+        "custo": "2 PE (+2 PE por efeito extra)",
+        "texto": "<p>Técnica Secreta: veja <em>Livro de Regras</em>, p. 26.</p>"
+      },
+      {
+        "nex": 65,
+        "nome": "Técnica Sublime",
+        "custo": null,
+        "texto": "<p>Técnica Sublime: veja <em>Livro de Regras</em>, p. 26.</p>"
+      },
+      {
+        "nex": 99,
+        "nome": "Máquina de Matar",
+        "custo": null,
+        "texto": "<p>Máquina de Matar: veja <em>Livro de Regras</em>, p. 26.</p>"
+      }
+    ]
+  },
+  {
+    "id": "comandante-de-campo",
+    "nome": "Comandante de Campo",
+    "classe": "combatente",
+    "livro": "base",
+    "pagina": 26,
+    "revisar": false,
+    "requisito": null,
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 26.</p>",
+    "habilidades": [
+      {
+        "nex": 10,
+        "nome": "Inspirar Confiança",
+        "custo": "2 PE",
+        "texto": "<p>Inspirar Confiança: veja <em>Livro de Regras</em>, p. 26.</p>"
+      },
+      {
+        "nex": 40,
+        "nome": "Estrategista",
+        "custo": "1 PE por aliado",
+        "texto": "<p>Estrategista: veja <em>Livro de Regras</em>, p. 26.</p>"
+      },
+      {
+        "nex": 65,
+        "nome": "Brecha na Guarda",
+        "custo": "2 PE",
+        "texto": "<p>Brecha na Guarda: veja <em>Livro de Regras</em>, p. 26.</p>"
+      },
+      {
+        "nex": 99,
+        "nome": "Oficial Comandante",
+        "custo": "5 PE",
+        "texto": "<p>Oficial Comandante: veja <em>Livro de Regras</em>, p. 26.</p>"
+      }
+    ]
+  },
+  {
+    "id": "guerreiro",
+    "nome": "Guerreiro",
+    "classe": "combatente",
+    "livro": "base",
+    "pagina": 27,
+    "revisar": false,
+    "requisito": null,
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 27.</p>",
+    "habilidades": [
+      {
+        "nex": 10,
+        "nome": "Técnica Letal",
+        "custo": null,
+        "texto": "<p>Técnica Letal: veja <em>Livro de Regras</em>, p. 27.</p>"
+      },
+      {
+        "nex": 40,
+        "nome": "Revidar",
+        "custo": "2 PE",
+        "texto": "<p>Revidar: veja <em>Livro de Regras</em>, p. 27.</p>"
+      },
+      {
+        "nex": 65,
+        "nome": "Força Opressora",
+        "custo": "1 PE",
+        "texto": "<p>Força Opressora: veja <em>Livro de Regras</em>, p. 27.</p>"
+      },
+      {
+        "nex": 99,
+        "nome": "Potência Máxima",
+        "custo": null,
+        "texto": "<p>Potência Máxima: veja <em>Livro de Regras</em>, p. 27.</p>"
+      }
+    ]
+  },
+  {
+    "id": "operacoes-especiais",
+    "nome": "Operações Especiais",
+    "classe": "combatente",
+    "livro": "base",
+    "pagina": 27,
+    "revisar": false,
+    "requisito": null,
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 27.</p>",
+    "habilidades": [
+      {
+        "nex": 10,
+        "nome": "Iniciativa Aprimorada",
+        "custo": null,
+        "texto": "<p>Iniciativa Aprimorada: veja <em>Livro de Regras</em>, p. 27.</p>"
+      },
+      {
+        "nex": 40,
+        "nome": "Ataque Extra",
+        "custo": "2 PE",
+        "texto": "<p>Ataque Extra: veja <em>Livro de Regras</em>, p. 27.</p>"
+      },
+      {
+        "nex": 65,
+        "nome": "Surto de Adrenalina",
+        "custo": "5 PE",
+        "texto": "<p>Surto de Adrenalina: veja <em>Livro de Regras</em>, p. 27.</p>"
+      },
+      {
+        "nex": 99,
+        "nome": "Sempre Alerta",
+        "custo": null,
+        "texto": "<p>Sempre Alerta: veja <em>Livro de Regras</em>, p. 27.</p>"
+      }
+    ]
+  },
+  {
+    "id": "tropa-de-choque",
+    "nome": "Tropa de Choque",
+    "classe": "combatente",
+    "livro": "base",
+    "pagina": 27,
+    "revisar": false,
+    "requisito": null,
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 27.</p>",
+    "habilidades": [
+      {
+        "nex": 10,
+        "nome": "Casca Grossa",
+        "custo": null,
+        "texto": "<p>Casca Grossa: veja <em>Livro de Regras</em>, p. 27.</p>"
+      },
+      {
+        "nex": 40,
+        "nome": "Cai Dentro",
+        "custo": "1 PE",
+        "texto": "<p>Cai Dentro: veja <em>Livro de Regras</em>, p. 27.</p>"
+      },
+      {
+        "nex": 65,
+        "nome": "Duro de Matar",
+        "custo": "2 PE",
+        "texto": "<p>Duro de Matar: veja <em>Livro de Regras</em>, p. 27.</p>"
+      },
+      {
+        "nex": 99,
+        "nome": "Inquebrável",
+        "custo": null,
+        "texto": "<p>Inquebrável: veja <em>Livro de Regras</em>, p. 27.</p>"
+      }
+    ]
+  },
+  {
+    "id": "atirador-de-elite",
+    "nome": "Atirador de Elite",
+    "classe": "especialista",
+    "livro": "base",
+    "pagina": 30,
+    "revisar": false,
+    "requisito": null,
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 30.</p>",
+    "habilidades": [
+      {
+        "nex": 10,
+        "nome": "Mira de Elite",
+        "custo": null,
+        "texto": "<p>Mira de Elite: veja <em>Livro de Regras</em>, p. 30.</p>"
+      },
+      {
+        "nex": 40,
+        "nome": "Disparo Letal",
+        "custo": "1 PE",
+        "texto": "<p>Disparo Letal: veja <em>Livro de Regras</em>, p. 30.</p>"
+      },
+      {
+        "nex": 65,
+        "nome": "Disparo Impactante",
+        "custo": "2 PE",
+        "texto": "<p>Disparo Impactante: veja <em>Livro de Regras</em>, p. 30.</p>"
+      },
+      {
+        "nex": 99,
+        "nome": "Atirar para Matar",
+        "custo": null,
+        "texto": "<p>Atirar para Matar: veja <em>Livro de Regras</em>, p. 30.</p>"
+      }
+    ]
+  },
+  {
+    "id": "infiltrador",
+    "nome": "Infiltrador",
+    "classe": "especialista",
+    "livro": "base",
+    "pagina": 30,
+    "revisar": false,
+    "requisito": null,
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 30.</p>",
+    "habilidades": [
+      {
+        "nex": 10,
+        "nome": "Ataque Furtivo",
+        "custo": "1 PE",
+        "texto": "<p>Ataque Furtivo: veja <em>Livro de Regras</em>, p. 30.</p>"
+      },
+      {
+        "nex": 40,
+        "nome": "Gatuno",
+        "custo": null,
+        "texto": "<p>Gatuno: veja <em>Livro de Regras</em>, p. 30.</p>"
+      },
+      {
+        "nex": 65,
+        "nome": "Assassinar",
+        "custo": "3 PE",
+        "texto": "<p>Assassinar: veja <em>Livro de Regras</em>, p. 30.</p>"
+      },
+      {
+        "nex": 99,
+        "nome": "Sombra Fugaz",
+        "custo": "3 PE",
+        "texto": "<p>Sombra Fugaz: veja <em>Livro de Regras</em>, p. 30.</p>"
+      }
+    ]
+  },
+  {
+    "id": "medico-de-campo",
+    "nome": "Médico de Campo",
+    "classe": "especialista",
+    "livro": "base",
+    "pagina": 31,
+    "revisar": false,
+    "requisito": "treinado em Medicina; habilidades exigem kit de medicina",
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 31.</p>",
+    "habilidades": [
+      {
+        "nex": 10,
+        "nome": "Paramédico",
+        "custo": "2 PE (+1 PE por dado extra)",
+        "texto": "<p>Paramédico: veja <em>Livro de Regras</em>, p. 31.</p>"
+      },
+      {
+        "nex": 40,
+        "nome": "Equipe de Trauma",
+        "custo": "2 PE",
+        "texto": "<p>Equipe de Trauma: veja <em>Livro de Regras</em>, p. 31.</p>"
+      },
+      {
+        "nex": 65,
+        "nome": "Resgate",
+        "custo": null,
+        "texto": "<p>Resgate: veja <em>Livro de Regras</em>, p. 31.</p>"
+      },
+      {
+        "nex": 99,
+        "nome": "Reanimação",
+        "custo": "10 PE",
+        "texto": "<p>Reanimação: veja <em>Livro de Regras</em>, p. 31.</p>"
+      }
+    ]
+  },
+  {
+    "id": "negociador",
+    "nome": "Negociador",
+    "classe": "especialista",
+    "livro": "base",
+    "pagina": 31,
+    "revisar": false,
+    "requisito": null,
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 31.</p>",
+    "habilidades": [
+      {
+        "nex": 10,
+        "nome": "Eloquência",
+        "custo": "1 PE por alvo",
+        "texto": "<p>Eloquência: veja <em>Livro de Regras</em>, p. 31.</p>"
+      },
+      {
+        "nex": 40,
+        "nome": "Discurso Motivador",
+        "custo": "4 PE (8 PE em NEX 65%)",
+        "texto": "<p>Discurso Motivador: veja <em>Livro de Regras</em>, p. 31.</p>"
+      },
+      {
+        "nex": 65,
+        "nome": "Eu Conheço um Cara",
+        "custo": null,
+        "texto": "<p>Eu Conheço um Cara: veja <em>Livro de Regras</em>, p. 31.</p>"
+      },
+      {
+        "nex": 99,
+        "nome": "Truque de Mestre",
+        "custo": "5 PE",
+        "texto": "<p>Truque de Mestre: veja <em>Livro de Regras</em>, p. 31.</p>"
+      }
+    ]
+  },
+  {
+    "id": "tecnico",
+    "nome": "Técnico",
+    "classe": "especialista",
+    "livro": "base",
+    "pagina": 31,
+    "revisar": false,
+    "requisito": null,
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 31.</p>",
+    "habilidades": [
+      {
+        "nex": 10,
+        "nome": "Inventário Otimizado",
+        "custo": null,
+        "texto": "<p>Inventário Otimizado: veja <em>Livro de Regras</em>, p. 31.</p>"
+      },
+      {
+        "nex": 40,
+        "nome": "Remendão",
+        "custo": "1 PE",
+        "texto": "<p>Remendão: veja <em>Livro de Regras</em>, p. 31.</p>"
+      },
+      {
+        "nex": 65,
+        "nome": "Improvisar",
+        "custo": "2 PE + 2 PE por categoria",
+        "texto": "<p>Improvisar: veja <em>Livro de Regras</em>, p. 31.</p>"
+      },
+      {
+        "nex": 99,
+        "nome": "Preparado para Tudo",
+        "custo": "3 PE por categoria",
+        "texto": "<p>Preparado para Tudo: veja <em>Livro de Regras</em>, p. 31.</p>"
+      }
+    ]
+  },
+  {
+    "id": "conduite",
+    "nome": "Conduíte",
+    "classe": "ocultista",
+    "livro": "base",
+    "pagina": 34,
+    "revisar": false,
+    "requisito": null,
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 34.</p>",
+    "habilidades": [
+      {
+        "nex": 10,
+        "nome": "Ampliar Ritual",
+        "custo": "+2 PE",
+        "texto": "<p>Ampliar Ritual: veja <em>Livro de Regras</em>, p. 34.</p>"
+      },
+      {
+        "nex": 40,
+        "nome": "Acelerar Ritual",
+        "custo": "+4 PE",
+        "texto": "<p>Acelerar Ritual: veja <em>Livro de Regras</em>, p. 34.</p>"
+      },
+      {
+        "nex": 65,
+        "nome": "Anular Ritual",
+        "custo": "PE igual ao custo do ritual",
+        "texto": "<p>Anular Ritual: veja <em>Livro de Regras</em>, p. 34.</p>"
+      },
+      {
+        "nex": 99,
+        "nome": "Canalizar o Medo",
+        "custo": null,
+        "texto": "<p>Canalizar o Medo: veja <em>Livro de Regras</em>, p. 34.</p>"
+      }
+    ]
+  },
+  {
+    "id": "flagelador",
+    "nome": "Flagelador",
+    "classe": "ocultista",
+    "livro": "base",
+    "pagina": 34,
+    "revisar": false,
+    "requisito": null,
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 34.</p>",
+    "habilidades": [
+      {
+        "nex": 10,
+        "nome": "Poder do Flagelo",
+        "custo": "2 PV por PE",
+        "texto": "<p>Poder do Flagelo: veja <em>Livro de Regras</em>, p. 34.</p>"
+      },
+      {
+        "nex": 40,
+        "nome": "Abraçar a Dor",
+        "custo": "2 PE",
+        "texto": "<p>Abraçar a Dor: veja <em>Livro de Regras</em>, p. 34.</p>"
+      },
+      {
+        "nex": 65,
+        "nome": "Absorver Agonia",
+        "custo": null,
+        "texto": "<p>Absorver Agonia: veja <em>Livro de Regras</em>, p. 34.</p>"
+      },
+      {
+        "nex": 99,
+        "nome": "Medo Tangível",
+        "custo": null,
+        "texto": "<p>Medo Tangível: veja <em>Livro de Regras</em>, p. 34.</p>"
+      }
+    ]
+  },
+  {
+    "id": "graduado",
+    "nome": "Graduado",
+    "classe": "ocultista",
+    "livro": "base",
+    "pagina": 35,
+    "revisar": false,
+    "requisito": null,
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 35.</p>",
+    "habilidades": [
+      {
+        "nex": 10,
+        "nome": "Saber Ampliado",
+        "custo": null,
+        "texto": "<p>Saber Ampliado: veja <em>Livro de Regras</em>, p. 35.</p>"
+      },
+      {
+        "nex": 40,
+        "nome": "Grimório Ritualístico",
+        "custo": null,
+        "texto": "<p>Grimório Ritualístico: veja <em>Livro de Regras</em>, p. 35.</p>"
+      },
+      {
+        "nex": 65,
+        "nome": "Rituais Eficientes",
+        "custo": null,
+        "texto": "<p>Rituais Eficientes: veja <em>Livro de Regras</em>, p. 35.</p>"
+      },
+      {
+        "nex": 99,
+        "nome": "Conhecendo o Medo",
+        "custo": null,
+        "texto": "<p>Conhecendo o Medo: veja <em>Livro de Regras</em>, p. 35.</p>"
+      }
+    ]
+  },
+  {
+    "id": "intuitivo",
+    "nome": "Intuitivo",
+    "classe": "ocultista",
+    "livro": "base",
+    "pagina": 35,
+    "revisar": false,
+    "requisito": null,
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 35.</p>",
+    "habilidades": [
+      {
+        "nex": 10,
+        "nome": "Mente Sã",
+        "custo": null,
+        "texto": "<p>Mente Sã: veja <em>Livro de Regras</em>, p. 35.</p>"
+      },
+      {
+        "nex": 40,
+        "nome": "Presença Poderosa",
+        "custo": null,
+        "texto": "<p>Presença Poderosa: veja <em>Livro de Regras</em>, p. 35.</p>"
+      },
+      {
+        "nex": 65,
+        "nome": "Inabalável",
+        "custo": null,
+        "texto": "<p>Inabalável: veja <em>Livro de Regras</em>, p. 35.</p>"
+      },
+      {
+        "nex": 99,
+        "nome": "Presença do Medo",
+        "custo": null,
+        "texto": "<p>Presença do Medo: veja <em>Livro de Regras</em>, p. 35.</p>"
+      }
+    ]
+  },
+  {
+    "id": "lamina-paranormal",
+    "nome": "Lâmina Paranormal",
+    "classe": "ocultista",
+    "livro": "base",
+    "pagina": 35,
+    "revisar": false,
+    "requisito": null,
+    "texto": "<p>veja <em>Livro de Regras</em>, p. 35.</p>",
+    "habilidades": [
+      {
+        "nex": 10,
+        "nome": "Lâmina Maldita",
+        "custo": "+1 PE (opcional)",
+        "texto": "<p>Lâmina Maldita: veja <em>Livro de Regras</em>, p. 35.</p>"
+      },
+      {
+        "nex": 40,
+        "nome": "Gladiador Paranormal",
+        "custo": null,
+        "texto": "<p>Gladiador Paranormal: veja <em>Livro de Regras</em>, p. 35.</p>"
+      },
+      {
+        "nex": 65,
+        "nome": "Conjuração Marcial",
+        "custo": "2 PE",
+        "texto": "<p>Conjuração Marcial: veja <em>Livro de Regras</em>, p. 35.</p>"
+      },
+      {
+        "nex": 99,
+        "nome": "Lâmina do Medo",
+        "custo": null,
+        "texto": "<p>Lâmina do Medo: veja <em>Livro de Regras</em>, p. 35.</p>"
+      }
+    ]
+  }
+]

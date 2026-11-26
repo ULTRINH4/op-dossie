@@ -1,0 +1,616 @@
+[
+  {
+    "id": "esfolar",
+    "nome": "Esfolar",
+    "livro": "sah",
+    "pagina": 48,
+    "revisar": false,
+    "elemento": "blood",
+    "circulo": 1,
+    "execucao": "default",
+    "alcance": "short",
+    "alcanceTexto": "curto",
+    "alvo": "1 ser",
+    "alvoTipo": "creatures",
+    "area": null,
+    "duracao": "instantaneous",
+    "duracaoTexto": "instantânea",
+    "resistencia": {
+      "pericia": "Reflexos",
+      "efeito": "partial",
+      "texto": "Reflexos parcial"
+    },
+    "custo": 1,
+    "dano": {
+      "formula": "3d4+3",
+      "tipo": "cuttingDamage"
+    },
+    "cura": null,
+    "condicoes": [
+      "sangrando"
+    ],
+    "descricao": "<p>veja <em>Sobrevivendo ao Horror</em>, p. 48.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": 2,
+      "texto": "<p>Discente: veja <em>Sobrevivendo ao Horror</em>, p. 48.</p>",
+      "dano": {
+        "formula": "5d4+5",
+        "tipo": "cuttingDamage"
+      }
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": 3,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Sobrevivendo ao Horror</em>, p. 48.</p>",
+      "dano": {
+        "formula": "10d4+10",
+        "tipo": "cuttingDamage"
+      }
+    }
+  },
+  {
+    "id": "sede-de-adrenalina",
+    "nome": "Sede de Adrenalina",
+    "livro": "sah",
+    "pagina": 49,
+    "revisar": false,
+    "elemento": "blood",
+    "circulo": 2,
+    "execucao": "reaction",
+    "alcance": "personal",
+    "alcanceTexto": "pessoal",
+    "alvo": "você",
+    "alvoTipo": null,
+    "area": null,
+    "duracao": "instantaneous",
+    "duracaoTexto": "instantânea",
+    "resistencia": null,
+    "custo": 3,
+    "dano": null,
+    "cura": null,
+    "condicoes": [
+      "atordoado"
+    ],
+    "descricao": "<p>veja <em>Sobrevivendo ao Horror</em>, p. 49.</p>",
+    "discente": {
+      "custoExtra": 3,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Sobrevivendo ao Horror</em>, p. 49.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 7,
+      "circuloMin": 4,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Sobrevivendo ao Horror</em>, p. 49.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "odor-da-cacada",
+    "nome": "Odor da Caçada",
+    "livro": "sah",
+    "pagina": 49,
+    "revisar": false,
+    "elemento": "blood",
+    "circulo": 3,
+    "execucao": "default",
+    "alcance": "personal",
+    "alcanceTexto": "pessoal",
+    "alvo": "você",
+    "alvoTipo": null,
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": null,
+    "custo": 6,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Sobrevivendo ao Horror</em>, p. 49.</p>",
+    "discente": {
+      "custoExtra": 4,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Sobrevivendo ao Horror</em>, p. 49.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 9,
+      "circuloMin": null,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Sobrevivendo ao Horror</em>, p. 49.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "martirio-de-sangue",
+    "nome": "Martírio de Sangue",
+    "livro": "sah",
+    "pagina": 50,
+    "revisar": false,
+    "elemento": "blood",
+    "circulo": 4,
+    "execucao": "default",
+    "alcance": "personal",
+    "alcanceTexto": "pessoal",
+    "alvo": "você",
+    "alvoTipo": null,
+    "area": null,
+    "duracao": "setDuration",
+    "duracaoTexto": "veja texto",
+    "resistencia": null,
+    "custo": 10,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Sobrevivendo ao Horror</em>, p. 50.</p>",
+    "discente": {
+      "custoExtra": 5,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Sobrevivendo ao Horror</em>, p. 50.</p>",
+      "dano": null
+    },
+    "verdadeiro": null
+  },
+  {
+    "id": "apagar-as-luzes",
+    "nome": "Apagar as Luzes",
+    "livro": "sah",
+    "pagina": 50,
+    "revisar": false,
+    "elemento": "death",
+    "circulo": 1,
+    "execucao": "default",
+    "alcance": "personal",
+    "alcanceTexto": "pessoal",
+    "alvo": "você",
+    "alvoTipo": null,
+    "area": null,
+    "duracao": "instantaneous",
+    "duracaoTexto": "instantânea",
+    "resistencia": null,
+    "custo": 1,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Sobrevivendo ao Horror</em>, p. 50.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": 2,
+      "texto": "<p>Discente: veja <em>Sobrevivendo ao Horror</em>, p. 50.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": 3,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Sobrevivendo ao Horror</em>, p. 50.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "lingua-morta",
+    "nome": "Língua Morta",
+    "livro": "sah",
+    "pagina": 51,
+    "revisar": false,
+    "elemento": "death",
+    "circulo": 2,
+    "execucao": "default",
+    "alcance": "touch",
+    "alcanceTexto": "toque",
+    "alvo": "1 cadáver",
+    "alvoTipo": null,
+    "area": null,
+    "duracao": "sustained",
+    "duracaoTexto": "sustentada",
+    "resistencia": null,
+    "custo": 3,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Sobrevivendo ao Horror</em>, p. 51.</p>",
+    "discente": {
+      "custoExtra": 3,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Sobrevivendo ao Horror</em>, p. 51.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 7,
+      "circuloMin": 4,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Sobrevivendo ao Horror</em>, p. 51.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "fedor-putrido",
+    "nome": "Fedor Pútrido",
+    "livro": "sah",
+    "pagina": 52,
+    "revisar": false,
+    "elemento": "death",
+    "circulo": 3,
+    "execucao": "default",
+    "alcance": "personal",
+    "alcanceTexto": "pessoal",
+    "alvo": "você",
+    "alvoTipo": null,
+    "area": null,
+    "duracao": "sustained",
+    "duracaoTexto": "sustentada",
+    "resistencia": null,
+    "custo": 6,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Sobrevivendo ao Horror</em>, p. 52.</p>",
+    "discente": {
+      "custoExtra": 4,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Sobrevivendo ao Horror</em>, p. 52.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 9,
+      "circuloMin": null,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Sobrevivendo ao Horror</em>, p. 52.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "singularidade-temporal",
+    "nome": "Singularidade Temporal",
+    "livro": "sah",
+    "pagina": 52,
+    "revisar": false,
+    "elemento": "death",
+    "circulo": 4,
+    "execucao": "default",
+    "alcance": "short",
+    "alcanceTexto": "curto",
+    "alvo": "1 objeto não paranormal Médio",
+    "alvoTipo": "equipment",
+    "area": null,
+    "duracao": "instantaneous",
+    "duracaoTexto": "instantânea",
+    "resistencia": {
+      "pericia": "Fortitude",
+      "efeito": "nullifies",
+      "texto": "veja texto"
+    },
+    "custo": 10,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Sobrevivendo ao Horror</em>, p. 52.</p>",
+    "discente": {
+      "custoExtra": 5,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Sobrevivendo ao Horror</em>, p. 52.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 10,
+      "circuloMin": null,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Sobrevivendo ao Horror</em>, p. 52.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "desfazer-sinapses",
+    "nome": "Desfazer Sinapses",
+    "livro": "sah",
+    "pagina": 53,
+    "revisar": false,
+    "elemento": "knowledge",
+    "circulo": 1,
+    "execucao": "default",
+    "alcance": "short",
+    "alcanceTexto": "curto",
+    "alvo": "1 ser",
+    "alvoTipo": "creatures",
+    "area": null,
+    "duracao": "instantaneous",
+    "duracaoTexto": "instantânea",
+    "resistencia": {
+      "pericia": "Vontade",
+      "efeito": "partial",
+      "texto": "Vontade parcial"
+    },
+    "custo": 1,
+    "dano": {
+      "formula": "2d6+2",
+      "tipo": "knowledgeDamage"
+    },
+    "cura": null,
+    "condicoes": [
+      "frustrado",
+      "esmorecido"
+    ],
+    "descricao": "<p>veja <em>Sobrevivendo ao Horror</em>, p. 53.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": 2,
+      "texto": "<p>Discente: veja <em>Sobrevivendo ao Horror</em>, p. 53.</p>",
+      "dano": {
+        "formula": "3d6+3",
+        "tipo": "knowledgeDamage"
+      }
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": 3,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Sobrevivendo ao Horror</em>, p. 53.</p>",
+      "dano": {
+        "formula": "8d6+8",
+        "tipo": "knowledgeDamage"
+      }
+    }
+  },
+  {
+    "id": "aurora-da-verdade",
+    "nome": "Aurora da Verdade",
+    "livro": "sah",
+    "pagina": 53,
+    "revisar": false,
+    "elemento": "knowledge",
+    "circulo": 2,
+    "execucao": "default",
+    "alcance": "short",
+    "alcanceTexto": "curto",
+    "alvo": "",
+    "alvoTipo": "area",
+    "area": {
+      "forma": "sphere",
+      "tamanho": "3m",
+      "medida": "radius",
+      "texto": "esfera com 3m de raio"
+    },
+    "duracao": "sustained",
+    "duracaoTexto": "sustentada",
+    "resistencia": {
+      "pericia": "Vontade",
+      "efeito": "partial",
+      "texto": "Vontade parcial"
+    },
+    "custo": 3,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Sobrevivendo ao Horror</em>, p. 53.</p>",
+    "discente": {
+      "custoExtra": 3,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Sobrevivendo ao Horror</em>, p. 53.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 7,
+      "circuloMin": 4,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Sobrevivendo ao Horror</em>, p. 53.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "relembrar-fragmento",
+    "nome": "Relembrar Fragmento",
+    "livro": "sah",
+    "pagina": 54,
+    "revisar": false,
+    "elemento": "knowledge",
+    "circulo": 3,
+    "execucao": "default",
+    "alcance": "touch",
+    "alcanceTexto": "toque",
+    "alvo": "1 objeto",
+    "alvoTipo": "equipment",
+    "area": null,
+    "duracao": "instantaneous",
+    "duracaoTexto": "instantânea",
+    "resistencia": null,
+    "custo": 6,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Sobrevivendo ao Horror</em>, p. 54.</p>",
+    "discente": {
+      "custoExtra": 4,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Sobrevivendo ao Horror</em>, p. 54.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 9,
+      "circuloMin": null,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Sobrevivendo ao Horror</em>, p. 54.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "pronunciar-sigilo",
+    "nome": "Pronunciar Sigilo",
+    "livro": "sah",
+    "pagina": 54,
+    "revisar": false,
+    "elemento": "knowledge",
+    "circulo": 4,
+    "execucao": "default",
+    "alcance": "short",
+    "alcanceTexto": "curto",
+    "alvo": "1 ser",
+    "alvoTipo": "creatures",
+    "area": null,
+    "duracao": "instantaneous",
+    "duracaoTexto": "instantânea/veja texto",
+    "resistencia": {
+      "pericia": "Vontade",
+      "efeito": "partial",
+      "texto": "Vontade parcial"
+    },
+    "custo": 10,
+    "dano": null,
+    "cura": null,
+    "condicoes": [
+      "atordoado",
+      "desprevenido",
+      "cego",
+      "ofuscado"
+    ],
+    "descricao": "<p>veja <em>Sobrevivendo ao Horror</em>, p. 54.</p>",
+    "discente": {
+      "custoExtra": 5,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Sobrevivendo ao Horror</em>, p. 54.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 10,
+      "circuloMin": null,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Sobrevivendo ao Horror</em>, p. 54.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "overclock",
+    "nome": "Overclock",
+    "livro": "sah",
+    "pagina": 55,
+    "revisar": false,
+    "elemento": "energy",
+    "circulo": 1,
+    "execucao": "reaction",
+    "alcance": "personal",
+    "alcanceTexto": "pessoal",
+    "alvo": "você",
+    "alvoTipo": null,
+    "area": null,
+    "duracao": "instantaneous",
+    "duracaoTexto": "instantânea",
+    "resistencia": null,
+    "custo": 1,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Sobrevivendo ao Horror</em>, p. 55.</p>",
+    "discente": {
+      "custoExtra": 2,
+      "circuloMin": 2,
+      "texto": "<p>Discente: veja <em>Sobrevivendo ao Horror</em>, p. 55.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 5,
+      "circuloMin": 3,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Sobrevivendo ao Horror</em>, p. 55.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "tremeluzir",
+    "nome": "Tremeluzir",
+    "livro": "sah",
+    "pagina": 55,
+    "revisar": false,
+    "elemento": "energy",
+    "circulo": 2,
+    "execucao": "default",
+    "alcance": "personal",
+    "alcanceTexto": "pessoal",
+    "alvo": "você",
+    "alvoTipo": null,
+    "area": null,
+    "duracao": "sustained",
+    "duracaoTexto": "sustentada",
+    "resistencia": null,
+    "custo": 3,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Sobrevivendo ao Horror</em>, p. 55.</p>",
+    "discente": {
+      "custoExtra": 3,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Sobrevivendo ao Horror</em>, p. 55.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 7,
+      "circuloMin": 4,
+      "afinidade": false,
+      "texto": "<p>Verdadeiro: veja <em>Sobrevivendo ao Horror</em>, p. 55.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "mutar",
+    "nome": "Mutar",
+    "livro": "sah",
+    "pagina": 56,
+    "revisar": false,
+    "elemento": "energy",
+    "circulo": 3,
+    "execucao": "default",
+    "alcance": "personal",
+    "alcanceTexto": "pessoal",
+    "alvo": "você",
+    "alvoTipo": null,
+    "area": null,
+    "duracao": "scene",
+    "duracaoTexto": "cena",
+    "resistencia": null,
+    "custo": 6,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Sobrevivendo ao Horror</em>, p. 56.</p>",
+    "discente": {
+      "custoExtra": 4,
+      "circuloMin": null,
+      "texto": "<p>Discente: veja <em>Sobrevivendo ao Horror</em>, p. 56.</p>",
+      "dano": null
+    },
+    "verdadeiro": {
+      "custoExtra": 9,
+      "circuloMin": null,
+      "afinidade": true,
+      "texto": "<p>Verdadeiro: veja <em>Sobrevivendo ao Horror</em>, p. 56.</p>",
+      "dano": null
+    }
+  },
+  {
+    "id": "milagre-ionizante",
+    "nome": "Milagre Ionizante",
+    "livro": "sah",
+    "pagina": 56,
+    "revisar": false,
+    "elemento": "energy",
+    "circulo": 3,
+    "execucao": "complete",
+    "alcance": "touch",
+    "alcanceTexto": "toque",
+    "alvo": "1 ser",
+    "alvoTipo": "creatures",
+    "area": null,
+    "duracao": "instantaneous",
+    "duracaoTexto": "instantânea",
+    "resistencia": null,
+    "custo": 6,
+    "dano": null,
+    "cura": null,
+    "condicoes": [],
+    "descricao": "<p>veja <em>Sobrevivendo ao Horror</em>, p. 56.</p>",
+    "discente": null,
+    "verdadeiro": null
+  }
+]

@@ -1,0 +1,143 @@
+<div class="op-ibody">
+	{{#if leitura}}
+		{{#if is.classe}}
+		<section class="op-block">
+			<h2 class="op-block__title">Atributos da classe</h2>
+			<table class="op-stats">
+				<thead><tr><th scope="col"></th><th scope="col">Inicial</th><th scope="col">A cada nível</th></tr></thead>
+				<tbody>{{#each stats}}<tr><th scope="row">{{k}}</th><td>{{a}}</td><td>{{b}}</td></tr>{{/each}}</tbody>
+			</table>
+		</section>
+		<section class="op-block">
+			<h2 class="op-block__title">Perícias e proficiências</h2>
+			<ul class="op-chips">{{#each pericias}}<li class="op-chip">{{this}}</li>{{/each}}{{#if system.periciasLivres}}<li class="op-chip">+ {{system.periciasLivres}} à escolha</li>{{/if}}</ul>
+			{{#if system.proficiencias.length}}<p class="op-lead">Proficiências: {{#each system.proficiencias}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}.</p>{{/if}}
+		</section>
+		{{#if progressao.length}}
+		<section class="op-block">
+			<h2 class="op-block__title">Progressão</h2>
+			<ol class="op-progress">{{#each progressao}}<li><span class="op-progress__when">{{quando}}</span><span>{{ganhos}}</span></li>{{/each}}</ol>
+		</section>
+		{{/if}}
+		{{/if}}
+
+		{{#if is.origem}}
+		<section class="op-block">
+			<h2 class="op-block__title">Perícias treinadas</h2>
+			<ul class="op-chips">{{#each system.pericias}}<li class="op-chip">{{this}}</li>{{/each}}</ul>
+			{{#if system.comunidade}}<p class="op-lead">Origem da comunidade{{#if system.autores}} · {{system.autores}}{{/if}}</p>{{/if}}
+		</section>
+		{{#if system.poder.nome}}
+		<section class="op-block">
+			<h2 class="op-block__title">{{system.poder.nome}}</h2>
+			<div class="op-ability__text">{{{poderHTML}}}</div>
+		</section>
+		{{/if}}
+		{{/if}}
+
+		{{#if habilidades.length}}
+		<section class="op-block">
+			<h2 class="op-block__title">Habilidades</h2>
+			{{#each habilidades}}
+			<article class="op-ability">
+				<h3 class="op-ability__name">{{nome}} {{#if quando}}<span class="op-tag">{{quando}}</span>{{/if}}{{#if custo}} <span class="op-tag">{{custo}}</span>{{/if}}</h3>
+				<div class="op-ability__text">{{{html}}}</div>
+			</article>
+			{{/each}}
+		</section>
+		{{/if}}
+	{{else}}
+
+	<div class="op-fields">
+		{{#if is.arma}}
+		<label>Categoria<select name="system.categoria">{{selectOptions o.categoria selected=system.categoria valueAttr="value" labelAttr="label"}}</select></label>
+		<label>Espaços<input type="number" step="0.5" name="system.espacos" value="{{system.espacos}}"></label>
+		<label>Proficiência<select name="system.proficiencia">{{selectOptions o.proficiencia selected=system.proficiencia valueAttr="value" labelAttr="label"}}</select></label>
+		<label>Tipo<select name="system.tipo">{{selectOptions o.tipoArma selected=system.tipo valueAttr="value" labelAttr="label"}}</select></label>
+		<label>Empunhadura<select name="system.empunhadura">{{selectOptions o.empunhadura selected=system.empunhadura valueAttr="value" labelAttr="label"}}</select></label>
+		<label>Alcance<input type="text" name="system.alcance" value="{{system.alcance}}" placeholder="ex.: curto"></label>
+		<label>Dano<input type="text" name="system.dano.formula" value="{{system.dano.formula}}"></label>
+		<label>Tipo de dano<select name="system.dano.tipo">{{selectOptions o.dano selected=system.dano.tipo valueAttr="value" labelAttr="label"}}</select></label>
+		<label>Margem de crítico<input type="number" min="2" max="20" name="system.critico.margem" value="{{system.critico.margem}}"></label>
+		<label>Multiplicador<input type="number" min="2" max="5" name="system.critico.multiplicador" value="{{system.critico.multiplicador}}"></label>
+		<label>Bônus de ataque<input type="number" name="system.bonusAtaque" value="{{system.bonusAtaque}}"></label>
+		<label>Bônus de dano<input type="text" name="system.bonusDano" value="{{system.bonusDano}}" placeholder="ex.: +2"></label>
+		<label>Munição<input type="text" name="system.municao" value="{{system.municao}}" placeholder="ex.: balas curtas"></label>
+		<label>Carregador (contagem concreta)<input type="number" min="0" name="system.carregador.max" value="{{system.carregador.max}}"></label>
+		{{/if}}
+
+		{{#if is.protecao}}
+		<label>Categoria<select name="system.categoria">{{selectOptions o.categoria selected=system.categoria valueAttr="value" labelAttr="label"}}</select></label>
+		<label>Espaços<input type="number" step="0.5" name="system.espacos" value="{{system.espacos}}"></label>
+		<label>Defesa<input type="number" name="system.defesa" value="{{system.defesa}}"></label>
+		<label>Penalidade<input type="number" name="system.penalidade" value="{{system.penalidade}}"></label>
+		{{/if}}
+
+		{{#if is.equipamento}}
+		<label>Categoria<select name="system.categoria">{{selectOptions o.categoria selected=system.categoria valueAttr="value" labelAttr="label"}}</select></label>
+		<label>Espaços<input type="number" step="0.5" name="system.espacos" value="{{system.espacos}}"></label>
+		<label>Quantidade<input type="number" min="0" name="system.quantidade" value="{{system.quantidade}}"></label>
+		<label>Tipo<input type="text" name="system.subtipo" value="{{system.subtipo}}"></label>
+		<label>Elemento<select name="system.elemento">{{selectOptions o.elemento selected=system.elemento valueAttr="value" labelAttr="label"}}</select></label>
+		<label>Munição: dura (cenas)<input type="number" min="0" name="system.municao.cenas" value="{{system.municao.cenas}}" placeholder="0 = não é munição"></label>
+		<label>Cenas já usadas<input type="number" min="0" name="system.municao.usadas" value="{{system.municao.usadas}}"></label>
+		{{/if}}
+
+		{{#if is.ritual}}
+		<label>Círculo<select name="system.circulo">{{selectOptions o.circulo selected=system.circulo valueAttr="value" labelAttr="label"}}</select></label>
+		<label>Elemento<select name="system.elemento">{{selectOptions o.elemento selected=system.elemento valueAttr="value" labelAttr="label"}}</select></label>
+		<label>Execução<select name="system.execucao">{{selectOptions o.execucao selected=system.execucao valueAttr="value" labelAttr="label"}}</select></label>
+		<label>Custo em PE<input type="number" name="system.custo" value="{{system.custo}}" placeholder="{{system.custoBase}} (do círculo)"></label>
+		<label>Alcance<select name="system.alcance.chave">{{selectOptions o.alcance selected=system.alcance.chave valueAttr="value" labelAttr="label"}}</select></label>
+		<label>Alcance (texto)<input type="text" name="system.alcance.texto" value="{{system.alcance.texto}}"></label>
+		<label class="op-wide">Alvo<input type="text" name="system.alvo" value="{{system.alvo}}"></label>
+		<label class="op-wide">Área<input type="text" name="system.area" value="{{system.area}}"></label>
+		<label>Duração<select name="system.duracao.chave">{{selectOptions o.duracao selected=system.duracao.chave valueAttr="value" labelAttr="label"}}</select></label>
+		<label>Duração (texto)<input type="text" name="system.duracao.texto" value="{{system.duracao.texto}}"></label>
+		<label>Resistência: perícia<input type="text" name="system.resistencia.pericia" value="{{system.resistencia.pericia}}"></label>
+		<label>Resistência: efeito<select name="system.resistencia.efeito">{{selectOptions o.efeito selected=system.resistencia.efeito valueAttr="value" labelAttr="label"}}</select></label>
+		<label>Dano<input type="text" name="system.dano.formula" value="{{system.dano.formula}}"></label>
+		<label>Tipo de dano<select name="system.dano.tipo">{{selectOptions o.dano selected=system.dano.tipo valueAttr="value" labelAttr="label"}}</select></label>
+		<label class="op-wide">Cura<input type="text" name="system.cura" value="{{system.cura}}" placeholder="ex.: 2d8+2"></label>
+		{{/if}}
+
+		{{#if is.poder}}
+		<label>Tipo<select name="system.tipo">{{selectOptions o.tipoPoder selected=system.tipo valueAttr="value" labelAttr="label"}}</select></label>
+		<label>Elemento<select name="system.elemento">{{selectOptions o.elemento selected=system.elemento valueAttr="value" labelAttr="label"}}</select></label>
+		<label>Custo<input type="number" name="system.custo" value="{{system.custo}}"></label>
+		<label>Execução<select name="system.execucao"><option value="">—</option>{{selectOptions o.execucao selected=system.execucao valueAttr="value" labelAttr="label"}}</select></label>
+		<label class="op-wide">Requisitos<input type="text" name="system.requisitos" value="{{system.requisitos}}"></label>
+		<label>Limite de uso<select name="system.limite">{{selectOptions o.limite selected=system.limite valueAttr="value" labelAttr="label"}}</select></label>
+		<label>Usos restantes<input type="number" min="0" name="system.usos.valor" value="{{system.usos.valor}}"></label>
+		<label>Usos máximos<input type="number" name="system.usos.max" value="{{system.usos.max}}"></label>
+		{{/if}}
+	</div>
+
+	{{#if is.ritual}}
+	{{#each formas}}
+	<section class="op-block op-forma">
+		<header class="op-block__row">
+			<h2 class="op-block__title">{{titulo}}</h2>
+			<button type="button" class="op-link" data-action="forma" data-forma="{{k}}">{{#if f}}Remover forma{{else}}Adicionar forma{{/if}}</button>
+		</header>
+		{{#if f}}
+		<div class="op-fields">
+			<label>Custo extra<input type="number" min="0" name="system.{{k}}.custoExtra" value="{{f.custoExtra}}"></label>
+			<label>Círculo mínimo<input type="number" min="1" max="4" name="system.{{k}}.circuloMin" value="{{f.circuloMin}}"></label>
+			<label class="op-check"><input type="checkbox" name="system.{{k}}.afinidade" {{checked f.afinidade}}> Requer afinidade</label>
+			<label>Dano<input type="text" name="system.{{k}}.dano.formula" value="{{f.dano.formula}}"></label>
+			<label class="op-wide">Efeito<textarea name="system.{{k}}.texto" rows="3">{{f.texto}}</textarea></label>
+		</div>
+		{{/if}}
+	</section>
+	{{/each}}
+	{{/if}}
+
+	<section class="op-block">
+		<h2 class="op-block__title">Descrição</h2>
+		{{#if editable}}
+		<prose-mirror name="system.descricao" data-document-uuid="{{item.uuid}}" value="{{system.descricao}}" collaborate="true" toggled="true">{{{descricaoHTML}}}</prose-mirror>
+		{{else}}<div class="op-ability__text">{{{descricaoHTML}}}</div>{{/if}}
+	</section>
+	{{/if}}
+</div>

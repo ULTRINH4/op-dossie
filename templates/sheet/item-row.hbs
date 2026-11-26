@@ -1,0 +1,22 @@
+<li class="item draggable op-row {{#if equipped}}{{else}}is-unequipped{{/if}} {{#if element}}op-el--{{element}}{{/if}}" data-document-class="Item" data-item-id="{{id}}" data-drag="true">
+	<div class="op-row__main">
+		<button type="button" class="op-row__img" data-action="{{#if rollAction}}{{rollAction}}{{else}}usar{{/if}}" data-tooltip="{{#if rollAction}}Conjurar{{else}}Usar / mostrar no chat{{/if}}" aria-label="Usar {{name}}">
+			<img src="{{img}}" alt="">
+		</button>
+		<button type="button" class="op-row__name" data-action="expandir" aria-expanded="{{expanded}}">{{name}}</button>
+		<div class="op-row__cols">{{> @partial-block}}</div>
+		<div class="op-row__ctl">
+			{{#if reload}}
+			<button type="button" data-action="recarregar" data-tooltip="Recarregar (ação de movimento)" aria-label="Recarregar {{name}}"><i class="fa-solid fa-rotate" aria-hidden="true"></i></button>
+			{{/if}}
+			{{#if showEquip}}
+			<button type="button" data-action="equipar" class="{{#if equipped}}is-on{{/if}}" data-tooltip="{{#if equipped}}Em uso{{else}}Guardado{{/if}}" aria-label="Alternar uso"><i class="fa-solid fa-hand" aria-hidden="true"></i></button>
+			{{/if}}
+			<button type="button" data-action="abrir" data-tooltip="Abrir" aria-label="Abrir {{name}}"><i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i></button>
+			{{#if edit}}
+			<button type="button" data-action="remover" class="op-danger" data-tooltip="Remover" aria-label="Remover {{name}}"><i class="fa-solid fa-trash" aria-hidden="true"></i></button>
+			{{/if}}
+		</div>
+	</div>
+	{{#if expanded}}<div class="op-row__desc">{{{description}}}</div>{{/if}}
+</li>

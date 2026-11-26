@@ -1,0 +1,304 @@
+<div class="op-criacao__frame">
+	<nav class="op-criacao__steps" aria-label="Etapas">
+		<p class="op-eyebrow">Ficha de recrutamento</p>
+		<ol>
+			{{#each etapas}}
+			<li>
+				<button type="button" class="op-wstep {{#if atual}}is-current{{/if}} {{#if feita}}is-done{{/if}} {{#if aviso}}is-warn{{/if}} {{#if pulada}}is-skipped{{/if}}"
+					data-action="etapa" data-i="{{i}}" {{#if atual}}aria-current="step"{{/if}} {{#if pulada}}disabled{{/if}}>
+					<span class="op-wstep__n" aria-hidden="true">{{#if feita}}<i class="fa-solid fa-check"></i>{{else}}{{numero}}{{/if}}</span>
+					<span class="op-wstep__name">{{nome}}</span>
+					{{#if pulada}}<span class="op-wstep__note">nesse NEX, não</span>{{/if}}
+				</button>
+			</li>
+			{{/each}}
+		</ol>
+		{{#if recursos.length}}
+		<dl class="op-criacao__res" aria-label="Recursos calculados">
+			{{#each recursos}}<div><dt>{{abv}}</dt><dd>{{valor}}</dd></div>{{/each}}
+		</dl>
+		{{/if}}
+	</nav>
+
+	<div class="op-criacao__main">
+		<div class="op-criacao__scroll">
+		{{#if semCompendio}}
+		<div class="op-note op-note--warn" role="alert"><p>Os compêndios de classes e origens do Dossiê não carregaram. Recarregue o mundo; se continuar, peça ao mestre para reimportar os compêndios.</p></div>
+		{{/if}}
+
+		{{#if (eq etapaId 'conceito')}}
+		<h2 tabindex="-1">Quem é o agente</h2>
+		<p class="op-lead">A mesa está em: {{#each regrasResumo}}<span class="op-chip">{{this}}</span>{{/each}}</p>
+		<label class="op-field">
+			<span class="op-field__label">Nome</span>
+			<input type="text" name="nome" value="{{e.nome}}" placeholder="Nome do agente" autocomplete="off">
+		</label>
+		{{#if (gt partidas.length 1)}}
+		<section class="op-block">
+			<h3 class="op-block__title">Ponto de partida</h3>
+			<div class="op-options">
+				{{#each partidas}}
+				<label class="op-option {{#if checked}}is-checked{{/if}}">
+					<input type="radio" name="partida" value="{{id}}" {{checked checked}}>
+					<span class="op-option__top"><span class="op-option__name">{{nome}}</span></span>
+					<span class="op-option__hint">{{dica}}</span>
+				</label>
+				{{/each}}
+			</div>
+		</section>
+		{{/if}}
+		<section class="op-block">
+			{{#if (eq trilho 'nex')}}
+			<label class="op-field op-field--short">
+				<span class="op-field__label">NEX inicial</span>
+				<select name="nex">{{#each nexOpcoes}}<option value="{{v}}" {{#if sel}}selected{{/if}}>{{v}}%</option>{{/each}}</select>
+			</label>
+			{{else if (eq trilho 'nivel')}}
+			<label class="op-field op-field--short">
+				<span class="op-field__label">Nível de experiência</span>
+				<select name="nivel">{{#each nivelOpcoes}}<option value="{{v}}" {{#if sel}}selected{{/if}}>Nível {{v}}</option>{{/each}}</select>
+			</label>
+			<p class="op-hint">O NEX começa em 0% e sobe pela exposição ao paranormal (SaH p. 98).</p>
+			{{else if (eq trilho 'patentes')}}
+			<label class="op-field op-field--short">
+				<span class="op-field__label">Patente</span>
+				<select name="patente">{{#each patenteOpcoes}}<option value="{{v}}" {{#if sel}}selected{{/if}}>{{nome}} ({{pp}} PP)</option>{{/each}}</select>
+			</label>
+			{{else if (eq trilho 'estagio')}}
+			<label class="op-field op-field--short">
+				<span class="op-field__label">Estágio</span>
+				<select name="estagio">{{#each estagioOpcoes}}<option value="{{v}}" {{#if sel}}selected{{/if}}>Estágio {{v}}</option>{{/each}}</select>
+			</label>
+			{{else}}
+			<p class="op-hint">Mundanos começam em NEX 0%.</p>
+			{{/if}}
+			{{#if idade.extra}}<p class="op-hint">Pela idade, o NEX inicial sobe +{{idade.extra}}%.</p>{{/if}}
+		</section>
+
+		{{#if idade}}
+		<section class="op-block">
+			<h3 class="op-block__title">Idade</h3>
+			<label class="op-field op-field--short">
+				<span class="op-field__label">Faixa etária</span>
+				<select name="faixa" data-campo="faixa">{{#each idade.faixas}}<option value="{{id}}" {{#if sel}}selected{{/if}}>{{nome}}</option>{{/each}}</select>
+			</label>
+			{{#if idade.texto}}<p class="op-hint">{{idade.texto}}</p>{{/if}}
+			{{#if idade.desvantagens.length}}
+			<div class="op-block__row"><span class="op-fixa__label">Peso da Idade</span><span class="op-count">{{idade.marcadas}} de {{idade.conta}}</span></div>
+			<div class="op-pills">
+				{{#each idade.desvantagens}}
+				<label class="op-pill {{#if bloqueada}}is-off{{/if}}" data-tooltip="{{texto}}"><input type="checkbox" data-campo="desvantagem" value="{{id}}" {{checked checked}} {{disabled bloqueada}}>{{nome}}</label>
+				{{/each}}
+			</div>
+			{{/if}}
+		</section>
+		{{/if}}
+
+		{{#if interesse}}
+		<section class="op-block">
+			<h3 class="op-block__title">Interesse pessoal</h3>
+			<div class="op-interesse-add op-interesse-add--criacao">
+				<select name="interesseTipo" data-campo="interesseTipo" aria-label="Tipo de interesse">{{#each interesse.tipos}}<option value="{{id}}" {{#if sel}}selected{{/if}}>{{nome}}</option>{{/each}}</select>
+				<input type="text" name="interesseNome" value="{{interesse.nome}}" placeholder="Quem ou o quê (ex.: irmã Clara, oficina, xadrez)" aria-label="Detalhe do interesse" autocomplete="off">
+			</div>
+			{{#if interesse.texto}}<p class="op-hint">{{interesse.texto}}</p>{{/if}}
+		</section>
+		{{/if}}
+
+		<section class="op-block">
+			<h3 class="op-block__title">O que isso dá na criação</h3>
+			<ul class="op-gains">{{#each ganhos}}<li>{{this}}</li>{{/each}}</ul>
+		</section>
+
+		{{else if (eq etapaId 'atributos')}}
+		<h2 tabindex="-1">Atributos</h2>
+		<p class="op-lead">Todos começam em 1. Você pode baixar um para 0 e ganhar 1 ponto. Máximo {{pontos.max}} por atributo{{#if pontos.aumentos}}, já contando os aumentos de atributo do NEX{{/if}}.</p>
+		<div class="op-points" role="status">
+			<span class="op-points__n">{{pontos.sobra}}</span>
+			<span class="op-points__label">{{#if (eq pontos.sobra 1)}}ponto para distribuir{{else}}pontos para distribuir{{/if}}</span>
+			<span class="op-points__total">{{pontos.gastos}} de {{pontos.total}} usados</span>
+		</div>
+		<div class="op-wattrs">
+			{{#each atributos}}
+			<div class="op-attr-pick">
+				<span class="op-attr-pick__abv">{{abv}}</span>
+				<span class="op-attr-pick__name">{{nome}}{{#if idade}}<br><small>{{idade}}</small>{{/if}}</span>
+				<div class="op-attr-pick__ctrl">
+					<button type="button" class="op-round" data-action="atributo" data-k="{{k}}" data-d="-1" aria-label="Baixar {{nome}}" {{#unless menos}}disabled{{/unless}}><i class="fa-solid fa-minus"></i></button>
+					<output class="op-attr-pick__v" aria-label="{{nome}}">{{v}}</output>
+					<button type="button" class="op-round" data-action="atributo" data-k="{{k}}" data-d="1" aria-label="Subir {{nome}}" {{#unless mais}}disabled{{/unless}}><i class="fa-solid fa-plus"></i></button>
+				</div>
+			</div>
+			{{/each}}
+		</div>
+
+		{{else if (eq etapaId 'origem')}}
+		<h2 tabindex="-1">Origem</h2>
+		<p class="op-lead">O que o agente fazia antes da Ordem. Dá duas perícias treinadas e um poder.</p>
+		<div class="op-split">
+			<div class="op-picklist" role="radiogroup" aria-label="Origens">
+				{{#each origens}}
+				<label class="op-pick {{#if checked}}is-checked{{/if}}">
+					<input type="radio" name="origem" value="{{id}}" {{checked checked}}>
+					<span class="op-pick__name">{{nome}}{{#if comunidade}} <span class="op-tag">comunidade</span>{{/if}}</span>
+					<span class="op-pick__sub">{{pericias}}</span>
+				</label>
+				{{/each}}
+			</div>
+			<aside class="op-detail" aria-live="polite">
+				{{#if origemSel}}
+				<h3 class="op-detail__title">{{origemSel.nome}}</h3>
+				<div class="op-detail__text">{{{origemSel.descricao}}}</div>
+				{{#if origemLimite}}
+				<h4 class="op-detail__sub">{{origemLimite.faixa}}: escolha {{origemLimite.conta}}</h4>
+				<div class="op-pills">
+					{{#each origemLimite.opcoes}}<label class="op-pill {{#if bloqueada}}is-off{{/if}}"><input type="checkbox" data-campo="beneficio" value="{{id}}" {{checked checked}} {{disabled bloqueada}}>{{nome}}</label>{{/each}}
+				</div>
+				{{/if}}
+				{{#if origemSel.poder}}
+				<h4 class="op-detail__sub">{{origemSel.poder.name}}</h4>
+				<div class="op-detail__text">{{{origemSel.poderTexto}}}</div>
+				{{/if}}
+				{{else}}
+				<p class="op-hint">Escolha uma origem na lista para ver o poder.</p>
+				{{/if}}
+			</aside>
+		</div>
+
+		{{else if (eq etapaId 'classe')}}
+		<h2 tabindex="-1">Classe</h2>
+		{{#if classeFixa}}
+		<p class="op-lead">Com esse ponto de partida, a classe é <strong>{{classeFixa}}</strong>.</p>
+		{{else}}
+		<p class="op-lead">O treinamento que a Ordem deu ao agente.</p>
+		<div class="op-options op-options--3">
+			{{#each classes}}
+			<label class="op-option {{#if checked}}is-checked{{/if}}">
+				<input type="radio" name="classe" value="{{id}}" {{checked checked}}>
+				<span class="op-option__top"><span class="op-option__name">{{nome}}</span></span>
+				<span class="op-option__hint">{{stats}}</span>
+				<span class="op-option__hint">Perícias: {{pericias}}</span>
+				<span class="op-option__foot"><span class="op-option__page">{{prof}}</span></span>
+			</label>
+			{{/each}}
+		</div>
+		{{/if}}
+
+		{{else if (eq etapaId 'pericias')}}
+		<h2 tabindex="-1">Perícias</h2>
+		{{#if fixas.length}}
+		<section class="op-block">
+			<h3 class="op-block__title">Da classe</h3>
+			{{#each fixas}}
+			<div class="op-fixa" role="radiogroup" aria-label="{{rotulo}}">
+				<span class="op-fixa__label">{{rotulo}}</span>
+				<div class="op-pills">
+					{{#each opcoes}}
+					<label class="op-pill"><input type="radio" name="fixa-{{../i}}" data-campo="fixa" data-i="{{../i}}" value="{{k}}" {{checked checked}}>{{nome}}</label>
+					{{/each}}
+				</div>
+			</div>
+			{{/each}}
+		</section>
+		{{/if}}
+		<section class="op-block">
+			<div class="op-block__row">
+				<h3 class="op-block__title">Treinadas</h3>
+				<span class="op-count">{{livres.marcadas}} de {{livres.conta}} livres</span>
+			</div>
+			<div class="op-skillgrid">
+				{{#each pericias}}
+				<label class="op-skill-pick {{#if checked}}is-checked{{/if}} {{#if fonte}}is-given{{/if}} {{#if bloqueada}}is-locked{{/if}}">
+					<input type="checkbox" data-campo="livre" value="{{k}}" {{checked checked}} {{disabled bloqueada}}>
+					<span class="op-skill-pick__name">{{nome}}</span>
+					<span class="op-skill-pick__meta">{{#if fonte}}{{fonte}}{{else}}{{abv}}{{/if}}</span>
+				</label>
+				{{/each}}
+			</div>
+			{{#if pedeProfissao}}
+			<label class="op-field op-field--short">
+				<span class="op-field__label">Qual profissão?</span>
+				<input type="text" name="profissao" value="{{e.profissao}}" placeholder="Ex.: jornalista" autocomplete="off">
+			</label>
+			{{/if}}
+		</section>
+		{{#if veterano}}
+		<section class="op-block">
+			<div class="op-block__row">
+				<h3 class="op-block__title">Grau de treinamento: Veterano</h3>
+				<span class="op-count">{{veterano.marcadas}} de {{veterano.conta}}</span>
+			</div>
+			<div class="op-pills">
+				{{#each veterano.itens}}
+				<label class="op-pill {{#if bloqueada}}is-off{{/if}}"><input type="checkbox" data-campo="veterano" value="{{k}}" {{checked checked}} {{disabled bloqueada}}>{{nome}}</label>
+				{{/each}}
+			</div>
+		</section>
+		{{/if}}
+		{{#if expert}}
+		<section class="op-block">
+			<div class="op-block__row">
+				<h3 class="op-block__title">Grau de treinamento: Expert</h3>
+				<span class="op-count">{{expert.marcadas}} de {{expert.conta}}</span>
+			</div>
+			<div class="op-pills">
+				{{#each expert.itens}}
+				<label class="op-pill {{#if bloqueada}}is-off{{/if}}"><input type="checkbox" data-campo="expert" value="{{k}}" {{checked checked}} {{disabled bloqueada}}>{{nome}}</label>
+				{{/each}}
+			</div>
+		</section>
+		{{/if}}
+
+		{{else if (eq etapaId 'trilha')}}
+		<h2 tabindex="-1">Trilha</h2>
+		<p class="op-lead">A especialização dentro da classe. As habilidades de trilha chegam com o NEX.</p>
+		<div class="op-options">
+			{{#each trilhas}}
+			<label class="op-option {{#if checked}}is-checked{{/if}}">
+				<input type="radio" name="trilha" value="{{id}}" {{checked checked}}>
+				<span class="op-option__top"><span class="op-option__name">{{nome}}</span><span class="op-tag">{{sigla}}</span></span>
+				<span class="op-option__hint">{{texto}}</span>
+			</label>
+			{{else}}
+			<p class="op-hint">Nenhuma trilha dessa classe está ligada nas Regras da Mesa.</p>
+			{{/each}}
+		</div>
+
+		{{else if (eq etapaId 'revisao')}}
+		<h2 tabindex="-1">{{#if e.nome}}{{e.nome}}{{else}}Revisão{{/if}}</h2>
+		{{#if revisao.pendentes.length}}
+		<div class="op-note op-note--warn" role="status">
+			{{#each revisao.pendentes}}<p><button type="button" class="op-link" data-action="etapa" data-i="{{i}}">{{etapa}}</button>: {{texto}}</p>{{/each}}
+		</div>
+		{{/if}}
+		<dl class="op-summary">
+			<div><dt>Progresso</dt><dd>{{revisao.progresso}}</dd></div>
+			<div><dt>Classe</dt><dd>{{revisao.classe}}</dd></div>
+			<div><dt>Origem</dt><dd>{{revisao.origem}}</dd></div>
+			{{#if revisao.idade}}<div><dt>Idade</dt><dd>{{revisao.idade}}</dd></div>{{/if}}
+			{{#if revisao.trilha}}<div><dt>Trilha</dt><dd>{{revisao.trilha}}</dd></div>{{/if}}
+		</dl>
+		<div class="op-attrline">{{#each revisao.atributos}}<span><b>{{abv}}</b> {{v}}</span>{{/each}}</div>
+		<section class="op-block">
+			<h3 class="op-block__title">Perícias</h3>
+			<ul class="op-taglist">{{#each revisao.pericias}}<li>{{nome}} <small>{{grau}}</small></li>{{/each}}</ul>
+		</section>
+		<section class="op-block">
+			<h3 class="op-block__title">Fica para a ficha</h3>
+			<ul class="op-gains">{{#each revisao.depois}}<li>{{this}}</li>{{/each}}</ul>
+		</section>
+		{{/if}}
+
+		</div>
+
+		<footer class="op-criacao__foot">
+			<p class="op-criacao__pend" role="status">{{#if pend}}<i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> {{pend}}{{/if}}</p>
+			{{#unless primeira}}<button type="button" class="op-btn op-btn--ghost" data-action="voltar"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Voltar</button>{{/unless}}
+			{{#if ultima}}
+			<button type="button" class="op-btn op-btn--primary" data-action="criar" {{#unless podeCriar}}disabled{{/unless}}><i class="fa-solid fa-file-signature" aria-hidden="true"></i> {{botaoCriar}}</button>
+			{{else}}
+			<button type="button" class="op-btn op-btn--primary" data-action="proxima">Próxima <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+			{{/if}}
+		</footer>
+	</div>
+</div>

@@ -1,0 +1,221 @@
+{
+  "id": "op-dossie",
+  "title": "Ordem Paranormal: Dossiê",
+  "description": "<p>Sistema não oficial para jogar Ordem Paranormal RPG no Foundry VTT: ficha de agente, regras da mesa configuráveis (Livro de Regras e Sobrevivendo ao Horror), conjuração de rituais, ataques, dano com resistências e compêndios.</p><p><em>Ordem Paranormal RPG foi criado por Rafael Lange (Cellbit) e publicado pela Jambô Editora. Este sistema não é oficial nem afiliado a eles.</em></p>",
+  "version": "0.1.0",
+  "url": "https://github.com/ULTRINH4/op-dossie",
+  "manifest": "https://github.com/ULTRINH4/op-dossie/releases/latest/download/system.json",
+  "download": "https://github.com/ULTRINH4/op-dossie/releases/download/v0.1.0/op-dossie.zip",
+  "bugs": "https://github.com/ULTRINH4/op-dossie/issues",
+  "readme": "README.md",
+  "license": "LICENSE",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13.351"
+  },
+  "authors": [
+    {
+      "name": "ULTRINH4",
+      "url": "https://github.com/ULTRINH4"
+    }
+  ],
+  "socket": true,
+  "esmodules": [
+    "scripts/op-dossie.mjs"
+  ],
+  "styles": [
+    "styles/op-ficha.css",
+    "styles/agent-sheet.css",
+    "styles/automation.css",
+    "styles/dossie.css",
+    "styles/chat.css",
+    "styles/efeitos.css",
+    "styles/criacao.css",
+    "styles/faixa.css",
+    "styles/hud.css"
+  ],
+  "languages": [
+    {
+      "lang": "pt-BR",
+      "name": "Português (Brasil)",
+      "path": "lang/pt-BR.json"
+    },
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/pt-BR.json"
+    }
+  ],
+  "documentTypes": {
+    "Actor": {
+      "agente": {
+        "htmlFields": [
+          "biografia",
+          "objetivos"
+        ]
+      },
+      "ameaca": {
+        "htmlFields": [
+          "descricao",
+          "enigma"
+        ]
+      }
+    },
+    "Item": {
+      "arma": {
+        "htmlFields": [
+          "descricao"
+        ]
+      },
+      "protecao": {
+        "htmlFields": [
+          "descricao"
+        ]
+      },
+      "equipamento": {
+        "htmlFields": [
+          "descricao"
+        ]
+      },
+      "ritual": {
+        "htmlFields": [
+          "descricao"
+        ]
+      },
+      "poder": {
+        "htmlFields": [
+          "descricao"
+        ]
+      },
+      "classe": {
+        "htmlFields": [
+          "descricao"
+        ]
+      },
+      "origem": {
+        "htmlFields": [
+          "descricao"
+        ]
+      },
+      "trilha": {
+        "htmlFields": [
+          "descricao"
+        ]
+      }
+    }
+  },
+  "packs": [
+    {
+      "name": "classes",
+      "label": "Classes",
+      "path": "packs/classes",
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    },
+    {
+      "name": "origens",
+      "label": "Origens",
+      "path": "packs/origens",
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    },
+    {
+      "name": "trilhas",
+      "label": "Trilhas",
+      "path": "packs/trilhas",
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    },
+    {
+      "name": "poderes",
+      "label": "Poderes",
+      "path": "packs/poderes",
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    },
+    {
+      "name": "rituais",
+      "label": "Rituais",
+      "path": "packs/rituais",
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    },
+    {
+      "name": "armas",
+      "label": "Armas",
+      "path": "packs/armas",
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    },
+    {
+      "name": "protecoes",
+      "label": "Proteções",
+      "path": "packs/protecoes",
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    },
+    {
+      "name": "equipamentos",
+      "label": "Equipamentos",
+      "path": "packs/equipamentos",
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    }
+  ],
+  "packFolders": [
+    {
+      "name": "Ordem Paranormal: Dossiê",
+      "sorting": "m",
+      "color": "#4a1512",
+      "packs": [
+        "classes",
+        "origens",
+        "trilhas",
+        "poderes",
+        "rituais",
+        "armas",
+        "protecoes",
+        "equipamentos"
+      ]
+    }
+  ],
+  "grid": {
+    "distance": 1.5,
+    "units": "m"
+  },
+  "primaryTokenAttribute": "recursos.pv",
+  "secondaryTokenAttribute": "recursos.pe",
+  "initiative": "1d20"
+}

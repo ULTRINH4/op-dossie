@@ -1,0 +1,419 @@
+{
+  "_comentario": "Gerado por tools/gerar-conteudo.mjs a partir de data/fontes. Não editar à mão.",
+  "classes": [
+    {
+      "id": "combatente",
+      "nome": "Combatente",
+      "livro": "base"
+    },
+    {
+      "id": "especialista",
+      "nome": "Especialista",
+      "livro": "base"
+    },
+    {
+      "id": "ocultista",
+      "nome": "Ocultista",
+      "livro": "base"
+    },
+    {
+      "id": "mundano",
+      "nome": "Mundano",
+      "livro": "base",
+      "iniciante": "mundano"
+    },
+    {
+      "id": "sobrevivente",
+      "nome": "Sobrevivente",
+      "livro": "sah",
+      "iniciante": "sobrevivente"
+    }
+  ],
+  "trilhas": {
+    "combatente": [
+      {
+        "id": "aniquilador",
+        "nome": "Aniquilador",
+        "livro": "base"
+      },
+      {
+        "id": "comandante-de-campo",
+        "nome": "Comandante de Campo",
+        "livro": "base"
+      },
+      {
+        "id": "guerreiro",
+        "nome": "Guerreiro",
+        "livro": "base"
+      },
+      {
+        "id": "operacoes-especiais",
+        "nome": "Operações Especiais",
+        "livro": "base"
+      },
+      {
+        "id": "tropa-de-choque",
+        "nome": "Tropa de Choque",
+        "livro": "base"
+      },
+      {
+        "id": "agente-secreto",
+        "nome": "Agente Secreto",
+        "livro": "sah"
+      },
+      {
+        "id": "cacador",
+        "nome": "Caçador",
+        "livro": "sah"
+      },
+      {
+        "id": "monstruoso",
+        "nome": "Monstruoso",
+        "livro": "sah"
+      }
+    ],
+    "especialista": [
+      {
+        "id": "atirador-de-elite",
+        "nome": "Atirador de Elite",
+        "livro": "base"
+      },
+      {
+        "id": "infiltrador",
+        "nome": "Infiltrador",
+        "livro": "base"
+      },
+      {
+        "id": "medico-de-campo",
+        "nome": "Médico de Campo",
+        "livro": "base"
+      },
+      {
+        "id": "negociador",
+        "nome": "Negociador",
+        "livro": "base"
+      },
+      {
+        "id": "tecnico",
+        "nome": "Técnico",
+        "livro": "base"
+      },
+      {
+        "id": "bibliotecario",
+        "nome": "Bibliotecário",
+        "livro": "sah"
+      },
+      {
+        "id": "perseverante",
+        "nome": "Perseverante",
+        "livro": "sah"
+      },
+      {
+        "id": "muambeiro",
+        "nome": "Muambeiro",
+        "livro": "sah"
+      }
+    ],
+    "ocultista": [
+      {
+        "id": "conduite",
+        "nome": "Conduíte",
+        "livro": "base"
+      },
+      {
+        "id": "flagelador",
+        "nome": "Flagelador",
+        "livro": "base"
+      },
+      {
+        "id": "graduado",
+        "nome": "Graduado",
+        "livro": "base"
+      },
+      {
+        "id": "intuitivo",
+        "nome": "Intuitivo",
+        "livro": "base"
+      },
+      {
+        "id": "lamina-paranormal",
+        "nome": "Lâmina Paranormal",
+        "livro": "base"
+      },
+      {
+        "id": "exorcista",
+        "nome": "Exorcista",
+        "livro": "sah"
+      },
+      {
+        "id": "possuido",
+        "nome": "Possuído",
+        "livro": "sah"
+      },
+      {
+        "id": "parapsicologo",
+        "nome": "Parapsicólogo",
+        "livro": "sah"
+      }
+    ],
+    "sobrevivente": [
+      {
+        "id": "durao",
+        "nome": "Durão",
+        "livro": "sah"
+      },
+      {
+        "id": "esperto",
+        "nome": "Esperto",
+        "livro": "sah"
+      },
+      {
+        "id": "esoterico",
+        "nome": "Esotérico",
+        "livro": "sah"
+      }
+    ]
+  },
+  "origens": [
+    {
+      "id": "academico",
+      "nome": "Acadêmico",
+      "livro": "base"
+    },
+    {
+      "id": "agente-de-saude",
+      "nome": "Agente de Saúde",
+      "livro": "base"
+    },
+    {
+      "id": "amnesico",
+      "nome": "Amnésico",
+      "livro": "base"
+    },
+    {
+      "id": "artista",
+      "nome": "Artista",
+      "livro": "base"
+    },
+    {
+      "id": "atleta",
+      "nome": "Atleta",
+      "livro": "base"
+    },
+    {
+      "id": "chef",
+      "nome": "Chef",
+      "livro": "base"
+    },
+    {
+      "id": "criminoso",
+      "nome": "Criminoso",
+      "livro": "base"
+    },
+    {
+      "id": "cultista-arrependido",
+      "nome": "Cultista Arrependido",
+      "livro": "base"
+    },
+    {
+      "id": "desgarrado",
+      "nome": "Desgarrado",
+      "livro": "base"
+    },
+    {
+      "id": "engenheiro",
+      "nome": "Engenheiro",
+      "livro": "base"
+    },
+    {
+      "id": "executivo",
+      "nome": "Executivo",
+      "livro": "base"
+    },
+    {
+      "id": "investigador",
+      "nome": "Investigador",
+      "livro": "base"
+    },
+    {
+      "id": "lutador",
+      "nome": "Lutador",
+      "livro": "base"
+    },
+    {
+      "id": "magnata",
+      "nome": "Magnata",
+      "livro": "base"
+    },
+    {
+      "id": "mercenario",
+      "nome": "Mercenário",
+      "livro": "base"
+    },
+    {
+      "id": "militar",
+      "nome": "Militar",
+      "livro": "base"
+    },
+    {
+      "id": "operario",
+      "nome": "Operário",
+      "livro": "base"
+    },
+    {
+      "id": "policial",
+      "nome": "Policial",
+      "livro": "base"
+    },
+    {
+      "id": "religioso",
+      "nome": "Religioso",
+      "livro": "base"
+    },
+    {
+      "id": "servidor-publico",
+      "nome": "Servidor Público",
+      "livro": "base"
+    },
+    {
+      "id": "teorico-da-conspiracao",
+      "nome": "Teórico da Conspiração",
+      "livro": "base"
+    },
+    {
+      "id": "ti",
+      "nome": "T.I.",
+      "livro": "base"
+    },
+    {
+      "id": "trabalhador-rural",
+      "nome": "Trabalhador Rural",
+      "livro": "base"
+    },
+    {
+      "id": "trambiqueiro",
+      "nome": "Trambiqueiro",
+      "livro": "base"
+    },
+    {
+      "id": "universitario",
+      "nome": "Universitário",
+      "livro": "base"
+    },
+    {
+      "id": "vitima",
+      "nome": "Vítima",
+      "livro": "base"
+    },
+    {
+      "id": "amigo-dos-animais",
+      "nome": "Amigo dos Animais",
+      "livro": "sah",
+      "comunidade": true
+    },
+    {
+      "id": "astronauta",
+      "nome": "Astronauta",
+      "livro": "sah"
+    },
+    {
+      "id": "chef-do-outro-lado",
+      "nome": "Chef do Outro Lado",
+      "livro": "sah",
+      "comunidade": true
+    },
+    {
+      "id": "colegial",
+      "nome": "Colegial",
+      "livro": "sah"
+    },
+    {
+      "id": "cosplayer",
+      "nome": "Cosplayer",
+      "livro": "sah",
+      "comunidade": true
+    },
+    {
+      "id": "diplomata",
+      "nome": "Diplomata",
+      "livro": "sah"
+    },
+    {
+      "id": "explorador",
+      "nome": "Explorador",
+      "livro": "sah",
+      "comunidade": true
+    },
+    {
+      "id": "experimento",
+      "nome": "Experimento",
+      "livro": "sah"
+    },
+    {
+      "id": "fanatico-por-criaturas",
+      "nome": "Fanático por Criaturas",
+      "livro": "sah",
+      "comunidade": true
+    },
+    {
+      "id": "fotografo",
+      "nome": "Fotógrafo",
+      "livro": "sah"
+    },
+    {
+      "id": "inventor-paranormal",
+      "nome": "Inventor Paranormal",
+      "livro": "sah",
+      "comunidade": true
+    },
+    {
+      "id": "jovem-mistico",
+      "nome": "Jovem Místico",
+      "livro": "sah",
+      "comunidade": true
+    },
+    {
+      "id": "legista-do-turno-da-noite",
+      "nome": "Legista do Turno da Noite",
+      "livro": "sah",
+      "comunidade": true
+    },
+    {
+      "id": "mateiro",
+      "nome": "Mateiro",
+      "livro": "sah"
+    },
+    {
+      "id": "mergulhador",
+      "nome": "Mergulhador",
+      "livro": "sah"
+    },
+    {
+      "id": "motorista",
+      "nome": "Motorista",
+      "livro": "sah"
+    },
+    {
+      "id": "nerd-entusiasta",
+      "nome": "Nerd Entusiasta",
+      "livro": "sah",
+      "comunidade": true
+    },
+    {
+      "id": "profetizado",
+      "nome": "Profetizado",
+      "livro": "sah"
+    },
+    {
+      "id": "psicologo",
+      "nome": "Psicólogo",
+      "livro": "sah",
+      "comunidade": true
+    },
+    {
+      "id": "reporter-investigativo",
+      "nome": "Repórter Investigativo",
+      "livro": "sah"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+<section class="tab op-tab-body {{tab.cssClass}}" data-group="primary" data-tab="effects">
+	<div class="op-section">
+		<header class="op-section__head"><h2>Condições</h2><span class="op-section__hint">Clique para ligar ou desligar. As que vêm junto aparecem marcadas sem borda.</span></header>
+		<ul class="op-conds">
+			{{#each condicoes}}
+			<li><button type="button" class="op-cond {{#if ativo}}is-on{{/if}} {{#if implicita}}is-implied{{/if}}" data-action="condicao" data-id="{{id}}" data-tooltip="{{dica}}" aria-pressed="{{ativo}}" {{disabled (not ../editable)}}>
+				<img src="{{img}}" alt=""><span>{{nome}}</span>
+			</button></li>
+			{{/each}}
+		</ul>
+	</div>
+
+	{{#each effectSections}}
+	<div class="op-section">
+		<header class="op-section__head">
+			<h2>{{label}}</h2>
+			{{#if ../editable}}
+			<button type="button" class="op-add" data-action="efeitoCriar" data-effect-type="{{type}}"><i class="fa-solid fa-plus" aria-hidden="true"></i> Efeito</button>
+			{{/if}}
+		</header>
+		{{#if effects.length}}
+		<ol class="op-list op-list--effect">
+			{{#each effects}}
+			<li class="op-row draggable {{#if disabled}}is-unequipped{{/if}}" data-effect-id="{{id}}" data-parent-id="{{parent.id}}">
+				<div class="op-row__main">
+					<span class="op-row__img"><img src="{{img}}" alt=""></span>
+					<button type="button" class="op-row__name" data-action="abrir">{{name}}</button>
+					<span class="op-cell">{{parent.name}}</span>
+					<span class="op-cell">{{duration.label}}</span>
+					<div class="op-row__ctl">
+						{{#if ../../editable}}
+						<button type="button" data-action="efeitoAlternar" class="{{#unless disabled}}is-on{{/unless}}" data-tooltip="{{#if disabled}}Ativar{{else}}Desativar{{/if}}" aria-label="Ativar ou desativar"><i class="fa-solid fa-power-off" aria-hidden="true"></i></button>
+						{{/if}}
+						<button type="button" data-action="abrir" data-tooltip="Abrir" aria-label="Abrir {{name}}"><i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i></button>
+						{{#if ../../editable}}
+						<button type="button" data-action="remover" class="op-danger" data-tooltip="Remover" aria-label="Remover {{name}}"><i class="fa-solid fa-trash" aria-hidden="true"></i></button>
+						{{/if}}
+					</div>
+				</div>
+			</li>
+			{{/each}}
+		</ol>
+		{{else}}<p class="op-empty">Nenhum.</p>{{/if}}
+	</div>
+	{{/each}}
+</section>
