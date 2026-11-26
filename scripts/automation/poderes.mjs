@@ -4,6 +4,7 @@
  */
 import { SYSTEM_ID, ELEMENTOS, EXECUCAO, TIPOS_PODER } from '../config.mjs';
 import { modsCondicoes } from './condicoes.mjs';
+import { gastarAcao } from './acoes.mjs';
 
 export const LIMITES = { rodada: 'nesta rodada', cena: 'nesta cena', interludio: 'neste interlúdio', missao: 'nesta missão' };
 
@@ -21,6 +22,10 @@ export async function usarPoder(actor, item) {
 	if (custo && actor.type === 'agente') {
 		const atual = actor.recursoDisponivel(pool);
 		if (custo > atual) return ui.notifications.warn(`${actor.name} não tem ${POOL} suficiente (${atual}/${custo}).`);
+	}
+	// Limite de ações do turno (execução do poder; sem execução = livre).
+	if (!(await gastarAcao(actor, s.execucao || 'livre', { item }))) return null;
+	if (custo && actor.type === 'agente') {
 		await actor.update(actor.gastoDe(pool, custo));
 	}
 	if (limitado) await item.update({ 'system.usos.valor': s.usos.valor - 1 });

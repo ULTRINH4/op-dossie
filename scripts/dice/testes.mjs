@@ -135,12 +135,21 @@ async function atacarDoCartao(card, event) {
 	const ataque = { itemId: item.id, critico, total: roll.total, formula: roll.formula, dados: dadosDe(roll), alvos: alvos.map(a => a.uuid), alvosInfo: alvos, notas };
 	// O resultado entra no próprio cartão; os dados 3D rolam antes, para todos.
 	await mostrarDados(roll);
-	if (await gravarNoCartao(card, 'ataque', ataque, roll)) return roll;
+	// Dado de uso fora do combate: rola quando a ação terminar (errou todos: agora; acertou: depois do dano).
+	const errouTodos = alvos.length > 0 && alvos.every(a => a.defesa != null && roll.total < a.defesa);
+	const posAtaque = async (noCartao) => {
+		if (!mun.dadoUso) return;
+		const { marcarPendente, rolarDadoUso } = await import('../automation/dado-uso.mjs');
+		if (noCartao) await marcarPendente(card, mun.dadoUso, item, { errouTodos });
+		else await rolarDadoUso(mun.dadoUso, { motivo: `ataque com ${item.name}` });
+	};
+	if (await gravarNoCartao(card, 'ataque', ataque, roll)) { await posAtaque(true); return roll; }
 	await roll.toMessage({
 		speaker: card.speaker,
 		flavor: `<span class="op-flavor">${esc(item.name)}: ataque${critico ? ' · <strong class="op-ok">crítico</strong>' : ''}</span>${notas.map(n => `<small class="op-cond-note">${esc(n)}</small>`).join('')}`,
 		flags: { [SYSTEM_ID]: { ataqueDe: card.id, ataque } }
 	});
+	await posAtaque(false);
 	return roll;
 }
 
@@ -289,12 +298,14 @@ export function registrarBotoesChat() {
 				const roll = await new Roll(formula).evaluate();
 				const dano = { titulo, tipo, alvos, total: roll.total, formula: roll.formula, dados: dadosDe(roll) };
 				await mostrarDados(roll);
-				if (await gravarNoCartao(message, `danos.${chaveFlag(titulo)}`, dano, roll)) return;
+				const fimDaAcao = async () => { const { resolverPendente } = await import('../automation/dado-uso.mjs'); await resolverPendente(message); };
+				if (await gravarNoCartao(message, `danos.${chaveFlag(titulo)}`, dano, roll)) return fimDaAcao();
 				await roll.toMessage({
 					speaker: message.speaker,
 					flavor: `<span class="op-flavor">${esc(titulo)}</span>`,
 					flags: { [SYSTEM_ID]: { danoDe: message.id, dano: { tipo, alvos, titulo } } }
 				});
+				await fimDaAcao();
 			});
 		}
 		for (const btn of html.querySelectorAll('[data-op-resist]')) {

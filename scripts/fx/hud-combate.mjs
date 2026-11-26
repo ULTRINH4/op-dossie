@@ -7,6 +7,7 @@
  */
 import { SYSTEM_ID, ATRIBUTOS, PERICIAS, EXECUCAO, CUSTO_CIRCULO } from '../config.mjs';
 import { CONDICAO } from '../automation/condicoes.mjs';
+import { combatenteDe, acoesDoTurno, planejar, execucaoDo, quadradosLivres, _teste as _acoes } from '../automation/acoes.mjs';
 
 const esc = (t) => foundry.utils.escapeHTML(String(t ?? ''));
 let raiz = null;
@@ -43,10 +44,27 @@ function chaveTurno(token) {
 	return c?.started ? `${c.id}:${c.round}:${c.turn}:${token.id}` : `fora:${token.id}`;
 }
 
+/** Ações gastas (Set). No combate vêm do combatente (iguais para todos); fora dele, só deste computador. */
 function acoesDe(token) {
+	const c = combatenteDe(token.document);
+	if (c) {
+		const a = acoesDoTurno(c);
+		return new Set(['padrao', 'movimento'].filter(k => a[k]).concat(a.reacao ? ['reacao'] : []));
+	}
 	const k = chaveTurno(token);
 	if (!gastas.has(k)) gastas.set(k, new Set());
 	return gastas.get(k);
+}
+
+/** Marcar/desmarcar uma ação no pip. No combate: o jogador só marca; o mestre também desmarca. */
+async function alternarPip(token, k) {
+	const c = combatenteDe(token.document);
+	if (!c) { const s = acoesDe(token); s.has(k) ? s.delete(k) : s.add(k); return; }
+	const a = acoesDoTurno(c);
+	const gasta = k === 'reacao' ? a.reacao : !!a[k];
+	if (gasta && !game.user.isGM) return ui.notifications.info('Só o mestre devolve uma ação gasta.');
+	if (k === 'reacao') a.reacao = !gasta; else a[k] = gasta ? null : 'acao';
+	await _acoes.salvar(c, a);
 }
 
 /** Marca a ação gasta pela execução de um item (arma = padrão; completa = padrão + movimento). */
@@ -147,13 +165,24 @@ function blocoPassos(token) {
 	const R = 22; const C = 2 * Math.PI * R;
 	const volta1 = Math.min(frac, 1); const volta2 = Math.clamp(frac - 1, 0, 1);
 	const fmt = (n) => String(n).replace('.', ',');
-	const nota = estado === 'ok' ? `${Math.max(Math.floor((p.desloc - p.andou) / p.quadrado), 0)} quadrados livres`
-		: estado === 'dobro' ? 'Usando a ação padrão para andar' : 'Além de dois movimentos';
-	return `<div class="op-hud__passos is-${estado}" title="Passos neste turno">
+	const q = (n) => `${n} ${n === 1 ? 'quadrado' : 'quadrados'}`;
+	const livres = quadradosLivres(token, p.andou);
+	let titulo; let nota;
+	if (livres && !livres.naVez) { titulo = 'Fora da vez'; nota = `andou ${fmt(p.andou)} ${esc(p.unidade)} no turno`; }
+	else if (livres) {
+		titulo = livres.vagas ? q(livres.nestaAcao) : 'Sem movimento';
+		const extra = livres.total > livres.nestaAcao ? ` · até ${livres.total} com a ação padrão` : '';
+		nota = livres.vagas ? `${fmt(p.andou)} / ${fmt(p.desloc)} ${esc(p.unidade)}${extra}` : 'sem ações para andar neste turno';
+	} else {
+		titulo = q(Math.max(Math.floor((p.desloc - p.andou) / p.quadrado), 0));
+		nota = estado === 'ok' ? `${fmt(p.andou)} / ${fmt(p.desloc)} ${esc(p.unidade)}` : estado === 'dobro' ? 'usando a ação padrão para andar' : 'além de dois movimentos';
+	}
+	const fim = livres && livres.naVez && (!livres.vagas || (livres.total === 0));
+	return `<div class="op-hud__passos is-${fim ? 'alem' : estado}" title="Quadrados que ainda dá para andar neste turno">
 		<svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="${R}" class="op-hud__anel-fundo"/>
 			<circle cx="28" cy="28" r="${R}" class="op-hud__anel-1" stroke-dasharray="${C * volta1} ${C}"/>
 			${volta2 ? `<circle cx="28" cy="28" r="${R - 5}" class="op-hud__anel-2" stroke-dasharray="${2 * Math.PI * (R - 5) * volta2} ${C}"/>` : ''}</svg>
-		<div class="op-hud__passos-txt"><strong>${fmt(p.andou)}<small> / ${fmt(p.desloc)} ${esc(p.unidade)}</small></strong><span>${nota}</span></div>
+		<div class="op-hud__passos-txt"><strong>${titulo}</strong><span>${nota}</span></div>
 	</div>`;
 }
 
@@ -184,6 +213,7 @@ function conteudoGaveta(token) {
 	const cat = CATS.find(c => c.id === gaveta);
 	const itens = itensDa(cat, a);
 	if (!itens.length) return '<p class="op-hud__vazio">Nada aqui.</p>';
+	const combatente = combatenteDe(token.document);
 	return `<div class="op-hud__itens">${itens.map(i => {
 		const s = i.system;
 		let meta = ''; let canto = '';
@@ -192,7 +222,11 @@ function conteudoGaveta(token) {
 		else if (i.type === 'poder') { meta = [EXECUCAO[s.execucao], s.usos?.max ? `${s.usos.valor}/${s.usos.max}` : ''].filter(Boolean).join(' · '); canto = s.custo ? `${s.custo} ${a.system.semSanidade ? 'PD' : 'PE'}` : ''; }
 		else { meta = s.quantidade > 1 ? `×${s.quantidade}` : ''; }
 		const el = i.type === 'ritual' && s.elemento ? ` op-el--${s.elemento}` : '';
-		return `<button type="button" class="op-hud__item${el}" data-hud="usar" data-item="${i.id}" title="Clique para usar · botão direito abre a ficha do item">
+		// Não cabe nas ações que sobram: aparece travado (o mestre continua podendo usar).
+		const plano = combatente && game.settings.get(SYSTEM_ID, 'limiteAcoes') ? planejar(combatente, execucaoDo(i)) : { ok: true };
+		const trava = !plano.ok ? ` is-bloqueado" aria-disabled="true` : '';
+		const dica = plano.ok ? 'Clique para usar · botão direito abre a ficha do item' : `${plano.motivo} · botão direito abre a ficha`;
+		return `<button type="button" class="op-hud__item${el}${trava}" data-hud="usar" data-item="${i.id}" title="${esc(dica)}">
 			<img src="${esc(i.img)}" alt=""><span class="op-hud__item-txt"><strong>${esc(i.name)}</strong>${meta ? `<small>${esc(meta)}</small>` : ''}</span>${canto ? `<span class="op-hud__canto">${esc(canto)}</span>` : ''}</button>`;
 	}).join('')}</div>`;
 }
@@ -234,17 +268,14 @@ async function aoClicar(ev) {
 	if (!actor) return;
 	switch (el.dataset.hud) {
 		case 'ficha': actor.sheet.render(true); break;
-		case 'pip': {
-			const s = acoesDe(token);
-			s.has(el.dataset.k) ? s.delete(el.dataset.k) : s.add(el.dataset.k);
-			break;
-		}
+		case 'pip': await alternarPip(token, el.dataset.k); break;
 		case 'cat': gaveta = gaveta === el.dataset.cat ? null : el.dataset.cat; break;
 		case 'fechar': gaveta = null; break;
 		case 'usar': {
 			const item = actor.items.get(el.dataset.item);
 			if (!item) break;
-			gastar(token, item.type === 'arma' ? 'padrao' : item.system.execucao);
+			// No combate, o próprio uso confere e gasta as ações; fora dele, só marca aqui.
+			if (!combatenteDe(token.document)) gastar(token, execucaoDo(item));
 			await item.usar({ event: ev });
 			break;
 		}
@@ -271,10 +302,12 @@ export function registrarHud() {
 	Hooks.on('updateActor', (actor) => { if (raiz && canvas.tokens.get(raiz.dataset.token)?.actor === actor) agendar(); });
 	for (const h of ['createItem', 'updateItem', 'deleteItem']) Hooks.on(h, (item) => { if (raiz && canvas.tokens.get(raiz.dataset.token)?.actor === item.parent) agendar(); });
 	// Andou no turno: o movimento conta como a ação de movimento.
+	// No combate quem marca é automation/acoes.mjs (no combatente).
 	Hooks.on('moveToken', (doc) => {
 		const t = doc.object;
-		if (t && doc.movementHistory?.length > 1 && t.actor?.isOwner) acoesDe(t).add('movimento');
+		if (t && !combatenteDe(doc) && doc.movementHistory?.length > 1 && t.actor?.isOwner) acoesDe(t).add('movimento');
 	});
+	Hooks.on('updateCombatant', (c) => { if (raiz && c.tokenId === raiz.dataset.token) agendar(); });
 	// Esc fecha a gaveta.
 	document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape' && gaveta && raiz) { gaveta = null; agendar(); } });
 	window.addEventListener('resize', sempre);

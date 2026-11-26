@@ -104,6 +104,41 @@ export async function usarComDadoUso(item) {
 	return rolarDadoUso(item, { motivo: `usou ${NOME_TIPO[tipoDoItem(item) ?? 'outro']}` });
 }
 
+/* --- fora do combate: rola quando a ação termina --------------------------------- */
+
+/** Pacote (uuid) → cartão de ataque que ainda não rolou o dado de uso. */
+const pendentes = new Map();
+
+/**
+ * Ataque fora de combate: o dado de uso fica pendente no cartão e rola quando a ação termina
+ * (errou todos os alvos: depois do ataque; acertou: depois do dano).
+ */
+export async function marcarPendente(card, pacote, arma, { errouTodos = false } = {}) {
+	if (errouTodos) return rolarDadoUso(pacote, { motivo: `ataque com ${arma.name}` });
+	const { gravarNoCartao } = await import('../dice/no-cartao.mjs');
+	pendentes.set(pacote.uuid, card.id);
+	await gravarNoCartao(card, 'dadoUso', { pacote: pacote.uuid, arma: arma.name, feito: false });
+}
+
+/** Ação do cartão terminou (dano rolado): rola o dado de uso pendente, uma vez só. */
+export async function resolverPendente(card) {
+	const p = card?.getFlag(SYSTEM_ID, 'resultados')?.dadoUso;
+	if (!p || p.feito) return null;
+	const { gravarNoCartao } = await import('../dice/no-cartao.mjs');
+	await gravarNoCartao(card, 'dadoUso', { ...p, feito: true });
+	pendentes.delete(p.pacote);
+	const pacote = await fromUuid(p.pacote);
+	return pacote ? rolarDadoUso(pacote, { motivo: `ataque com ${p.arma}` }) : null;
+}
+
+/** Antes de um novo ataque com o mesmo pacote: rola o que ficou pendente (dano não rolado). */
+export async function resolverPendenteDoPacote(pacote) {
+	const cardId = pendentes.get(pacote.uuid);
+	if (!cardId) return null;
+	pendentes.delete(pacote.uuid);
+	return resolverPendente(game.messages.get(cardId));
+}
+
 /** Fim do combate: cada arma que atirou rola o dado do pacote uma vez. */
 async function fimDoCombate(combat) {
 	if (!regraAtiva()) return;

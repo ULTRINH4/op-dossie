@@ -182,3 +182,7 @@
 @media (prefers-reduced-motion: reduce) {
 	.op-hud *, .op-hud__gaveta { transition: none !important; animation: none !important; }
 }
+
+/* Limite de ações: item que não cabe nas ações que sobram */
+.op-hud__item.is-bloqueado { opacity: .42; filter: grayscale(.7); cursor: not-allowed; }
+.op-hud__item.is-bloqueado:hover { transform: none; }

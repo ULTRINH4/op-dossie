@@ -118,7 +118,11 @@ export class OpActor extends Actor {
 export class OpItem extends Item {
 	/** Usar o item a partir da ficha: arma ataca, ritual conjura, o resto vai para o chat. */
 	async usar({ event } = {}) {
-		if (this.type === 'arma' && this.actor) return rolarAtaque({ actor: this.actor, item: this, event });
+		if (this.type === 'arma' && this.actor) {
+			const { gastarAcao } = await import('./automation/acoes.mjs');
+			if (!(await gastarAcao(this.actor, 'padrao', { item: this }))) return null;
+			return rolarAtaque({ actor: this.actor, item: this, event });
+		}
 		if (this.type === 'poder' && this.actor) {
 			const { usarPoder } = await import('./automation/poderes.mjs');
 			return usarPoder(this.actor, this);
@@ -129,7 +133,12 @@ export class OpItem extends Item {
 		}
 		if (this.type === 'equipamento' && this.actor) {
 			const { usaDadoUso, usarComDadoUso } = await import('./automation/dado-uso.mjs');
-			if (usaDadoUso(this)) return usarComDadoUso(this);
+			if (usaDadoUso(this)) {
+				// Usar um consumível (medicamento, componente…) é uma ação padrão.
+				const { gastarAcao } = await import('./automation/acoes.mjs');
+				if (!(await gastarAcao(this.actor, 'padrao', { item: this }))) return null;
+				return usarComDadoUso(this);
+			}
 		}
 		return this.mostrarNoChat();
 	}

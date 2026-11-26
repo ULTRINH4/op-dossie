@@ -31,7 +31,9 @@ poderes, rituais, armas, proteções e equipamentos) com os números do Livro de
 - **Cartões no chat em etapas**: ataque, dano, Custo do Paranormal e resistência dos alvos, com o resultado no
   próprio cartão e botões para aplicar o dano.
 - **Faixa de turnos** no topo e **HUD de combate** no rodapé, com ações do turno, gavetas de armas, rituais,
-  poderes, itens e perícias, e passos contra o deslocamento.
+  poderes, itens e perícias, e os quadrados que ainda dá para andar. O mestre rola todas as iniciativas num clique.
+- **Turnos de verdade** (podem ser desligados): o jogador só move o token na própria vez e só usa o que as ações
+  do turno permitem (padrão, movimento, a troca de padrão por movimento); fora da vez, só ações livres e reações.
 - **Regras opcionais** que funcionam: Lesões, Inspiração Resoluta, Loucura não letal, Ferimentos Debilitantes,
   Idade variada, Vida Além da Ordem (folgas) e Treinamento Especial.
 - **Dado de uso** (regra da casa, opcional): munição, itens médicos e de gasto descem d12 → d10 → d8 → d6 → d4 quando

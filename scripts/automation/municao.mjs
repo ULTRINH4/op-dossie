@@ -4,7 +4,7 @@
  * cada pacote tem 20 ataques e armas de fogo têm carregador.
  */
 import { worldRules } from '../rules/table-rules.mjs';
-import { usaDadoUso, rolarDadoUso, rotuloDado } from './dado-uso.mjs';
+import { usaDadoUso, rotuloDado, resolverPendenteDoPacote } from './dado-uso.mjs';
 
 const norm = (s) => String(s ?? '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').trim();
 const POR_PACOTE = 20;
@@ -52,14 +52,18 @@ export async function gastarMunicao(actor, arma) {
 	}
 	const p = pacote.system;
 
-	// Dado de uso (regra da casa): no combate, o pacote rola no fim; fora dele, rola agora.
+	// Dado de uso (regra da casa): no combate, o pacote rola no fim; fora dele, quando a ação terminar.
 	if (usaDadoUso(pacote)) {
 		if (cena) {
 			if (arma.system.ultimaCena !== cena) await arma.update({ 'system.ultimaCena': cena });
 			return { ok: true, nota: `${pacote.name}: ${rotuloDado(pacote)} (rola no fim do combate)` };
 		}
-		const r = await rolarDadoUso(pacote, { motivo: `ataque com ${arma.name}` });
-		return { ok: true, nota: r ? `${pacote.name}: ${rotuloDado(pacote)}` : '' };
+		await resolverPendenteDoPacote(pacote);
+		if (pacote.system.quantidade <= 0) {
+			ui.notifications.warn(`${actor.name} está sem ${nome}.`);
+			return { ok: false, nota: '' };
+		}
+		return { ok: true, nota: `${pacote.name}: ${rotuloDado(pacote)} (rola ao fim da ação)`, dadoUso: pacote };
 	}
 
 	// Foguete: um por ataque.

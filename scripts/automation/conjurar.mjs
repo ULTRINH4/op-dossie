@@ -9,6 +9,7 @@ import { rolarTeste, botaoDano, botaoCura, controlaFalante, formulaTeste } from 
 import { mostrarDados, gravarNoCartao, resultados } from '../dice/no-cartao.mjs';
 import { alvosAtuais, htmlAlvos } from './alvos.mjs';
 import { modsCondicoes } from './condicoes.mjs';
+import { gastarAcao } from './acoes.mjs';
 
 const PERM_MEDO = { normal: 1, discente: 2, verdadeiro: 3 };
 
@@ -28,6 +29,9 @@ export function formasDoRitual(item) {
 export async function conjurarRitual(actor, item) {
 	const s = item.system;
 	const a = actor.system;
+	// Limite de ações: confere antes de abrir o diálogo; a ação só é gasta ao conjurar.
+	const execucao = s.execucao || 'padrao';
+	if (!(await gastarAcao(actor, execucao, { item, apenasConferir: true }))) return null;
 	// Ameaças conjuram sem PE e sem Custo do Paranormal (não têm esses recursos).
 	const npc = actor.type !== 'agente';
 	const pool = a.semSanidade ? 'pd' : 'pe';
@@ -74,6 +78,7 @@ export async function conjurarRitual(actor, item) {
 
 	const forma = formas.find(f => f.id === escolha.forma);
 	if (npc) {
+		if (!(await gastarAcao(actor, execucao, { item }))) return null;
 		await cartao({ actor, item, forma, POOL, medoRes: null, npc: true });
 		return { forma, medoRes: null };
 	}
@@ -94,6 +99,7 @@ export async function conjurarRitual(actor, item) {
 		if (permanente) updates['system.sanPermanente'] = a.sanPermanente + permanente;
 		medoRes = { medo: true, perda, permanente, pool: sanNome(actor) };
 	}
+	if (!(await gastarAcao(actor, execucao, { item }))) return null;
 	await actor.update(updates);
 	await cartao({ actor, item, forma, POOL, medoRes });
 	return { forma, medoRes };

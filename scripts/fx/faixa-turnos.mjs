@@ -1,7 +1,7 @@
 /**
  * Faixa de turnos: retratos dos combatentes no topo da tela, na ordem da iniciativa a partir de quem
- * está jogando. Mestre: voltar, próximo turno, próxima rodada, encerrar; antes de começar, iniciar e
- * rolar a iniciativa das ameaças. Jogador: "Encerrar turno" na vez dele e rolar a própria iniciativa.
+ * está jogando. Mestre: voltar, próximo turno, próxima rodada, encerrar; antes de começar, iniciar,
+ * rolar a iniciativa das ameaças ou de todos (que ainda não rolaram). Jogador: "Encerrar turno" na vez dele e rolar a própria iniciativa.
  * Clique seleciona o token e centraliza; dois cliques abrem a ficha (quem controla).
  * Cada cliente desenha a própria faixa a partir dos documentos de combate (sem socket).
  */
@@ -79,13 +79,15 @@ function conteudo(combat) {
 	}
 	const atual = combat.combatant;
 	const minhaVez = iniciado && atual?.isOwner && !gm;
+	const faltaIni = combat.combatants.some(c => c.initiative == null);
+	const rolarTodos = faltaIni ? `<button type="button" data-acao="rolarTodos" title="Rolar a iniciativa de todos que ainda não rolaram" aria-label="Rolar todas as iniciativas"><i class="fa-solid fa-dice-d20"></i> Todos</button>` : '';
 	const ctrl = gm
 		? (iniciado
-			? `<button type="button" data-acao="voltar" title="Turno anterior" aria-label="Turno anterior"><i class="fa-solid fa-backward-step"></i></button>
+			? `${rolarTodos}<button type="button" data-acao="voltar" title="Turno anterior" aria-label="Turno anterior"><i class="fa-solid fa-backward-step"></i></button>
 				<button type="button" class="is-principal" data-acao="proximo" title="Próximo turno" aria-label="Próximo turno"><i class="fa-solid fa-forward-step"></i> Próximo</button>
 				<button type="button" data-acao="rodada" title="Próxima rodada" aria-label="Próxima rodada"><i class="fa-solid fa-forward-fast"></i></button>
 				<button type="button" data-acao="encerrar" title="Encerrar o combate" aria-label="Encerrar o combate"><i class="fa-solid fa-flag-checkered"></i></button>`
-			: `<button type="button" data-acao="rolarNpcs" title="Rolar a iniciativa das ameaças" aria-label="Rolar a iniciativa das ameaças"><i class="fa-solid fa-dice"></i></button>
+			: `${rolarTodos}<button type="button" data-acao="rolarNpcs" title="Rolar a iniciativa das ameaças" aria-label="Rolar a iniciativa das ameaças"><i class="fa-solid fa-dice"></i></button>
 				<button type="button" class="is-principal" data-acao="iniciar"><i class="fa-solid fa-play"></i> Iniciar combate</button>`)
 		: (minhaVez ? `<button type="button" class="is-principal" data-acao="encerrarTurno"><i class="fa-solid fa-check"></i> Encerrar turno</button>` : '');
 	return `<div class="op-faixa__rodada">${iniciado ? `<span>Rodada</span><strong>${combat.round}</strong>` : '<span>Combate</span><strong>—</strong>'}</div>
@@ -145,6 +147,7 @@ async function aoClicar(ev) {
 			case 'rodada': await combat.nextRound(); break;
 			case 'iniciar': await combat.startCombat(); break;
 			case 'rolarNpcs': await combat.rollNPC(); break;
+			case 'rolarTodos': await combat.rollAll(); break;
 			case 'encerrarTurno': if (combat.combatant?.isOwner) await combat.nextTurn(); break;
 			case 'encerrar': await combat.endCombat(); break;
 		}

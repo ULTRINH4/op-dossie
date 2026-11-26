@@ -30,6 +30,8 @@ import { registrarConfigFaixa, registrarFaixa } from './fx/faixa-turnos.mjs';
 import { registrarConfigHud, registrarHud } from './fx/hud-combate.mjs';
 import { registrarSocketCartoes } from './dice/no-cartao.mjs';
 import { registrarDadoUso } from './automation/dado-uso.mjs';
+import { registrarConfigMovimento, registrarMovimento } from './fx/movimento-turno.mjs';
+import { registrarConfigAcoes, registrarAcoes } from './automation/acoes.mjs';
 
 const dataReady = loadData().catch(err => console.error(`${SYSTEM_ID} | data/*.json`, err));
 const TPL = `systems/${SYSTEM_ID}/templates`;
@@ -87,6 +89,10 @@ Hooks.once('init', () => {
 	registrarConfigAlucinacoes();
 	registrarConfigFaixa();
 	registrarFaixa();
+	registrarConfigMovimento();
+	registrarMovimento();
+	registrarConfigAcoes();
+	registrarAcoes();
 	registrarConfigHud();
 	registrarHud();
 	registrarEfeitos();
