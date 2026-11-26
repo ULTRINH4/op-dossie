@@ -2,6 +2,8 @@
 
 Sistema não oficial para jogar **Ordem Paranormal RPG** no Foundry VTT (versão 13).
 
+![Combate: faixa de turnos no topo, HUD do agente no rodapé com a gaveta de rituais aberta e o cartão de Eletrocussão no chat](docs/imagens/combate.png)
+
 *Ordem Paranormal RPG foi criado por Rafael Lange (Cellbit) e publicado pela Jambô Editora. Este sistema é
 um projeto de fã, sem vínculo com eles. Ele não traz os textos dos livros: as descrições de rituais, poderes,
 habilidades, origens e itens apontam para a página do livro. Para jogar, tenha os livros.*
@@ -34,6 +36,16 @@ poderes, rituais, armas, proteções e equipamentos) com os números do Livro de
   Idade variada, Vida Além da Ordem (folgas) e Treinamento Especial.
 - **Efeitos visuais e sonoros** (com Sequencer e JB2A quando instalados; esperam os dados do Dice So Nice),
   e alucinações para quem está com a Sanidade baixa ou zerada.
+
+## Imagens
+
+| Ficha de agente | Cartão de ritual no chat |
+| --- | --- |
+| ![Ficha de agente com recursos, atributos, defesas e perícias](docs/imagens/ficha.png) | ![Cartão de Eletrocussão em etapas: Custo do Paranormal, resistência do alvo e dano com botões para aplicar](docs/imagens/cartao-ritual.png) |
+
+| Regras da Mesa | Assistente de criação |
+| --- | --- |
+| ![Regras da Mesa: livros ligados, progressão por NEX, Nível ou Patentes e recursos](docs/imagens/regras-da-mesa.png) | ![Assistente de criação na etapa de Origem, com as perícias de cada origem](docs/imagens/assistente-criacao.png) |
 
 ## Créditos
 
