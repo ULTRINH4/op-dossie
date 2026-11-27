@@ -43,10 +43,10 @@ export function registrarSocketCartoes() {
 		if (msg?.acao !== 'atualizarCartao' || !game.user.isActiveGM) return;
 		const card = game.messages.get(msg.id);
 		if (!card) return;
-		// Pelo socket só passa a resistência de um alvo, e só de quem controla esse alvo.
+		// Pelo socket só passa a resistência ou a reação de defesa de um alvo, e só de quem controla esse alvo.
 		const user = game.users.get(msg.de);
 		const chaves = Object.keys(msg.data ?? {});
-		const resist = chaves.filter(k => k.startsWith(`flags.${SYSTEM_ID}.resultados.resist.`));
+		const resist = chaves.filter(k => k.startsWith(`flags.${SYSTEM_ID}.resultados.resist.`) || k.startsWith(`flags.${SYSTEM_ID}.resultados.defesa.`));
 		if (!user || !resist.length || chaves.some(k => !resist.includes(k))) return;
 		for (const k of resist) {
 			const alvo = msg.data[k]?.uuid && fromUuidSync(msg.data[k].uuid);

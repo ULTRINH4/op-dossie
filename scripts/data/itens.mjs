@@ -34,6 +34,9 @@ export class ArmaData extends foundry.abstract.TypeDataModel {
 			municao: str(''),
 			especial: new fields.ArrayField(new fields.StringField(), { initial: [] }),
 			bonusAtaque: int(0),
+			// Ataque como no bloco do livro ("x2 · Teste 2O+5"): dados do teste (0 = perícia de quem ataca) e ataques por ação.
+			testeDados: int(0, { min: 0 }),
+			ataques: int(1, { min: 1, max: 10 }),
 			bonusDano: str(''),
 			ultimaCena: str(''),                  // combate em que o pacote já foi gasto
 			carregador: new fields.SchemaField({ valor: int(0, { min: 0 }), max: int(0, { min: 0 }) })

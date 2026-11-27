@@ -58,7 +58,7 @@ export function htmlAlvos(alvos, { ataque = null, pericia = null, dt = null } = 
 			? `<button type="button" class="op-target__btn" data-op-resist="${a.uuid}" data-pericia="${chave}" data-dt="${dt}" aria-label="Rolar ${esc(pericia)} de ${esc(a.nome)}">Resistir</button>`
 			: '';
 		const defesa = a.defesa != null && ataque != null ? `<span class="op-target__def">Defesa ${a.defesa}</span>` : '';
-		return `<li class="op-target"><img src="${a.img}" alt=""><span class="op-target__name">${esc(a.nome)}</span>${defesa}${estado}${resistir}</li>`;
+		return `<li class="op-target" data-alvo="${a.uuid}"><img src="${a.img}" alt=""><span class="op-target__name">${esc(a.nome)}</span>${defesa}${estado}${resistir}</li>`;
 	}).join('');
 	return `<ul class="op-targets" aria-label="Alvos">${itens}</ul>`;
 }

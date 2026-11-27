@@ -13,8 +13,10 @@ const teste = (dados = 1, bonus = 0) => new fields.SchemaField({ dados: int(dado
 export class AmeacaData extends foundry.abstract.TypeDataModel {
 	static defineSchema() {
 		return {
-			tipo: str('criatura'),            // pessoa | criatura
-			elemento: str(''),
+			tipo: str('criatura'),            // pessoa | criatura | animal
+			enxame: new fields.BooleanField({ initial: false }),
+			elemento: str(''),                // elemento principal (cor da ficha)
+			descritores: new fields.ArrayField(new fields.StringField(), { initial: [] }), // outros elementos do bloco
 			tamanho: str('medio'),
 			vd: int(10, { min: 0 }),
 			atributos: new fields.SchemaField(Object.fromEntries(Object.keys(ATRIBUTOS).map(k => [k, new fields.SchemaField({ valor: int(1, { min: 0 }) })]))),

@@ -94,3 +94,13 @@
 .op-el--energia { --el: var(--op-el-energia); }
 .op-el--medo { --el: var(--op-el-medo); }
 .op-cast__el[class*="op-el--"] { border-color: var(--el); color: var(--op-ink); background: color-mix(in srgb, var(--el) 18%, transparent); }
+
+/* Ficha de ameaça: linhas do bloco do livro */
+.op-threat__sentidos, .op-threat__linha { display: flex; gap: 8px; align-items: baseline; margin: 6px 0 0; font-size: .85rem; color: var(--op-ink-2, #d8cfc4); }
+.op-threat__sentidos > span, .op-threat__linha > span { font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--op-ink-3, #a59a8f); min-width: 92px; }
+.op-threat__sentidos input { flex: 1; }
+.op-section__btns { display: inline-flex; gap: 6px; }
+.op-threat select[multiple] { min-height: 4.2em; }
+.op-threat-tests li > input[type="text"] { flex: 1; min-width: 0; }
+.op-threat__sentidos { margin: 10px 0 14px; }
+.op-threat select[multiple] option:checked { background: color-mix(in srgb, var(--op-accent, #b3261e) 55%, transparent); color: #fff; }

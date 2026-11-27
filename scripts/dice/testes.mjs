@@ -7,6 +7,7 @@ import { penalidadeDados } from '../automation/condicoes.mjs';
 import { gastarMunicao, resumoMunicao } from '../automation/municao.mjs';
 import { alvosAtuais, atorDoAlvo, nomeDoAlvo, htmlAlvos, attrAlvos } from '../automation/alvos.mjs';
 import { mostrarDados, gravarNoCartao, resultados, chaveFlag } from './no-cartao.mjs';
+import { REACOES, podeReagir, reagir, contraAtacar, defesaNoCartao, bonusEsquiva, rdBloqueio, rotuloDefesa } from '../automation/reacoes.mjs';
 const esc = (t) => foundry.utils.escapeHTML(String(t ?? ''));
 
 export function formulaTeste(dados, bonus = 0) {
@@ -75,22 +76,24 @@ const NOME_TIPO = { 'corpo a corpo': 'corpo a corpo', arremesso: 'arremesso', di
  * Usar uma arma: manda para o chat um cartão em etapas. Quem controla o atacante rola o ataque;
  * se acertar, o botão de dano aparece e ele rola o dano. Nada é rolado sozinho.
  */
-export async function rolarAtaque({ actor, item }) {
+export async function rolarAtaque({ actor, item, contraAtaque = false }) {
 	const s = item.system;
 	const pericia = s.periciaAtaque;
 	const alvos = alvosAtuais();
 	const mun = resumoMunicao(actor, item);
+	const teste = s.testeDados > 0 ? `${s.testeDados}d20${s.bonusAtaque ? (s.bonusAtaque > 0 ? `+${s.bonusAtaque}` : s.bonusAtaque) : ''}` : '';
 	const stats = [
+		['Teste', teste], ['Ataques', s.ataques > 1 ? `×${s.ataques}` : ''],
 		['Dano', `${s.dano.formula}${TIPOS_DANO[s.dano.tipo] ? ` ${TIPOS_DANO[s.dano.tipo].toLowerCase()}` : ''}`],
 		['Crítico', `${s.critico.margem} / ×${s.critico.multiplicador}`],
 		['Alcance', s.alcance], ['Munição', mun]
 	].filter(([, v]) => v).map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('');
-	const nomePericia = pericia === 'luta' ? 'Luta' : 'Pontaria';
+	const nomePericia = teste ? `Teste ${teste}` : (pericia === 'luta' ? 'Luta' : 'Pontaria');
 	return ChatMessage.create({
 		speaker: ChatMessage.getSpeaker({ actor, token: actor.token }),
 		content: `<div class="op-dossie op-chatcard op-weapon">
 			<header class="op-chatcard__head"><img src="${item.img}" alt="">
-				<div><p class="op-chatcard__eyebrow">${NOME_TIPO[s.tipo] ?? 'arma'} · ${nomePericia}</p><h3>${esc(item.name)}</h3></div></header>
+				<div><p class="op-chatcard__eyebrow">${contraAtaque ? 'Contra-ataque · ' : ''}${NOME_TIPO[s.tipo] ?? 'arma'} · ${nomePericia}</p><h3>${esc(item.name)}</h3></div></header>
 			<dl class="op-chatcard__stats">${stats}</dl>
 			<ol class="op-steps">
 				<li class="op-step" data-op-step="ataque">
@@ -101,7 +104,7 @@ export async function rolarAtaque({ actor, item }) {
 					<p class="op-step__label">Dano <small>se acertar</small></p>
 					<div class="op-step__body"><p class="op-step__hint">Role o ataque primeiro.</p></div></li>
 			</ol></div>`,
-		flags: { [SYSTEM_ID]: { arma: { itemId: item.id, alvos } } }
+		flags: { [SYSTEM_ID]: { arma: { itemId: item.id, alvos, contraAtaque } } }
 	});
 }
 
@@ -124,19 +127,30 @@ async function atacarDoCartao(card, event) {
 	const mun = await gastarMunicao(actor, item);
 	if (!mun.ok) return null;
 	const pen = penalidadeDados(actor, { pericia, ataque: true, corpoACorpo: s.tipo === 'corpo a corpo' });
-	const roll = await new Roll(formulaTeste(attr + adj.dados - pen.n, (calc?.total ?? 0) + (s.bonusAtaque || 0) + adj.bonus)).evaluate();
+	// Teste do bloco do livro (dados próprios) ou da perícia de quem ataca.
+	const formula = s.testeDados > 0
+		? formulaTeste(s.testeDados + adj.dados - pen.n, (s.bonusAtaque || 0) + adj.bonus)
+		: formulaTeste(attr + adj.dados - pen.n, (calc?.total ?? 0) + (s.bonusAtaque || 0) + adj.bonus);
+	// "x2": cada ataque rolado separado.
+	const n = Math.max(s.ataques || 1, 1);
+	const rolls = [];
+	for (let i = 0; i < n; i++) rolls.push(await new Roll(formula).evaluate());
+	const roll = rolls[0];
 	const critico = dadoMantido(roll) >= s.critico.margem;
-	// Alvos do cartão; se não havia, os que quem rola marcou agora.
+	// Alvos do cartão; se não havia, os que quem rola marcou agora. A Esquiva escolhida soma na Defesa.
 	const alvos = (info.alvos?.length ? info.alvos : alvosAtuais()).map(a => {
 		const ator = atorDoAlvo(a.uuid);
-		return { ...a, defesa: ator?.system?.defesaTotal ?? ator?.system?.defesa ?? a.defesa };
+		const base = ator?.system?.defesaTotal ?? ator?.system?.defesa ?? a.defesa;
+		return { ...a, defesa: base == null ? null : base + bonusEsquiva(card, a.uuid) };
 	});
 	const notas = [pen.n ? pen.nota : '', mun.nota].filter(Boolean);
 	const ataque = { itemId: item.id, critico, total: roll.total, formula: roll.formula, dados: dadosDe(roll), alvos: alvos.map(a => a.uuid), alvosInfo: alvos, notas };
+	if (n > 1) ataque.serie = rolls.map(r => ({ total: r.total, dados: dadosDe(r), critico: dadoMantido(r) >= s.critico.margem }));
 	// O resultado entra no próprio cartão; os dados 3D rolam antes, para todos.
-	await mostrarDados(roll);
+	for (const r of rolls) await mostrarDados(r);
 	// Dado de uso fora do combate: rola quando a ação terminar (errou todos: agora; acertou: depois do dano).
-	const errouTodos = alvos.length > 0 && alvos.every(a => a.defesa != null && roll.total < a.defesa);
+	const totais = rolls.map(r => r.total);
+	const errouTodos = alvos.length > 0 && alvos.every(a => a.defesa != null && totais.every(t => t < a.defesa));
 	const posAtaque = async (noCartao) => {
 		if (!mun.dadoUso) return;
 		const { marcarPendente, rolarDadoUso } = await import('../automation/dado-uso.mjs');
@@ -175,8 +189,12 @@ function renderCartaoArma(message, html) {
 	const passoAtaque = html.querySelector('[data-op-step="ataque"] .op-step__body');
 	const passoDano = html.querySelector('[data-op-step="dano"] .op-step__body');
 	if (!info || !passoAtaque || !passoDano) return;
+	const actor = ChatMessage.getSpeakerActor(message.speaker);
+	const item = actor?.items.get(info.itemId);
+	const corpoACorpo = item?.system.tipo === 'corpo a corpo';
 	const at = resultadoAtaque(message);
 	if (!at) {
+		botoesDefesa(message, passoAtaque, { corpoACorpo, ataqueFeito: false });
 		const btn = passoAtaque.querySelector('[data-op-atacar]');
 		if (!btn) return;
 		travar(btn, controlaFalante(message), `Só ${message.speaker?.alias ?? 'quem ataca'} (ou o mestre) rola o ataque.`);
@@ -189,26 +207,77 @@ function renderCartaoArma(message, html) {
 		});
 		return;
 	}
-	const actor = ChatMessage.getSpeakerActor(message.speaker);
-	const item = actor?.items.get(info.itemId);
 	const alvos = at.alvosInfo ?? [];
-	const atingidos = alvos.filter(a => a.defesa == null || at.total >= a.defesa);
-	const resumo = at.critico ? 'Crítico!' : alvos.length ? `acertou ${atingidos.length} de ${alvos.length}` : 'sem alvo marcado';
-	passoAtaque.innerHTML = `<div class="op-card__test ${atingidos.length || !alvos.length ? 'is-ok' : 'is-fail'}"><span>Ataque <strong>${at.total}</strong>${htmlDados(at.dados)}</span><span>${resumo}</span></div>${(at.notas ?? []).map(n => `<small class="op-cond-note">${esc(n)}</small>`).join('')}
-		${htmlAlvos(alvos, { ataque: at.total })}`;
-	if (alvos.length && !atingidos.length) {
-		passoDano.innerHTML = '<p class="op-step__hint">Errou. Sem dano.</p>';
+	// Cada ataque do "x2" (ou o único) com o próprio resultado.
+	const serie = at.serie ?? [{ total: at.total, dados: at.dados, critico: at.critico }];
+	const acertosDe = (t) => alvos.filter(a => a.defesa == null || t >= a.defesa);
+	const linhas = serie.map((r, i) => {
+		const hit = acertosDe(r.total);
+		const resumo = r.critico ? 'Crítico!' : alvos.length ? `acertou ${hit.length} de ${alvos.length}` : 'sem alvo marcado';
+		const rot = serie.length > 1 ? `${i + 1}º ataque` : 'Ataque';
+		return `<div class="op-card__test ${hit.length || !alvos.length ? 'is-ok' : 'is-fail'}"><span>${rot} <strong>${r.total}</strong>${htmlDados(r.dados)}</span><span>${resumo}</span></div>`;
+	}).join('');
+	const melhor = Math.max(...serie.map(r => r.total));
+	passoAtaque.innerHTML = `${linhas}${(at.notas ?? []).map(n => `<small class="op-cond-note">${esc(n)}</small>`).join('')}
+		${htmlAlvos(alvos, { ataque: serie.length > 1 ? melhor : at.total })}`;
+	// Quem não foi acertado por nenhum ataque corpo a corpo pode contra-atacar.
+	botoesDefesa(message, passoAtaque, { corpoACorpo, ataqueFeito: true, errouAlvo: (uuid) => { const a = alvos.find(x => x.uuid === uuid); return a?.defesa != null && serie.every(r => r.total < a.defesa); } });
+	const comAcerto = serie.map((r, i) => ({ ...r, i, hit: acertosDe(r.total) })).filter(r => r.hit.length || !alvos.length);
+	if (!comAcerto.length) {
+		passoDano.innerHTML = `<p class="op-step__hint">${serie.length > 1 ? 'Errou todos.' : 'Errou.'} Sem dano.</p>`;
 		return;
 	}
 	if (!item) { passoDano.innerHTML = '<p class="op-step__hint">A arma não está mais na ficha.</p>'; return; }
 	const s = item.system;
-	const forca = s.corpoACorpo ? actor.system.atributos?.for?.valor ?? 0 : 0;
-	const mult = at.critico ? s.critico.multiplicador : 1;
-	const dice = mult > 1 ? multiplicarDados(s.dano.formula, mult) : s.dano.formula;
-	const formula = [dice, forca ? `${forca}` : '', s.bonusDano].filter(Boolean).join(' + ');
+	// Ataque do bloco do livro já traz o bônus no dano; senão, corpo a corpo soma a Força.
+	const forca = s.corpoACorpo && !(s.testeDados > 0) ? actor.system.atributos?.for?.valor ?? 0 : 0;
 	passoDano.classList.add('op-chatcard__btns');
 	passoDano.innerHTML = (alvos.length ? '' : '<p class="op-step__hint">Sem alvo marcado: confira a Defesa antes de rolar.</p>')
-		+ botaoDano(formula, `${item.name}: dano${at.critico ? ' crítico' : ''}`, s.dano.tipo, at.critico ? `Rolar dano crítico ×${mult}` : 'Rolar dano', atingidos);
+		+ comAcerto.map(r => {
+			const mult = r.critico ? s.critico.multiplicador : 1;
+			const dice = mult > 1 ? multiplicarDados(s.dano.formula, mult) : s.dano.formula;
+			const formula = [dice, forca ? `${forca}` : '', s.bonusDano].filter(Boolean).join(' + ');
+			const qual = serie.length > 1 ? ` (${r.i + 1}º ataque)` : '';
+			const rotulo = `${r.critico ? `Rolar dano crítico ×${mult}` : 'Rolar dano'}${qual}`;
+			return botaoDano(formula, `${item.name}: dano${r.critico ? ' crítico' : ''}${qual}`, s.dano.tipo, rotulo, r.hit);
+		}).join('');
+}
+
+/**
+ * Botões das reações de defesa em cada alvo do cartão de arma (Esquiva/Bloqueio antes do ataque,
+ * Contra-ataque depois de errar) e a reação já escolhida.
+ */
+function botoesDefesa(message, passo, { corpoACorpo, ataqueFeito, errouAlvo = () => false }) {
+	for (const li of passo.querySelectorAll('.op-target[data-alvo]')) {
+		const uuid = li.dataset.alvo;
+		const escolhida = defesaNoCartao(message, uuid);
+		if (escolhida) {
+			li.insertAdjacentHTML('beforeend', `<span class="op-target__reacao">${esc(rotuloDefesa(escolhida))}</span>`);
+			continue;
+		}
+		const tipos = ataqueFeito ? (errouAlvo(uuid) && corpoACorpo ? ['contra'] : []) : (corpoACorpo ? ['esquiva', 'bloqueio'] : ['esquiva']);
+		for (const tipo of tipos) {
+			const p = podeReagir(message, uuid, tipo, { corpoACorpo, ataqueFeito, errou: errouAlvo(uuid) });
+			// Quem não controla o alvo nem vê o botão; para quem controla, o motivo aparece se não puder.
+			if (!p.ok && /Só quem controla/.test(p.motivo ?? '')) continue;
+			const r = REACOES[tipo];
+			const b = document.createElement('button');
+			b.type = 'button';
+			b.className = 'op-target__btn op-target__btn--reacao';
+			b.innerHTML = `<i class="fa-solid ${r.icone}" aria-hidden="true"></i> ${r.verbo}`;
+			b.title = p.ok ? `${r.nome} (reação de defesa: uma por rodada)` : p.motivo;
+			if (!p.ok) { b.disabled = true; b.classList.add('is-locked'); }
+			b.addEventListener('click', async (ev) => {
+				ev.preventDefault();
+				const ag = podeReagir(message, uuid, tipo, { corpoACorpo, ataqueFeito: !!resultadoAtaque(message), errou: errouAlvo(uuid) });
+				if (!ag.ok) return ui.notifications.warn(ag.motivo);
+				b.disabled = true;
+				if (tipo === 'contra') await contraAtacar(message, uuid);
+				else await reagir(message, uuid, tipo);
+			});
+			li.append(b);
+		}
+	}
 }
 
 /** "2d6+1" ×3 → "6d6+1": multiplica só os dados. */
@@ -275,7 +344,7 @@ export function registrarBotoesChat() {
 				const caixa = document.createElement('div');
 				caixa.className = 'op-dano-feito';
 				caixa.innerHTML = `<div class="op-card__test is-done"><span>${cura ? 'Cura' : 'Dano'} <strong>${noCartao.total}</strong>${htmlDados(noCartao.dados)}</span><span>${esc(noCartao.formula ?? '')}</span></div>`;
-				caixa.append(barraAplicar(noCartao.total, noCartao));
+				caixa.append(barraAplicar(noCartao.total, noCartao, message));
 				btn.replaceWith(caixa);
 				continue;
 			}
@@ -358,7 +427,7 @@ export function registrarBotoesChat() {
 }
 
 /** Botões Aplicar / ½ / ×2 (ou Curar) para um total de dano, dentro do cartão. */
-function barraAplicar(total, dano) {
+function barraAplicar(total, dano, card = null) {
 	const cura = dano.tipo === 'cura';
 	const nomes = (dano.alvos ?? []).map(u => nomeDoAlvo(u)).filter(Boolean);
 	const em = nomes.length === 1 ? ` em ${esc(nomes[0])}` : nomes.length ? ` em ${nomes.length} alvos` : '';
@@ -373,22 +442,26 @@ function barraAplicar(total, dano) {
 	const podeAplicar = !atores.length || atores.every(a => a.isOwner);
 	for (const b of bar.querySelectorAll('button')) {
 		travar(b, podeAplicar, 'Só o mestre (ou quem controla o alvo) aplica.');
-		b.addEventListener('click', () => aplicarNosSelecionados(total, Number(b.dataset.mult), cura ? null : dano.tipo, dano.alvos));
+		b.addEventListener('click', () => aplicarNosSelecionados(total, Number(b.dataset.mult), cura ? null : dano.tipo, dano.alvos, card));
 	}
 	return bar;
 }
 
 /** Aplica nos alvos do cartão; sem alvos, nos tokens selecionados; sem nada, no próprio personagem. */
-async function aplicarNosSelecionados(total, mult, tipo, alvos = []) {
-	const doCartao = (alvos ?? []).map(u => atorDoAlvo(u)).filter(Boolean);
+async function aplicarNosSelecionados(total, mult, tipo, alvos = [], card = null) {
+	// [ator, uuid do alvo no cartão]; o uuid serve para achar o Bloqueio escolhido contra este ataque.
+	const doCartao = (alvos ?? []).map(u => [atorDoAlvo(u), u]).filter(([a]) => a);
 	const tokens = canvas?.tokens?.controlled ?? [];
 	const actors = doCartao.length ? doCartao
-		: tokens.length ? tokens.map(t => t.actor).filter(Boolean)
-			: (game.user.character ? [game.user.character] : []);
+		: tokens.length ? tokens.map(t => [t.actor, null]).filter(([a]) => a)
+			: (game.user.character ? [[game.user.character, null]] : []);
 	if (!actors.length) return ui.notifications.warn('Marque um alvo (tecla T) ou selecione um token para aplicar.');
-	for (const a of actors) {
+	for (const [a, uuid] of actors) {
 		if (!a.isOwner) { ui.notifications.warn(`Só o mestre aplica em ${a.name}.`); continue; }
-		if (mult < 0) await a.curar(Math.abs(total));
-		else await a.aplicarDano(Math.floor(total * mult), tipo);
+		if (mult < 0) { await a.curar(Math.abs(total)); continue; }
+		const rd = uuid && card ? rdBloqueio(card, uuid) : 0;
+		const valor = Math.max(Math.floor(total * mult) - rd, 0);
+		if (rd) ui.notifications.info(`${a.name} bloqueou: RD ${rd} contra este ataque.`);
+		await a.aplicarDano(valor, tipo);
 	}
 }

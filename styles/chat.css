@@ -155,3 +155,9 @@
 .op-card__dados b.is-fora { color: var(--op-ink-3); background: transparent; text-decoration: line-through; }
 .op-dano-feito { display: grid; gap: 6px; width: 100%; }
 .op-dano-feito .op-apply { margin: 0; }
+
+/* Reações de defesa nos alvos do cartão de arma */
+.op-target__btn--reacao { display: inline-flex; align-items: center; gap: 4px; font-size: .72rem; padding: 2px 7px; }
+.op-target__btn--reacao.is-locked { opacity: .45; cursor: not-allowed; }
+.op-target__reacao { margin-left: auto; padding: 1px 7px; border-radius: 999px; font-size: .7rem; background: rgba(110, 160, 255, .16); color: #a9c6ff; white-space: nowrap; }
+.op-target { flex-wrap: wrap; }

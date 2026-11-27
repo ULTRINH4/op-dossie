@@ -44,6 +44,10 @@ poderes, rituais, armas, proteções e equipamentos) com os números do Livro de
   próprio cartão e botões para aplicar o dano.
 - **Faixa de turnos** no topo e **HUD de combate** no rodapé, com ações do turno, gavetas de armas, rituais,
   poderes, itens e perícias, e os quadrados que ainda dá para andar. O mestre rola todas as iniciativas num clique.
+- **Ficha de ameaça no formato dos blocos**: descritores, tamanho, sentidos, perícias, resistências, imunidades,
+  vulnerabilidades, ações (com o tipo de ação) e habilidades; ataques com o teste e o "x2" do bloco, cada um rolado separado.
+- **Reações de defesa** no cartão de ataque: Esquiva e Bloqueio antes do ataque, Contra-ataque depois de um erro,
+  uma por rodada e só para quem é treinado.
 - **Turnos de verdade** (podem ser desligados): o jogador só move o token na própria vez e só usa o que as ações
   do turno permitem (padrão, movimento, a troca de padrão por movimento); fora da vez, só ações livres e reações.
 - **Regras opcionais** que funcionam: Lesões, Inspiração Resoluta, Loucura não letal, Ferimentos Debilitantes,
