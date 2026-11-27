@@ -108,3 +108,9 @@ body.op-falha.op-falha--leve #board { animation: none !important; filter: satura
 	.op-vulto { transition: none; }
 	.chat-message.op-alucina.is-falhando { animation: none; opacity: 0; }
 }
+
+/* --- Boas-vindas: selo da licença e avisos ------------------------------------ */
+.op-boas-vindas .op-bv { display: grid; grid-template-columns: 150px 1fr; gap: 18px; align-items: center; padding: 6px 2px; }
+.op-boas-vindas .op-bv__selo { width: 150px; height: auto; opacity: 1; border: 0; background: transparent; }
+.op-boas-vindas .op-bv__avisos p { margin: 0 0 8px; font-size: .95rem; line-height: 1.35; }
+.op-boas-vindas .op-bv__creditos { grid-column: 1 / -1; margin: 4px 0 0; font-size: .8rem; line-height: 1.45; color: var(--op-ink-3, #b9aea3); }

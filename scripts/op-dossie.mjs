@@ -1,5 +1,5 @@
 /**
- * Ordem Paranormal: Dossiê — sistema não oficial para Foundry VTT.
+ * OP Dossiê — sistema de fã, não oficial, para Foundry VTT (Licença da Comunidade de Ordem Paranormal).
  * Ordem Paranormal RPG foi criado por Rafael Lange (Cellbit) e publicado pela Jambô Editora.
  */
 import { SYSTEM_ID } from './config.mjs';
@@ -32,6 +32,7 @@ import { registrarSocketCartoes } from './dice/no-cartao.mjs';
 import { registrarDadoUso } from './automation/dado-uso.mjs';
 import { registrarConfigMovimento, registrarMovimento } from './fx/movimento-turno.mjs';
 import { registrarConfigAcoes, registrarAcoes } from './automation/acoes.mjs';
+import { registrarBoasVindas } from './fx/boas-vindas.mjs';
 
 const dataReady = loadData().catch(err => console.error(`${SYSTEM_ID} | data/*.json`, err));
 const TPL = `systems/${SYSTEM_ID}/templates`;
@@ -93,6 +94,7 @@ Hooks.once('init', () => {
 	registrarMovimento();
 	registrarConfigAcoes();
 	registrarAcoes();
+	registrarBoasVindas();
 	registrarConfigHud();
 	registrarHud();
 	registrarEfeitos();

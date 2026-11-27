@@ -1,12 +1,24 @@
-# Ordem Paranormal: Dossiê
+# OP Dossiê
 
-Sistema não oficial para jogar **Ordem Paranormal RPG** no Foundry VTT (versão 13).
+<p>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/licenca/selo-branco.png">
+  <img src="assets/licenca/selo-preto.png" alt="Selo da Licença da Comunidade de Ordem Paranormal: não oficial, não canônico" width="160" align="left">
+</picture>
+<strong>Este é um conteúdo não oficial, publicado sob a Licença da Comunidade de Ordem Paranormal.</strong><br>
+<strong>Contém material gerado por inteligência artificial.</strong><br>
+Aviso de conteúdo: temas de terror, violência e morte.
+</p>
+<br clear="left">
+
+Sistema de fã para jogar com as regras de Ordem Paranormal RPG no Foundry VTT (versão 13).
 
 ![Combate: faixa de turnos no topo, HUD do agente no rodapé com a gaveta de rituais aberta e o cartão de Eletrocussão no chat](docs/imagens/combate.png)
 
-*Ordem Paranormal RPG foi criado por Rafael Lange (Cellbit) e publicado pela Jambô Editora. Este sistema é
-um projeto de fã, sem vínculo com eles. Ele não traz os textos dos livros: as descrições de rituais, poderes,
-habilidades, origens e itens apontam para a página do livro. Para jogar, tenha os livros.*
+*Ordem Paranormal RPG foi criado por Rafael Lange (Cellbit) e publicado pela Jambô Editora. Este sistema não tem
+vínculo, parceria nem aprovação deles ([Licença da Comunidade](https://ordemparanormal.com.br/licenca)). Ele não traz
+os textos dos livros: as descrições de rituais, poderes, habilidades, origens e itens apontam para a página do livro.
+Para jogar, tenha os livros.*
 
 ## Instalação
 
@@ -55,7 +67,8 @@ poderes, rituais, armas, proteções e equipamentos) com os números do Livro de
 
 - Ordem Paranormal RPG: Rafael Lange (Cellbit), Jambô Editora.
 - Efeitos sonoros: obras em domínio público (CC0), listadas em `sounds/CREDITS.md`.
-- Ícones de itens, rituais e origens: desenhados para este sistema.
+- Ícones de itens, rituais e origens: [game-icons.net](https://game-icons.net), feitos por Lorc, Delapouite e outros
+  artistas, sob licença CC BY 3.0 (lista completa em `assets/CREDITOS-ICONES.md`).
 
 ## Licença
 

@@ -1225,21 +1225,6 @@
     "descricao": "<p>veja <em>Sobrevivendo ao Horror</em>, p. 57.</p>"
   },
   {
-    "id": "dose-d-a-praga",
-    "nome": "Dose d'A Praga",
-    "livro": "sah",
-    "pagina": 57,
-    "revisar": false,
-    "tipo": "generalEquipment",
-    "categoria": 3,
-    "espacos": 1,
-    "subtipo": "item amaldiçoado",
-    "arma": null,
-    "defesa": null,
-    "elemento": "blood",
-    "descricao": "<p>veja <em>Sobrevivendo ao Horror</em>, p. 57.</p>"
-  },
-  {
     "id": "mandibula-agonizante",
     "nome": "Mandíbula Agonizante",
     "livro": "sah",
@@ -1484,21 +1469,6 @@
     },
     "defesa": null,
     "elemento": "energy",
-    "descricao": "<p>veja <em>Sobrevivendo ao Horror</em>, p. 61.</p>"
-  },
-  {
-    "id": "a-primeira-adaga",
-    "nome": "A Primeira Adaga",
-    "livro": "sah",
-    "pagina": 61,
-    "revisar": false,
-    "tipo": "generalEquipment",
-    "categoria": 3,
-    "espacos": 1,
-    "subtipo": "item amaldiçoado",
-    "arma": null,
-    "defesa": null,
-    "elemento": "fear",
     "descricao": "<p>veja <em>Sobrevivendo ao Horror</em>, p. 61.</p>"
   }
 ]

@@ -62,7 +62,7 @@ export function proximoPasso(actor, { treinamento = false } = {}) {
 	// NEX ou Nível de Experiência: os ganhos seguem a tabela da classe pelo NEX equivalente.
 	const porNivel = r.progressao === 'nivel';
 	const atual = porNivel ? s.progressao.nivel : s.progressao.nex;
-	if (porNivel ? atual >= 20 : atual >= 99) return { erro: porNivel ? 'Nível 20 é o máximo.' : 'NEX 99% é o máximo. Chegar a 100% exige uma Desconjuração.' };
+	if (porNivel ? atual >= 20 : atual >= 99) return { erro: porNivel ? 'Nível 20 é o máximo.' : 'NEX 99% é o máximo.' };
 	const novo = porNivel ? atual + 1 : (atual >= 95 ? 99 : Math.floor(atual / 5) * 5 + 5);
 	const nexEq = porNivel ? (novo >= 20 ? 99 : novo * 5) : novo;
 	const entrada = s.classe.system.progressao.find(p => p.nex === nexEq);

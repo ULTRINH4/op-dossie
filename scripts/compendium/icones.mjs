@@ -1,7 +1,7 @@
 /**
- * Escolha de ícone para cada item. Os arquivos ficam em assets/ e são gerados por tools/gerar-icones.mjs.
- * - Rituais: um sigilo próprio por ritual (assets/sigilos/<id>.svg).
- * - Origens: um emblema com monograma por origem (assets/origens/<id>.svg).
+ * Escolha de ícone para cada item. Os arquivos ficam em assets/ (arte do game-icons.net, montada por tools/icones-humanos.mjs).
+ * - Rituais: um ícone por ritual, na cor do elemento (assets/sigilos/<id>.svg).
+ * - Origens: um ícone por origem (assets/origens/<id>.svg).
  * - Demais: desenho por tipo (assets/icones/<nome>.svg), com variação por elemento quando faz sentido.
  */
 const BASE = 'systems/op-dossie/assets';

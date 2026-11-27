@@ -298,7 +298,7 @@ export async function oferecerConversao() {
 	const ok = await foundry.applications.api.DialogV2.confirm({
 		window: { title: 'Personagens do sistema antigo', icon: 'fa-solid fa-right-left' },
 		classes: ['op-dossie'],
-		content: `<p>Este mundo tem <strong>${antigos.length}</strong> personagens no formato do sistema Ordem Paranormal anterior. Converter agora para o Dossiê?</p>
+		content: `<p>Este mundo tem <strong>${antigos.length}</strong> personagens no formato do sistema anterior (ordemparanormal). Converter agora para o Dossiê?</p>
 			<p class="op-lead">Classe, origem e trilha vêm dos compêndios; perícias, atributos, recursos, itens e rituais são convertidos.
 			Os máximos de PV, PE e SAN atuais são mantidos. Faça um backup do mundo antes.</p><ul class="op-migr-list">${nomes}</ul>`,
 		yes: { label: 'Converter', icon: 'fa-solid fa-right-left' }, no: { label: 'Agora não' }
