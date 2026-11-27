@@ -33,6 +33,9 @@ import { registrarDadoUso } from './automation/dado-uso.mjs';
 import { registrarConfigMovimento, registrarMovimento } from './fx/movimento-turno.mjs';
 import { registrarConfigAcoes, registrarAcoes } from './automation/acoes.mjs';
 import { registrarBoasVindas } from './fx/boas-vindas.mjs';
+import { registrarConfigPresenca, registrarPresenca, pedirPresenca } from './automation/presenca.mjs';
+import { abrirColarFicha } from './sheets/colar-ficha.mjs';
+import { tokenAmeaca } from './compendium/convert.mjs';
 
 const dataReady = loadData().catch(err => console.error(`${SYSTEM_ID} | data/*.json`, err));
 const TPL = `systems/${SYSTEM_ID}/templates`;
@@ -95,6 +98,8 @@ Hooks.once('init', () => {
 	registrarConfigAcoes();
 	registrarAcoes();
 	registrarBoasVindas();
+	registrarConfigPresenca();
+	registrarPresenca();
 	registrarConfigHud();
 	registrarHud();
 	registrarEfeitos();
@@ -106,8 +111,17 @@ Hooks.once('init', () => {
 		/** Assistente de criação: sem argumento cria um agente novo; com um agente, preenche esse. */
 		novoAgente: (actor) => abrirCriacao(actor ?? null),
 		/** Teste: dispara uma alucinação na própria tela (sussurro, batimento, vulto, chat ou distorcao). */
-		alucinar: (tipo) => alucinar(tipo)
+		alucinar: (tipo) => alucinar(tipo),
+		/** Criar ameaça colando o texto da ficha. */
+		colarFicha: () => abrirColarFicha(),
+		/** Cartão da Presença Perturbadora de uma ameaça. */
+		presenca: (actor) => pedirPresenca(actor)
 	};
+	// Toda ameaça nova nasce com o padrão de token (não vinculado, hostil, PV só para o mestre).
+	Hooks.on('preCreateActor', (doc, data) => {
+		if (doc.type !== 'ameaca' || data.prototypeToken?.disposition !== undefined) return;
+		doc.updateSource({ prototypeToken: tokenAmeaca(doc.name, doc.img, doc.system.tamanho) });
+	});
 });
 
 Hooks.once('ready', async () => {
@@ -130,6 +144,13 @@ Hooks.on('renderActorDirectory', (app, html) => {
 		lugar?.append(novo);
 	}
 	if (!game.user.isGM || html.querySelector('.op-dossie-rules-btn')) return;
+	const colar = document.createElement('button');
+	colar.type = 'button';
+	colar.className = 'op-dossie-colar-btn';
+	colar.innerHTML = '<i class="fa-solid fa-paste" aria-hidden="true"></i> Colar ficha';
+	colar.title = 'Criar uma ameaça colando o texto da ficha copiado de um PDF';
+	colar.addEventListener('click', () => abrirColarFicha());
+	lugar?.append(colar);
 	const btn = document.createElement('button');
 	btn.type = 'button';
 	btn.className = 'op-dossie-rules-btn';

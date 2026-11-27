@@ -178,3 +178,45 @@ export function itemFisicoToItem(e) {
 }
 
 export { SYSTEM_ID };
+
+/* --- ameaças (bestiário da mesa: data/mesa/ameacas-*.json, lidas por automation/ler-ficha.mjs) --- */
+
+const FONTE_AMEACA = { base: 'Livro de Regras', sah: 'Sobrevivendo ao Horror', vendeta: 'Vendeta Oculta', voo: 'Voo da Morte' };
+const TAM_TOKEN = { minusculo: 0.5, pequeno: 1, medio: 1, grande: 2, enorme: 3, colossal: 4 };
+const ICONES = `systems/${SYSTEM_ID}/assets/icones`;
+
+/** Imagem de reserva da ameaça quando não há token próprio. */
+export function imagemAmeaca(s) {
+	if (s.tipo === 'animal') return `${ICONES}/animal.svg`;
+	if (s.tipo === 'pessoa') return `${ICONES}/classe-mundano.svg`;
+	return ['sangue', 'morte', 'conhecimento', 'energia', 'medo'].includes(s.elemento) ? `${ICONES}/paranormal-${s.elemento}.svg` : `${ICONES}/paranormal.svg`;
+}
+
+/** Padrão dos tokens de ameaça: não vinculado, hostil, PV só para o mestre, nome ao passar o mouse. */
+export function tokenAmeaca(nome, img, tamanho = 'medio') {
+	const t = TAM_TOKEN[tamanho] ?? 1;
+	return {
+		name: nome, actorLink: false, disposition: -1,
+		displayBars: 40, displayName: 30, bar1: { attribute: 'pv' },
+		width: t, height: t, texture: { src: img }
+	};
+}
+
+export function ameacaToActor(e) {
+	const s = foundry.utils.deepClone(e.system);
+	const img = e.img ?? imagemAmeaca(s);
+	const ref = e.pagina ? `<p><em>${FONTE_AMEACA[e.livro] ?? e.livro}</em>, p. ${e.pagina}.</p>` : '';
+	s.descricao = `${s.descricao ?? ''}${ref}`;
+	const itens = (e.itens ?? []).map((i, k) => ({
+		_id: stableId(`ameaca:${e.livro}:${e.id}:item:${k}:${i.name}`),
+		name: i.name, type: i.type,
+		img: iconeItem(i.type, i.name, i.type === 'poder' ? (s.tipo === 'criatura' ? 'paranormal' : 'geral') : '', s.elemento),
+		system: i.system
+	}));
+	return {
+		_id: stableId(`ameaca:${e.livro}:${e.id}`),
+		name: e.nome, type: 'ameaca', img, system: s, items: itens,
+		prototypeToken: tokenAmeaca(e.nome, img, s.tamanho),
+		ownership: { default: 0 }
+	};
+}

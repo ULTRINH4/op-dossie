@@ -2,10 +2,8 @@
   "id": "op-dossie",
   "title": "OP Dossiê",
   "description": "<p>Sistema de fã para jogar com as regras de Ordem Paranormal RPG no Foundry VTT: ficha de agente e de ameaça, Regras da Mesa configuráveis, conjuração de rituais, ataques e dano com resistências, turnos com limite de ações e compêndios sem os textos dos livros.</p><p><strong>Este é um conteúdo não oficial, publicado sob a Licença da Comunidade de Ordem Paranormal.</strong> Contém material gerado por inteligência artificial. Contém temas de terror e violência.</p><p><em>Ordem Paranormal RPG foi criado por Rafael Lange (Cellbit) e publicado pela Jambô Editora. Este sistema não tem vínculo, parceria nem aprovação deles.</em></p>",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "url": "https://github.com/ULTRINH4/op-dossie",
-  "manifest": "https://github.com/ULTRINH4/op-dossie/releases/latest/download/system.json",
-  "download": "https://github.com/ULTRINH4/op-dossie/releases/download/v0.4.0/op-dossie.zip",
   "bugs": "https://github.com/ULTRINH4/op-dossie/issues",
   "readme": "README.md",
   "license": "LICENSE",
@@ -192,6 +190,17 @@
         "ASSISTANT": "OWNER"
       },
       "flags": {}
+    },
+    {
+      "name": "ameacas",
+      "label": "Ameaças",
+      "path": "packs/ameacas",
+      "type": "Actor",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     }
   ],
   "packFolders": [
@@ -207,7 +216,8 @@
         "rituais",
         "armas",
         "protecoes",
-        "equipamentos"
+        "equipamentos",
+        "ameacas"
       ]
     }
   ],
@@ -217,5 +227,7 @@
   },
   "primaryTokenAttribute": "recursos.pv",
   "secondaryTokenAttribute": "recursos.pe",
-  "initiative": "1d20"
+  "initiative": "1d20",
+  "manifest": "https://github.com/ULTRINH4/op-dossie/releases/latest/download/system.json",
+  "download": "https://github.com/ULTRINH4/op-dossie/releases/download/v0.5.0/op-dossie.zip"
 }

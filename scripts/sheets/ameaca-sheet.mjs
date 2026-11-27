@@ -31,7 +31,8 @@ export class AmeacaSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 			pv: AmeacaSheet.#pv,
 			rolarPericia: AmeacaSheet.#rolarPericia,
 			periciaAdd: AmeacaSheet.#periciaAdd,
-			periciaRemover: AmeacaSheet.#periciaRemover
+			periciaRemover: AmeacaSheet.#periciaRemover,
+			presenca: AmeacaSheet.#presenca
 		}
 	};
 
@@ -71,7 +72,7 @@ export class AmeacaSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 		const opDano = Object.entries(TIPOS_DANO).map(([value, label]) => ({ value, label }));
 		const poderes = a.items.filter(i => i.type === 'poder');
 		Object.assign(ctx, {
-			actor: a, system: s, editable: this.isEditable, edit,
+			actor: a, system: s, editable: this.isEditable, edit, isGM: game.user.isGM,
 			elemento: ELEMENTOS[s.elemento]?.nome ?? '',
 			eyebrow: [`${tipoNome}${s.enxame ? ' (enxame)' : ''}`, ELEMENTOS[s.elemento]?.nome, ...outros, TAMANHOS[s.tamanho]].filter(Boolean).join(' · '),
 			tipos: [{ value: 'criatura', label: 'Criatura' }, { value: 'pessoa', label: 'Pessoa' }, { value: 'animal', label: 'Animal' }],
@@ -130,6 +131,12 @@ export class AmeacaSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 	static #rolarPericia(event, target) {
 		const p = this.document.system.pericias[Number(target.closest('[data-i]').dataset.i)];
 		if (p) import('../dice/testes.mjs').then(m => m.rolarTeste({ actor: this.document, dados: p.dados, bonus: p.bonus, titulo: p.nome, event }));
+	}
+	static async #presenca() {
+		const { pedirPresenca } = await import('../automation/presenca.mjs');
+		const a = this.document;
+		const tokens = a.isToken ? [a.token] : (canvas?.scene?.tokens.filter(t => t.actorId === a.id) ?? []);
+		await pedirPresenca(a, tokens);
 	}
 	static async #periciaAdd() {
 		await this.document.update({ 'system.pericias': [...this.document.system.pericias, { nome: 'Perícia', dados: 1, bonus: 0 }] });

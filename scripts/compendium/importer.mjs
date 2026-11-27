@@ -1,14 +1,15 @@
 /**
- * Preenche os compêndios do sistema a partir de data/fontes/*.json.
+ * Preenche os compêndios do sistema a partir de data/fontes/*.json (e do bestiário em data/mesa/, só na versão da mesa).
  * Roda no mestre ativo quando o conteúdo muda (hash por compêndio).
  */
 import { SYSTEM_ID } from '../config.mjs';
 import {
 	ritualToItem, classeToItem, origemToItem, origemPoderToItem, poderToItem, trilhaToItem,
-	armaToItem, protecaoToItem, equipamentoToItem
+	armaToItem, protecaoToItem, equipamentoToItem, ameacaToActor
 } from './convert.mjs';
 
-const CONVERTER_VERSION = 3;
+const CONVERTER_VERSION = 4;
+const AVENTURA_PASTA = { vendeta: 'Vendeta Oculta', voo: 'Voo da Morte' };
 const ELEMENTO_PASTA = { sangue: 'Sangue', morte: 'Morte', conhecimento: 'Conhecimento', energia: 'Energia', medo: 'Medo' };
 const LIVRO_PASTA = { base: 'Livro de Regras', sah: 'Sobrevivendo ao Horror' };
 const CLASSE_PASTA = { combatente: 'Combatente', especialista: 'Especialista', ocultista: 'Ocultista', sobrevivente: 'Sobrevivente' };
@@ -61,6 +62,18 @@ const SOURCES = [
 			if (/acess/.test(s)) return 'Acessórios';
 			return 'Itens operacionais';
 		}
+	},
+	{
+		// Bestiário: só na versão da mesa (data/mesa/ não vai para a versão pública; lá o compêndio fica vazio).
+		pack: 'ameacas', dir: 'mesa', files: ['ameacas-livro.json', 'ameacas-vendeta.json', 'ameacas-voo.json'],
+		build: (e) => [ameacaToActor(e)],
+		folder: (e) => {
+			if (AVENTURA_PASTA[e.livro]) return AVENTURA_PASTA[e.livro];
+			const livro = LIVRO_PASTA[e.livro] ?? e.livro;
+			if (e.system.tipo !== 'criatura') return `${livro} · Ameaças da Realidade`;
+			return `${livro} · ${ELEMENTO_PASTA[e.system.elemento] ?? 'Outros'}`;
+		},
+		sort: (e) => (e.system.vd ?? 0) * 10
 	}
 ];
 
@@ -68,15 +81,15 @@ export function registerImporterSettings() {
 	game.settings.register(SYSTEM_ID, 'compendios', { scope: 'world', config: false, type: Object, default: {} });
 }
 
-async function readSource(file) {
+async function readSource(file, dir = 'fontes') {
 	try {
-		const res = await fetch(`systems/${SYSTEM_ID}/data/fontes/${file}`, { cache: 'no-store' });
-		if (!res.ok) return null;
+		const res = await fetch(`systems/${SYSTEM_ID}/data/${dir}/${file}`, { cache: 'no-store' });
+		if (!res.ok) return null; // arquivo que não existe nesta versão (ex.: data/mesa/ na versão pública)
 		const text = await res.text();
 		return { text, entries: JSON.parse(text) };
 	} catch (err) {
-		console.error(`${SYSTEM_ID} | data/fontes/${file}`, err);
-		ui.notifications.error(`Dossiê: data/fontes/${file} tem um erro de formato.`);
+		console.error(`${SYSTEM_ID} | data/${dir}/${file}`, err);
+		ui.notifications.error(`Dossiê: data/${dir}/${file} tem um erro de formato.`);
 		return null;
 	}
 }
@@ -96,7 +109,7 @@ export async function syncCompendiums({ force = false } = {}) {
 		if (!pack) continue;
 		const loaded = [];
 		for (const file of src.files) {
-			const data = await readSource(file);
+			const data = await readSource(file, src.dir);
 			if (data) loaded.push({ file, ...data });
 		}
 		if (!loaded.length) continue;
@@ -134,14 +147,16 @@ async function replacePackContents(pack, items, folderNames) {
 	const wasLocked = pack.locked;
 	if (wasLocked) await pack.configure({ locked: false });
 	try {
+		// Itens ou atores (bestiário), conforme o tipo do compêndio.
+		const Doc = CONFIG[pack.documentName].documentClass;
 		const index = await pack.getIndex();
-		if (index.size) await Item.deleteDocuments([...index.keys()], { pack: pack.collection });
+		if (index.size) await Doc.deleteDocuments([...index.keys()], { pack: pack.collection });
 		const old = pack.folders.map(f => f.id);
 		if (old.length) await Folder.deleteDocuments(old, { pack: pack.collection });
 		const ids = {};
 		if (folderNames.length) {
 			const created = await Folder.createDocuments(
-				folderNames.sort((a, b) => a.localeCompare(b, 'pt-BR')).map((name, i) => ({ name, type: 'Item', sorting: 'm', sort: i })),
+				folderNames.sort((a, b) => a.localeCompare(b, 'pt-BR')).map((name, i) => ({ name, type: pack.documentName, sorting: 'm', sort: i })),
 				{ pack: pack.collection }
 			);
 			for (const f of created) ids[f.name] = f.id;
@@ -151,7 +166,7 @@ async function replacePackContents(pack, items, folderNames) {
 			delete item._folderName;
 		}
 		for (let i = 0; i < items.length; i += 50) {
-			await Item.createDocuments(items.slice(i, i + 50), { pack: pack.collection, keepId: true });
+			await Doc.createDocuments(items.slice(i, i + 50), { pack: pack.collection, keepId: true });
 		}
 		return items.length;
 	} finally {

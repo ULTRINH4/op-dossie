@@ -46,7 +46,7 @@ export function registrarSocketCartoes() {
 		// Pelo socket só passa a resistência ou a reação de defesa de um alvo, e só de quem controla esse alvo.
 		const user = game.users.get(msg.de);
 		const chaves = Object.keys(msg.data ?? {});
-		const resist = chaves.filter(k => k.startsWith(`flags.${SYSTEM_ID}.resultados.resist.`) || k.startsWith(`flags.${SYSTEM_ID}.resultados.defesa.`));
+		const resist = chaves.filter(k => ['resist', 'defesa', 'presenca'].some(p => k.startsWith(`flags.${SYSTEM_ID}.resultados.${p}.`)));
 		if (!user || !resist.length || chaves.some(k => !resist.includes(k))) return;
 		for (const k of resist) {
 			const alvo = msg.data[k]?.uuid && fromUuidSync(msg.data[k].uuid);

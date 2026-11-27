@@ -118,7 +118,7 @@
 		</section>
 
 		<section class="op-section">
-			<header class="op-section__head"><h2>Presença perturbadora</h2></header>
+			<header class="op-section__head"><h2>Presença perturbadora</h2>{{#if (and isGM system.presencaPerturbadora.dt)}}<button type="button" class="op-add" data-action="presenca" data-tooltip="Manda o cartão do teste de Vontade para os agentes na cena"><i class="fa-solid fa-eye" aria-hidden="true"></i> Pedir teste</button>{{/if}}</header>
 			<div class="op-fields op-fields--inline">
 				<label>DT<input type="number" name="system.presencaPerturbadora.dt" value="{{system.presencaPerturbadora.dt}}" {{disabled (not editable)}}></label>
 				<label>Dano mental<input type="text" name="system.presencaPerturbadora.dano" value="{{system.presencaPerturbadora.dano}}" {{disabled (not editable)}}></label>

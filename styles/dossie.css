@@ -104,3 +104,6 @@
 .op-threat-tests li > input[type="text"] { flex: 1; min-width: 0; }
 .op-threat__sentidos { margin: 10px 0 14px; }
 .op-threat select[multiple] option:checked { background: color-mix(in srgb, var(--op-accent, #b3261e) 55%, transparent); color: #fff; }
+/* VD de três dígitos (ameaças de VD 100+) cabe no selo */
+.op-threat .op-stamp { width: 104px; }
+.op-threat .op-stamp__value input { width: 3.4ch; font-size: 2.1rem; text-align: center; }

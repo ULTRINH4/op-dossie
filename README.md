@@ -46,6 +46,10 @@ poderes, rituais, armas, proteções e equipamentos) com os números do Livro de
   poderes, itens e perícias, e os quadrados que ainda dá para andar. O mestre rola todas as iniciativas num clique.
 - **Ficha de ameaça no formato dos blocos**: descritores, tamanho, sentidos, perícias, resistências, imunidades,
   vulnerabilidades, ações (com o tipo de ação) e habilidades; ataques com o teste e o "x2" do bloco, cada um rolado separado.
+- **Colar ficha**: cole o texto de uma ficha de ameaça copiado do seu PDF e o sistema monta a ameaça, com ataques,
+  ações e habilidades (o sistema não traz as criaturas dos livros; cada mestre usa o próprio material).
+- **Presença Perturbadora**: cartão com o teste de Vontade para os agentes na cena quando o combate começa ou quando
+  uma criatura escondida é revelada, com o dano mental aplicado a quem falhar e imunidade por NEX.
 - **Reações de defesa** no cartão de ataque: Esquiva e Bloqueio antes do ataque, Contra-ataque depois de um erro,
   uma por rodada e só para quem é treinado.
 - **Turnos de verdade** (podem ser desligados): o jogador só move o token na própria vez e só usa o que as ações
